@@ -3,74 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flour Grams to Cups Converter & Chart | King Arthur 120g Standard</title>
-  <meta name="description" content="Convert flour grams to cups with source-backed 120g/cup reference (King Arthur Baking). Learn why spoon-and-level technique differs from scooping, plus quick baking charts." />
+  <title>All-Purpose Flour Grams to Cups Converter | Source-Backed Kitchen Scale</title>
+  <meta name="description" content="Convert all-purpose flour from grams to cups with verified density reference (120g/cup). Includes practical spoon fractions and kitchen charts." />
   <link rel="canonical" href="https://thegramstocups.com/grams-to-cups/flour/" />
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: Fraunces, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/main.css" />
 
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://thegramstocups.com/grams-to-cups/flour/#webpage",
-        "url": "https://thegramstocups.com/grams-to-cups/flour/",
-        "name": "Flour Grams to Cups Converter & Chart",
-        "description": "Convert all-purpose flour from grams to cups with King Arthur 120g spoon-and-level technique disclosures."
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thegramstocups.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Flour Grams to Cups", "item": "https://thegramstocups.com/grams-to-cups/flour/" }
-        ]
-      }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://thegramstocups.com/grams-to-cups/flour/#webpage",
+      "url": "https://thegramstocups.com/grams-to-cups/flour/",
+      "name": "All-Purpose Flour Grams to Cups Converter | Source-Backed Kitchen Scale",
+      "description": "Convert all-purpose flour from grams to cups with verified density reference (120g/cup). Includes practical spoon fractions and kitchen charts."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thegramstocups.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All-Purpose Flour Grams to Cups",
+          "item": "https://thegramstocups.com/grams-to-cups/flour/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
 
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="brand-logo">
-        <div class="brand-icon">🌾</div>
-        <span>GramsToCups</span>
+      <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
+        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" />
       </a>
+
+      <!-- Desktop Nav -->
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="/" class="nav-link">Main Converter</a></li>
           <li><a href="/cups-to-grams/" class="nav-link">Cups to Grams</a></li>
-          <li><a href="/how-to-measure-flour/" class="nav-link">How to Measure Flour</a></li>
+          <li><a href="/grams-per-cup/" class="nav-link">Density Chart</a></li>
+          <li><a href="/cup-sizes/" class="nav-link">Cup Sizes</a></li>
           <li><a href="/methodology/" class="nav-link">Methodology</a></li>
         </ul>
       </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </div>
   </header>
 
+  <!-- Mobile Drawer Menu Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+      <div class="mobile-nav-header">
+        <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
+          <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" style="height:36px;" />
+        </a>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-close" style="display:flex;" aria-label="Close navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav>
+        <ul class="mobile-nav-list">
+          <li><a href="/" class="mobile-nav-link">Grams to Cups Converter</a></li>
+          <li><a href="/cups-to-grams/" class="mobile-nav-link">Cups to Grams Converter</a></li>
+          <li><a href="/grams-per-cup/" class="mobile-nav-link">Ingredient Density Chart</a></li>
+          <li><a href="/cup-sizes/" class="mobile-nav-link">Cup Standards &amp; Sizes</a></li>
+          <li><a href="/how-to-measure-flour/" class="mobile-nav-link">Spoon &amp; Level Guide</a></li>
+          <li><a href="/methodology/" class="mobile-nav-link">Data Methodology</a></li>
+          <li><a href="/about/" class="mobile-nav-link">About Grams to Cups</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
   <main class="container">
     <section class="hero-section">
-      <h1 class="hero-title">Flour Grams to Cups Converter</h1>
+      <h1 class="hero-title">All-Purpose Flour Grams to Cups</h1>
       <p class="hero-subhead">
-        Convert all-purpose flour from grams to cups using King Arthur Baking's 120g per cup spoon-and-level baking reference.
+        Convert grams of all-purpose flour (dry, spooned and leveled) to precise cups, tablespoons, and kitchen measures. Reference density: <strong>120g per cup</strong>.
       </p>
     </section>
 
-    <div id="calculator-app">
+    <!-- Centerpiece Calculator Card Container -->
+    <div id="calculator-app" data-ingredient="flour" data-value="100">
       <div class="calculator-card">
         <div class="calculator-grid-inputs">
           <div class="form-group">
-            <label class="form-label" for="flour-val">Flour Grams (g)</label>
-            <input type="number" id="flour-val" class="form-input" value="100" />
+            <label class="form-label" for="fallback-input">Grams (g)</label>
+            <input type="number" id="fallback-input" class="form-input" value="100" />
           </div>
           <div class="form-group">
-            <label class="form-label">Ingredient</label>
-            <input type="text" class="form-input" value="All-Purpose Flour (120g/cup)" readonly style="background:#F1F5F9;" />
+            <label class="form-label" for="fallback-select">Select Ingredient</label>
+            <select id="fallback-select" class="form-select">
+              <option value="flour">All-Purpose Flour (Dry, spooned and leveled)</option>
+            </select>
           </div>
         </div>
         <div class="results-box">
@@ -79,32 +129,41 @@
             <span class="result-unit">US Customary Cups</span>
           </div>
           <div class="practical-badge">
-            <span class="practical-icon">🥄</span>
             <span>Practical measure: <strong>≈ ¾ cup + 1 tbsp + 1 tsp</strong></span>
           </div>
           <div class="provenance-card">
             <div class="provenance-line">
-              <span class="provenance-label">Reference Sourcing:</span>
-              <span>King Arthur Baking Company (120g / US Customary Cup)</span>
+              <span class="provenance-label">Reference Source:</span>
+              <span>King Arthur Baking Company (120g / cup reference)</span>
             </div>
-            <div class="provenance-line">
-              <span class="provenance-label">Alternative Reference:</span>
-              <span>USDA Food Buying Guide lists 125g / cup (commercial packing)</span>
-            </div>
+          <div class="provenance-line">
+            <span class="provenance-label">Alternative Reference:</span>
+            <span>USDA Food Buying Guide lists 125g / cup (commercial packing)</span>
+          </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Educational Callout -->
+    <div class="educational-callout">
+      <div class="callout-title">Density &amp; Measurement Sourcing</div>
+      <div class="callout-text">
+        100g of All-Purpose Flour equals <strong>0.833 US Customary Cups</strong> (≈ ¾ cup + 1 tbsp + 1 tsp). Primary reference source: <strong>King Arthur Baking Company (120g / cup reference)</strong>.
+      </div>
+    </div>
+
+    <!-- Pre-Reserved Ad Container -->
     <div class="ad-slot-container" aria-label="Advertisement Slot">
       <span>Advertisement</span>
     </div>
 
+    <!-- Quick Reference Table -->
     <section class="content-section">
-      <h2 class="section-title">Flour Grams to Cups Conversion Chart</h2>
+      <h2 class="section-title">Common All-Purpose Flour Grams to Cups Conversions</h2>
       <div class="prose">
         <p>
-          Flour is the most technique-sensitive ingredient in baking. Below is a quick conversion guide for standard recipe flour quantities based on the 120g/cup spoon-and-level reference weight.
+          Reference conversion table for all-purpose flour using standard US Customary Cups (236.6 mL) at <strong>120 grams per cup</strong>.
         </p>
       </div>
 
@@ -112,94 +171,141 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Grams of Flour</th>
-              <th>Decimal Cups</th>
-              <th>Practical Kitchen Measure</th>
-              <th>King Arthur (120g)</th>
-              <th>USDA (125g)</th>
+              <th>Grams (g)</th>
+              <th>US Cups</th>
+              <th>Practical Measure</th>
+              <th>Metric Cups (250 mL)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>25g</strong></td>
+              <td>0.208 cups</td>
+              <td>≈ 3.3 tbsp</td>
+              <td>0.197 cups</td>
+            </tr>
+            <tr>
               <td><strong>50g</strong></td>
               <td>0.417 cups</td>
-              <td>≈ 6.5 tablespoons</td>
-              <td>0.417 cups</td>
-              <td>0.400 cups</td>
+              <td>≈ 6.7 tbsp</td>
+              <td>0.394 cups</td>
             </tr>
             <tr>
               <td><strong>100g</strong></td>
               <td>0.833 cups</td>
               <td>≈ ¾ cup + 1 tbsp + 1 tsp</td>
-              <td>0.833 cups</td>
-              <td>0.800 cups</td>
-            </tr>
-            <tr>
-              <td><strong>120g</strong></td>
-              <td>1.000 cup</td>
-              <td>Exactly 1 US Customary Cup</td>
-              <td>1.000 cup</td>
-              <td>0.960 cups</td>
+              <td>0.789 cups</td>
             </tr>
             <tr>
               <td><strong>150g</strong></td>
               <td>1.250 cups</td>
-              <td>1 ¼ cups</td>
-              <td>1.250 cups</td>
-              <td>1.200 cups</td>
+              <td>≈ 1.25 cups</td>
+              <td>1.183 cups</td>
             </tr>
             <tr>
               <td><strong>200g</strong></td>
               <td>1.667 cups</td>
-              <td>1 ⅔ cups</td>
-              <td>1.667 cups</td>
-              <td>1.600 cups</td>
+              <td>≈ 1.67 cups</td>
+              <td>1.577 cups</td>
             </tr>
             <tr>
               <td><strong>250g</strong></td>
               <td>2.083 cups</td>
-              <td>2 cups + 1.5 tbsp</td>
-              <td>2.083 cups</td>
-              <td>2.000 cups</td>
-            </tr>
-            <tr>
-              <td><strong>500g</strong></td>
-              <td>4.167 cups</td>
-              <td>4 ⅙ cups</td>
-              <td>4.167 cups</td>
-              <td>4.000 cups</td>
+              <td>≈ 2.08 cups</td>
+              <td>1.972 cups</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
+    <!-- Explore Other Ingredients Grid -->
     <section class="content-section">
-      <h2 class="section-title">Why Flour Weight Varies: Spooning vs Scooping</h2>
-      <div class="prose">
-        <p>
-          If you dip a measuring cup directly into a bag of flour, you scoop compressed flour. A scooped cup can weigh anywhere from <strong>135g to 140g</strong>. Using a scooped cup in a recipe developed with a 120g spooned cup adds up to 20% extra flour, resulting in dense, dry bread or rubbery cookies.
-        </p>
-        <p>
-          <strong>How to Spoon & Level Flour:</strong> Fluff your flour with a fork, gently spoon it into the measuring cup until overflowing, and sweep off the excess with the flat back of a knife.
-        </p>
+      <h2 class="section-title">Explore More Ingredient Guides</h2>
+      <div class="grid-cards">
+        <a href="/grams-to-cups/flour/" class="card-link">
+          <span class="card-title">All-Purpose Flour</span>
+          <span class="card-desc">120g/cup reference</span>
+        </a>
+        <a href="/grams-to-cups/sugar/" class="card-link">
+          <span class="card-title">Granulated Sugar</span>
+          <span class="card-desc">198g/cup reference</span>
+        </a>
+        <a href="/grams-to-cups/butter/" class="card-link">
+          <span class="card-title">Butter</span>
+          <span class="card-desc">227g/cup • Cups, sticks & tbsp</span>
+        </a>
+        <a href="/grams-to-cups/brown-sugar/" class="card-link">
+          <span class="card-title">Brown Sugar</span>
+          <span class="card-desc">213g/cup packed reference</span>
+        </a>
+        <a href="/grams-to-cups/powdered-sugar/" class="card-link">
+          <span class="card-title">Powdered Sugar</span>
+          <span class="card-desc">113g/cup unsifted reference</span>
+        </a>
+        <a href="/grams-to-cups/oats/" class="card-link">
+          <span class="card-title">Rolled Oats</span>
+          <span class="card-desc">89g/cup dry oats</span>
+        </a>
       </div>
     </section>
   </main>
 
+  <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="footer-brand" aria-label="Grams to Cups Homepage">
+            <span class="footer-brand-title">Grams <span class="footer-brand-accent">to</span> Cups</span>
+          </a>
+          <p style="font-size:0.875rem; line-height:1.5; color:#A8A29E; margin-top:0.5rem;">
+            Source-backed kitchen scale tools and ingredient density references for accurate baking and cooking worldwide.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Popular Ingredients</h3>
+          <ul class="footer-links">
+            <li><a href="/grams-to-cups/flour/">Flour Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/sugar/">Sugar Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/butter/">Butter Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/brown-sugar/">Brown Sugar Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/powdered-sugar/">Powdered Sugar Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/oats/">Rolled Oats Grams to Cups</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Reference Tools</h3>
+          <ul class="footer-links">
+            <li><a href="/cups-to-grams/">Cups to Grams Converter</a></li>
+            <li><a href="/50-grams-to-cups/">50 Grams to Cups Matrix</a></li>
+            <li><a href="/100-grams-to-cups/">100 Grams to Cups Matrix</a></li>
+            <li><a href="/grams-per-cup/">Master Density Chart</a></li>
+            <li><a href="/cup-sizes/">US vs Metric Cup Sizes</a></li>
+            <li><a href="/how-to-measure-flour/">Spoon &amp; Level Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Trust &amp; Company</h3>
+          <ul class="footer-links">
+            <li><a href="/methodology/">Data Methodology</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact &amp; Feedback</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 thegramstocups.com — All rights reserved.</p>
+        <p>&copy; 2026 thegramstocups.com — All rights reserved. Culinary measurements are for informational baking and cooking use.</p>
       </div>
     </div>
   </footer>
 
-  <script type="module">
-    import { CalculatorComponent } from '/src/components/calculator.ts';
-    document.addEventListener('DOMContentLoaded', () => {
-      new CalculatorComponent('calculator-app', { ingredientId: 'flour', value: 100 });
-    });
-  </script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
