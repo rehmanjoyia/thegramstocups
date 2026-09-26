@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Powdered Sugar Grams to Cups Converter | Unsifted vs Sifted</title>
+  <meta name="description" content="Convert powdered sugar (icing sugar) grams to cups with clear unsifted (113g/cup) vs sifted (100g/cup) reference disclosures." />
+  <link rel="canonical" href="https://thegramstocups.com/grams-to-cups/powdered-sugar/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand-logo"><div class="brand-icon">🧁</div><span>GramsToCups</span></a>
+      <nav><ul class="nav-links"><li><a href="/" class="nav-link">Main Converter</a></li><li><a href="/cups-to-grams/" class="nav-link">Cups to Grams</a></li></ul></nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero-section">
+      <h1 class="hero-title">Powdered Sugar Grams to Cups Converter</h1>
+      <p class="hero-subhead">Convert confectioners' icing sugar from grams to cups using source-backed unsifted weight references.</p>
+    </section>
+    <div id="calculator-app"></div>
+    <div class="ad-slot-container" aria-label="Advertisement Slot"><span>Advertisement</span></div>
+    <section class="content-section">
+      <h2 class="section-title">Unsifted vs Sifted Powdered Sugar</h2>
+      <div class="prose">
+        <p>
+          King Arthur Baking lists unsifted powdered sugar at <strong>113 grams per cup</strong>. If a recipe asks to sift before measuring, sifted powdered sugar incorporates air and weighs roughly <strong>100 grams per cup</strong>.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-bottom"><p>&copy; 2026 thegramstocups.com — All rights reserved.</p></div></footer>
+  <script type="module">
+    import { CalculatorComponent } from '/src/components/calculator.ts';
+    document.addEventListener('DOMContentLoaded', () => {
+      new CalculatorComponent('calculator-app', { ingredientId: 'powdered-sugar', value: 100 });
+    });
+  </script>
+</body>
+</html>

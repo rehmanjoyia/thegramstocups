@@ -1,0 +1,1040 @@
+# PROJECT_CONTEXT.md
+
+# Grams-to-Cups Website — Project Context & Permanent Rules
+
+> IMPORTANT FOR ALL AI AGENTS:
+>
+> Read this file before making any significant change to this project.
+>
+> This file is the persistent source of truth for the project across agents,
+> sessions, refactors, feature additions, SEO work, and content expansion.
+>
+> Do not override an established rule in this document without discussing the
+> change with the project owner first.
+>
+> When the owner makes a new important strategic decision, update this file so
+> future agents inherit that decision.
+>
+> Research documents provide evidence and analysis. This file contains the
+> decisions and rules we have adopted from that research.
+
+---
+
+## 1. Project Overview
+
+This is a specialist cooking measurement website focused initially on:
+
+**Grams to Cups**
+
+The site is being built as a genuinely useful conversion product first, while
+also being designed from the beginning for organic search growth.
+
+The objective is NOT to build a generic calculator directory.
+
+The objective is NOT to generate the largest possible number of SEO pages.
+
+The objective is to build a small, focused, fast, accurate, trustworthy
+specialist resource that can gradually expand based on demonstrated user and
+search demand.
+
+Primary monetization is expected to be Google AdSense after the site has enough
+quality content and utility to justify monetization.
+
+---
+
+## 2. Production Domain
+
+Production domain:
+
+**[FINAL DOMAIN TO BE INSERTED HERE]**
+
+The domain is intentionally expected to be an EMD or keyword-rich domain related
+closely to "grams to cups."
+
+Do not rely on the domain name itself as an SEO strategy.
+
+The site must earn rankings through:
+
+- search-intent satisfaction
+- useful functionality
+- accurate conversions
+- excellent UX
+- strong information architecture
+- substantive content
+- topical specialization
+- internal linking
+- crawlability
+- performance
+- trust and transparency
+
+Once the production domain is finalized, use it consistently for canonical URLs,
+structured data, sitemap URLs, Open Graph metadata and other absolute URLs.
+
+---
+
+## 3. Primary Search Intent
+
+The homepage is the primary authority page for the broad intent:
+
+**grams to cups**
+
+The homepage should also naturally satisfy closely equivalent searches such as:
+
+- grams to cups
+- g to cups
+- gram to cup
+- gram to cups
+- convert grams to cups
+- grams into cups
+- grams to cups conversion
+- grams to cups converter
+- grams to cups calculator
+- convert g to cups
+
+These are variations of substantially the SAME user intent.
+
+They must NOT receive separate landing pages simply because keyword tools report
+separate search volumes for them.
+
+---
+
+## 4. Fundamental SEO Rule: One Page Per Intent
+
+We build pages around distinct user/search intents.
+
+We do NOT build pages around every keyword.
+
+Before creating any new indexable URL, ask:
+
+1. Does this represent a meaningfully different user intent?
+2. Does it provide standalone utility that the existing page cannot adequately
+   provide?
+3. Will the page contain materially different information or functionality?
+4. Could the query instead be satisfied better by an existing page?
+5. Would creating this URL introduce keyword cannibalization?
+6. Would the page still be worth publishing if SEO traffic did not exist?
+
+If the page fails these tests, do not create it merely for SEO.
+
+---
+
+## 5. No Synonym Pages
+
+Never create separate pages merely for synonymous formulations such as:
+
+/grams-to-cups/
+/convert-grams-to-cups/
+/g-to-cups/
+/grams-into-cups/
+/grams-to-cups-converter/
+/grams-to-cups-calculator/
+
+These belong to one primary intent and should consolidate into the homepage.
+
+Do not attempt to "capture more keywords" by creating near-duplicate landing
+pages.
+
+---
+
+## 6. Programmatic SEO Rule
+
+Do NOT mass-generate amount-specific pages at launch.
+
+For example, do not automatically create:
+
+/1-grams-to-cups/
+/2-grams-to-cups/
+/3-grams-to-cups/
+...
+/1000-grams-to-cups/
+
+Likewise, do not automatically generate every possible combination such as:
+
+/flour/50/
+/flour/51/
+/flour/52/
+
+The calculator itself should be capable of answering arbitrary amounts without
+requiring a separate indexable URL for every input.
+
+Amount-specific pages may be considered later only when there is evidence that
+specific pages would provide meaningful standalone value.
+
+Google Search Console data should be an important input into that decision.
+
+Existing competitors ranking with amount pages is evidence that the format can
+work. It is NOT automatically evidence that we should reproduce the same
+architecture.
+
+---
+
+## 7. Why Ingredient Pages Are Different
+
+Grams measure mass.
+
+Cups measure volume.
+
+Therefore grams-to-cups conversion depends on the ingredient being measured.
+
+For example:
+
+100 grams of flour
+
+is not the same volume as:
+
+100 grams of honey.
+
+This ingredient dependency is one of the central reasons this website provides
+real utility beyond a generic unit converter.
+
+Ingredient-specific pages are therefore legitimate when the conversion,
+measurement considerations and supporting information differ materially.
+
+Potential examples include:
+
+- flour
+- granulated sugar
+- brown sugar
+- powdered/icing sugar
+- butter
+- cocoa powder
+- oats
+- rice
+- honey
+- cooking oil
+- milk
+
+The final ingredient list should follow the approved research and dataset.
+
+Do not add ingredients solely to increase page count.
+
+---
+
+## 8. Ingredient Pages Must Be Materially Unique
+
+Ingredient pages must NOT be simple keyword-swapped templates.
+
+Changing:
+
+"flour"
+
+to:
+
+"sugar"
+
+while leaving essentially everything else identical is not acceptable.
+
+An ingredient page should contain genuinely relevant information such as:
+
+- ingredient-specific conversion data
+- common amounts
+- ingredient-specific measurement considerations
+- appropriate practical fractions
+- applicable density or grams-per-cup assumptions
+- aliases where useful
+- explanation of variability where relevant
+- links to methodology/sources
+- relevant related conversions
+
+Shared UI components are encouraged.
+
+Duplicated substantive content is not.
+
+---
+
+## 9. Calculator Accuracy Comes Before SEO
+
+Never change conversion logic simply because a different number looks better for
+SEO or matches a competitor.
+
+Conversion accuracy and methodological consistency have priority.
+
+Do not invent ingredient values.
+
+Do not silently copy conversion constants from competing websites.
+
+Do not use arbitrary values generated by an AI model as authoritative ingredient
+data.
+
+The calculator must use the project's approved conversion dataset and
+methodology.
+
+---
+
+## 10. Conversion Data Model
+
+The project should maintain a structured, centralized ingredient dataset rather
+than scattering conversion constants throughout page components.
+
+The exact implementation may evolve, but ingredient records should be capable
+of representing information such as:
+
+- canonical ingredient name
+- slug
+- aliases
+- grams-per-cup value and/or appropriate density representation
+- applicable cup standard
+- source/reference
+- measurement assumptions
+- rounding behavior where necessary
+- explanatory notes
+- last-reviewed information if appropriate
+
+There should be one authoritative data source inside the application.
+
+Pages and calculators should consume that source.
+
+Do not duplicate conversion constants in multiple components.
+
+---
+
+## 11. Measurement Transparency
+
+Mass-to-volume conversions for food are often approximate.
+
+Ingredient density can vary because of factors including:
+
+- packing
+- moisture
+- particle size
+- aeration
+- product formulation
+- ingredient variety
+- measurement technique
+
+The website should not present inherently approximate culinary conversions as
+laboratory-level exact measurements.
+
+Where relevant, clearly communicate the assumptions used.
+
+The project should define consistently:
+
+- cup standard
+- grams-per-cup methodology
+- rounding rules
+- fraction-display rules
+- treatment of ingredient variability
+
+---
+
+## 12. Cup Standard
+
+The project must explicitly choose and document the cup standard(s) used.
+
+Do not silently mix values based on different cup definitions.
+
+If multiple cup standards are eventually supported, they must be clearly labeled
+and handled consistently throughout the calculator and dataset.
+
+The final implementation should follow the researched methodology approved by
+the project owner.
+
+---
+
+## 13. Result Presentation
+
+The primary calculator should prioritize practical cooking usefulness.
+
+Where appropriate, results may include:
+
+- decimal cups
+- practical cooking fraction
+- selected ingredient
+- amount entered
+- measurement assumption/reference
+- reverse conversion where useful
+
+Avoid displaying fake precision.
+
+For example, a long decimal such as:
+
+0.832736284 cups
+
+is usually less useful than an appropriately rounded result accompanied by a
+practical fraction.
+
+The exact rounding/fraction rules must be consistent throughout the site.
+
+---
+
+## 14. Homepage Is the Most Important Page
+
+The homepage is expected to be the strongest and most important organic landing
+page on the site.
+
+Do not fragment its authority across multiple pages targeting the same broad
+conversion intent.
+
+The homepage should provide the primary calculator immediately or extremely
+close to the top of the page.
+
+Users arriving from Google should not have to scroll through an SEO article
+before using the tool.
+
+The homepage should answer:
+
+"I have X grams of ingredient Y. How many cups is that?"
+
+as efficiently as possible.
+
+---
+
+## 15. Homepage Content
+
+Supporting homepage content should exist because it helps users understand or
+use the conversion.
+
+Potential sections include:
+
+- primary calculator
+- common grams-to-cups conversions
+- popular ingredients
+- explanation of why ingredient choice matters
+- conversion methodology
+- common conversion chart
+- measurement/cup assumptions
+- related tools
+- methodology/source link
+- genuinely useful questions and answers
+
+Do not add sections merely to increase word count.
+
+There is no target word count that overrides usefulness.
+
+---
+
+## 16. Mobile-First UX
+
+A large percentage of users may be converting measurements while cooking.
+
+Mobile usability is therefore critical.
+
+The main conversion workflow should be exceptionally simple:
+
+1. Enter grams.
+2. Select/search ingredient.
+3. Receive result immediately.
+
+Avoid unnecessary modal dialogs, page reloads or complicated multi-step forms.
+
+Important controls should be touch-friendly.
+
+The calculator should remain easy to use on a phone in a kitchen environment.
+
+---
+
+## 17. Speed and Technical Simplicity
+
+Performance is a product feature and an SEO requirement.
+
+Prefer:
+
+- lightweight pages
+- minimal unnecessary JavaScript
+- minimal dependencies
+- optimized fonts/assets
+- optimized images
+- stable layouts
+- server-rendered or statically rendered SEO content where appropriate
+- fast calculator interactions
+
+Do not introduce a large library or framework dependency for functionality that
+can be implemented simply.
+
+Do not sacrifice maintainability merely to achieve tiny theoretical performance
+gains, but challenge unnecessary technical complexity.
+
+---
+
+## 18. Crawlability
+
+Important SEO content must be accessible to search engines.
+
+Do not make critical page content available only after complicated client-side
+interaction.
+
+Interactive calculator functionality can use JavaScript, but the page should
+still expose meaningful crawlable content and metadata.
+
+Important internal links should use normal crawlable links.
+
+---
+
+## 19. Initial Supporting Tool Direction
+
+A reverse conversion such as:
+
+**Cups to Grams**
+
+represents a legitimately different conversion direction and may have its own
+dedicated page/tool.
+
+Other adjacent tools should NOT automatically be created at launch.
+
+Possible future expansions might include cooking-related conversions such as:
+
+- grams to tablespoons
+- grams to teaspoons
+- grams to milliliters
+- ounces to cups
+- cups to ounces
+- milliliters to cups
+
+However, these should be added only after evaluating:
+
+- search intent
+- topical fit
+- SERP opportunity
+- usefulness
+- potential dilution of the site's focus
+- Search Console/user evidence
+
+Do not turn this project into a generic unit-conversion website without explicit
+approval.
+
+---
+
+## 20. Internal Linking
+
+Internal linking should reinforce the site's topical structure.
+
+The homepage should link naturally to important ingredient pages and major
+related tools.
+
+Ingredient pages should link back to the main calculator and to closely related
+resources where genuinely useful.
+
+Related links should be contextually relevant.
+
+Do not create giant keyword-stuffed link blocks solely for SEO.
+
+Avoid orphaned indexable pages.
+
+---
+
+## 21. URL Architecture
+
+URLs should be:
+
+- short
+- human-readable
+- stable
+- lowercase
+- descriptive
+- free from unnecessary parameters for canonical content
+
+Avoid unnecessary nesting.
+
+Do not change established URLs casually after launch.
+
+If URLs must change, implement appropriate redirects and update internal links,
+canonicals and sitemap entries.
+
+---
+
+## 22. Canonicalization
+
+Every indexable canonical page should have the correct canonical URL.
+
+Do not canonicalize genuinely distinct ingredient pages back to the homepage.
+
+Do not allow parameterized calculator states to accidentally create large
+numbers of indexable duplicate URLs.
+
+If query parameters are used to represent calculator inputs, treat their SEO
+behavior intentionally.
+
+---
+
+## 23. Sitemap and Robots
+
+Maintain a clean XML sitemap containing canonical indexable pages.
+
+Do not put junk, parameter variations or intentionally non-indexable URLs in the
+sitemap.
+
+robots.txt should be intentional and minimal.
+
+Do not use robots.txt as a substitute for proper indexation/canonical strategy.
+
+---
+
+## 24. Structured Data
+
+Use structured data only when it accurately represents visible page content and
+is appropriate under current search-engine documentation.
+
+Potentially appropriate structured data may include things such as:
+
+- Organization/WebSite where justified
+- BreadcrumbList on relevant internal pages
+
+Other schema should be evaluated against current Google documentation before
+implementation.
+
+Do NOT:
+
+- fabricate reviews
+- fabricate ratings
+- add fake AggregateRating
+- mark invisible content as structured data
+- use irrelevant schema simply to obtain rich results
+- assume FAQ markup will produce rich results
+
+Structured data should describe the page, not manipulate the SERP.
+
+---
+
+## 25. Metadata
+
+Every important indexable page should have intentional:
+
+- title
+- meta description
+- canonical
+- H1
+- social/Open Graph metadata where appropriate
+
+Titles should be written for humans while clearly communicating the search
+intent.
+
+Do not keyword-stuff titles.
+
+Do not create multiple pages merely to place different keyword variations in
+title tags.
+
+---
+
+## 26. Heading Structure
+
+Use semantic headings.
+
+Generally, one clear primary H1 should describe the page.
+
+H2/H3 sections should reflect actual content hierarchy rather than being used as
+keyword containers.
+
+Do not force exact-match keywords into every heading.
+
+---
+
+## 27. Content Quality
+
+Content exists to improve the tool experience and answer genuine questions.
+
+Avoid:
+
+- generic AI filler
+- repetitive introductions
+- keyword stuffing
+- unnecessarily long explanations
+- fabricated facts
+- paragraphs that merely restate the calculator result
+- identical FAQ blocks across many pages
+- template text whose only variation is an ingredient name
+
+Short useful content is better than long useless content.
+
+---
+
+## 28. Research and Sources
+
+Maintain transparency about conversion methodology.
+
+Where appropriate, provide users with methodology/reference information.
+
+Research sources should be recorded so important conversion constants can be
+audited later.
+
+Competitor values should not automatically be treated as authoritative sources.
+
+If reputable sources disagree, document the discrepancy and make an intentional
+decision rather than silently choosing whichever value is convenient.
+
+---
+
+## 29. Competitor Benchmark
+
+gramstocup.com is an important competitive benchmark because previous research
+found that it achieved substantial estimated organic visibility despite
+relatively low apparent domain authority and a small backlink profile.
+
+The strategic lesson is NOT:
+
+"Clone gramstocup.com."
+
+The strategic lesson is:
+
+"Google has demonstrated willingness to rank tightly focused specialist sites
+for this topic."
+
+Use competitor research to understand:
+
+- search intent
+- useful page types
+- SERP behavior
+- content gaps
+- UX weaknesses
+- expansion opportunities
+
+Do not copy competitors' text, design, data or site structure blindly.
+
+Our goal is to build a better product.
+
+---
+
+## 30. EMD Strategy
+
+The production domain is expected to be an exact-match or closely keyword-rich
+domain.
+
+Treat this primarily as:
+
+- clear topical branding
+- memorability
+- relevance communication
+
+Do not assume the EMD guarantees rankings.
+
+Do not compensate for an EMD with excessive exact-match optimization.
+
+The site should look and behave like a legitimate specialist product/brand, not
+a disposable SEO microsite.
+
+---
+
+## 31. AdSense Strategy
+
+AdSense monetization is secondary to the primary user task.
+
+The calculator must remain easy to use after ads are introduced.
+
+Ads must not:
+
+- obstruct calculator controls
+- masquerade as navigation or conversion results
+- create excessive layout shift
+- overwhelm the above-the-fold experience
+- make the website appear built primarily to display ads
+
+Where ad positions are planned before monetization, reserve space appropriately
+to reduce layout shift.
+
+Do not weaken the product simply to increase ad impressions.
+
+---
+
+## 32. Trust Pages
+
+The site should contain appropriate trust and legal pages, potentially including:
+
+- About
+- Contact
+- Privacy Policy
+- Disclaimer
+- Terms where appropriate
+- methodology/source information
+
+These pages should reflect the actual site rather than being meaningless
+boilerplate where possible.
+
+---
+
+## 33. Accessibility
+
+Accessibility is part of product quality.
+
+Use:
+
+- semantic HTML
+- proper form labels
+- keyboard-accessible controls
+- sufficient contrast
+- understandable validation/error messages
+- appropriate focus states
+- accessible interactive components
+
+Do not rely solely on color to communicate important information.
+
+---
+
+## 34. Core Web Vitals
+
+Protect Core Web Vitals throughout development.
+
+Particular attention should be paid to:
+
+- LCP
+- INP
+- CLS
+
+Do not wait until the entire site is finished to think about performance.
+
+Avoid introducing layout shifts through calculator results, ads, images or
+dynamically injected UI.
+
+---
+
+## 35. Search Console and Analytics
+
+Post-launch decisions should increasingly be based on real data.
+
+The site should be prepared for:
+
+- Google Search Console
+- appropriate analytics
+- indexation monitoring
+- query monitoring
+- landing-page monitoring
+- Core Web Vitals monitoring
+
+Do not create new SEO pages solely because an SEO tool suggests thousands of
+keyword combinations.
+
+Search Console impressions and user behavior should help guide expansion.
+
+---
+
+## 36. Post-Launch Expansion Philosophy
+
+Launch focused.
+
+Observe.
+
+Improve.
+
+Then expand.
+
+Potential expansion should be based on evidence such as:
+
+- Search Console queries
+- impressions
+- ranking positions
+- user behavior
+- internal searches
+- ingredient demand
+- conversion-tool usage
+- SERP changes
+
+If the homepage begins receiving impressions for a specific query, first ask
+whether the homepage or an existing ingredient page can satisfy that query
+better.
+
+Do not automatically create a new URL.
+
+---
+
+## 37. Amount-Specific Pages After Launch
+
+Amount pages are not permanently forbidden.
+
+They are simply NOT the default architecture.
+
+Before creating something such as:
+
+/100-grams-to-cups/
+
+evaluate whether:
+
+- meaningful search demand exists
+- the current homepage already satisfies the intent
+- the SERP favors dedicated amount pages
+- a dedicated page can provide substantially more value
+- creating it could cannibalize the homepage
+- similar pages would create a thin-content pattern
+
+Test deliberately rather than generating hundreds at once.
+
+---
+
+## 38. AI Overview / Zero-Click Risk
+
+Search engines may answer simple conversions directly or through AI-generated
+results.
+
+Therefore the site's value cannot depend entirely on displaying one static
+number.
+
+Our product should provide additional utility through areas such as:
+
+- arbitrary amount conversion
+- ingredient-specific calculation
+- ingredient search
+- practical cooking fractions
+- reverse conversion
+- common conversion tables
+- measurement context
+- transparent methodology
+
+Give users a reason to use the tool rather than merely reading a one-line search
+answer.
+
+---
+
+## 39. Avoid Unnecessary Feature Creep
+
+Do not add features merely because they are technically interesting.
+
+Every substantial feature should support at least one of:
+
+- conversion usefulness
+- accuracy
+- user experience
+- accessibility
+- trust
+- SEO/search intent
+- maintainability
+- measured user demand
+
+Challenge unnecessary complexity before implementing it.
+
+---
+
+## 40. Agent Behavior
+
+Before making a significant change, an AI agent should:
+
+1. Read this file.
+2. Inspect the existing implementation.
+3. Review relevant research documentation when the decision depends on research.
+4. Identify whether the proposed change conflicts with an established project
+   decision.
+5. Ask the owner about genuinely unresolved strategic decisions rather than
+   silently inventing them.
+6. Implement only after the intended direction is clear.
+7. Test the change.
+8. Preserve existing working functionality unless the change intentionally
+   replaces it.
+9. Update documentation when an approved architectural or strategic decision
+   changes.
+
+---
+
+## 41. Do Not Silently Make SEO Strategy Decisions
+
+An implementation agent should not independently decide to:
+
+- generate hundreds of pages
+- change URL architecture
+- target a new keyword category
+- create synonym landing pages
+- index calculator parameter URLs
+- remove existing indexed pages
+- change canonical strategy
+- change the conversion methodology
+- substantially expand the site's topical scope
+
+without discussing the decision with the owner.
+
+Implementation convenience must not dictate SEO architecture.
+
+---
+
+## 42. When Agents Disagree
+
+Multiple AI agents may work on this project.
+
+Do not allow different agents to independently redesign the project based on
+their preferences.
+
+This file and approved owner decisions take precedence over an agent's preferred
+architecture.
+
+A secondary agent may audit or criticize an implementation.
+
+Its findings should be evaluated and then incorporated deliberately rather than
+allowing multiple agents to perform competing rewrites.
+
+There should remain one coherent implementation.
+
+---
+
+## 43. Research Documents
+
+Detailed SEO/competitive research should live separately from this file.
+
+Suggested structure:
+
+/PROJECT_CONTEXT.md
+/research/final-seo-research.md
+/research/competitor-gramstocup.md
+
+Research documents contain:
+
+- evidence
+- SERP observations
+- competitor analysis
+- keyword research
+- source material
+- strategic reasoning
+
+PROJECT_CONTEXT.md contains:
+
+- approved decisions
+- permanent constraints
+- implementation principles
+
+Do not turn this file into a dump of every research finding.
+
+---
+
+## 44. Decision Log
+
+Important finalized decisions should be recorded below.
+
+### Confirmed
+
+- Niche: Grams-to-Cups cooking conversion website.
+- Site type: specialist conversion/tool resource.
+- SEO architecture principle: one page per distinct intent, not one page per
+  keyword.
+- Homepage owns the broad "grams to cups" intent and close synonyms.
+- Ingredient-specific pages are acceptable when they provide materially
+  different conversions and content.
+- No mass-generated amount pages at initial launch.
+- Calculator accuracy has priority over SEO convenience.
+- Conversion data must be centralized and sourced.
+- Site should remain tightly focused at launch.
+- Search Console data should influence later expansion.
+- AdSense is planned but must remain secondary to usability.
+- Production domain will be EMD or strongly keyword-rich.
+- Multiple AI agents must follow this shared project context rather than creating
+  competing architectures.
+
+### To Be Finalized Before/During Initial Planning
+
+- Production domain
+- Framework/technical stack
+- Hosting platform
+- Exact initial ingredient list
+- Authoritative ingredient data sources
+- Cup standard(s)
+- Rounding policy
+- practical-fraction algorithm
+- exact launch page list
+- analytics implementation
+- final AdSense placement strategy
+- visual identity/design system
+
+---
+
+## 45. Final Principle
+
+When uncertain, prefer:
+
+**fewer excellent pages over many weak pages**
+
+**one authoritative page over several cannibalizing pages**
+
+**accurate calculations over convenient numbers**
+
+**real utility over SEO filler**
+
+**simple architecture over unnecessary complexity**
+
+**measured expansion over speculative programmatic SEO**
+
+The goal is not to look like the largest grams-to-cups website on launch day.
+
+The goal is to become the most useful and trustworthy specialist result for the
+problem we are targeting.
