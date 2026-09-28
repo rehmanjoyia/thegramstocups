@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How Our Grams-to-Cups Conversions Are Calculated | Data Sourcing</title>
-  <meta name="description" content="Read how our grams-to-cups calculator chooses ingredient weights, cup standards, sources, rounding rules, and kitchen fractions." />
+  <title>Conversion Methodology: Sources, Formulas &amp; Rounding</title>
+  <meta name="description" content="See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue." />
   <link rel="canonical" href="https://thegramstocups.com/methodology/" />
 
   <!-- Favicons -->
@@ -25,8 +25,9 @@
       "@type": "WebPage",
       "@id": "https://thegramstocups.com/methodology/#webpage",
       "url": "https://thegramstocups.com/methodology/",
-      "name": "How Our Grams-to-Cups Conversions Are Calculated | Data Sourcing",
-      "description": "Read how our grams-to-cups calculator chooses ingredient weights, cup standards, sources, rounding rules, and kitchen fractions."
+      "name": "Conversion Methodology: Sources, Formulas & Rounding",
+      "isPartOf": { "@id": "https://thegramstocups.com/#website" },
+      "description": "See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue."
     },
     {
       "@type": "BreadcrumbList",
@@ -40,7 +41,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Data Methodology",
+          "name": "Methodology",
           "item": "https://thegramstocups.com/methodology/"
         }
       ]
@@ -50,18 +51,18 @@
   </script>
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Grams to Cups" />
   <meta property="og:url" content="https://thegramstocups.com/methodology/" />
-  <meta property="og:title" content="Data Methodology - How Our Conversions Are Calculated" />
-  <meta property="og:description" content="How we choose ingredient weights, cup standards, sources, rounding rules, and kitchen fractions for our grams-to-cups calculator." />
+  <meta property="og:title" content="Conversion Methodology: Sources, Formulas &amp; Rounding" />
+  <meta property="og:description" content="See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue." />
   <meta property="og:image" content="https://thegramstocups.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Data Methodology - How Our Conversions Are Calculated" />
-  <meta name="twitter:description" content="How we choose ingredient weights, cup standards, sources, rounding rules, and kitchen fractions for our grams-to-cups calculator." />
+  <meta name="twitter:title" content="Conversion Methodology: Sources, Formulas &amp; Rounding" />
+  <meta name="twitter:description" content="See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue." />
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
@@ -117,8 +118,10 @@
 
   <main class="container">
     <section class="hero-section">
-      <h1 class="hero-title">Data Methodology &amp; Sourcing Rules</h1>
-      <p class="hero-subhead">Our principles for measurement accuracy, data provenance, cup standard scaling, and practical kitchen rounding.</p>
+      <h1 class="hero-title">How Our Grams-to-Cups Conversions Work</h1>
+      <p class="hero-subhead">
+        Our converters use an ingredient's reference weight, your selected cup size, and a simple calculation. The results are <strong>estimates for cooking and baking</strong>, not measurements of the ingredient in your kitchen. This page explains the sources, assumptions and rounding behind the answers.
+      </p>
     </section>
 
     <!-- Pre-Reserved Ad Container -->
@@ -126,38 +129,209 @@
       <span>Advertisement</span>
     </div>
 
+    <!-- Section 1: Where the ingredient weights come from -->
     <section class="content-section">
-      <h2 class="section-title">Core Principles of Our Data Engine</h2>
+      <h2 class="section-title">Where the ingredient weights come from</h2>
       <div class="prose">
-        <h3>1. Data Provenance</h3>
-        <p>Grams measure mass; cups measure volume. Because bulk density varies by preparation state, we never invent conversion values or copy unsourced numbers from competitors. Every ingredient reference is pinned to established primary baking sources (e.g. King Arthur Baking Company) or government composition databases (USDA FoodData Central).</p>
-
-        <h3>2. Volume Scaling Across Cup Standards</h3>
-        <p>When switching between US Customary (236.588 mL), US Legal (240 mL), and Metric (250 mL) cup standards, our engine dynamically scales ingredient density proportionally to the exact target cup volume.</p>
-
-        <h3>3. Practical Kitchen Measure Decomposition</h3>
-        <p>Instead of displaying obscure mathematical fractions like 5/6 cup, our engine decomposes remainder volume into familiar kitchen measuring tools: whole cups + ¾, ½, ⅓, ¼ cup + tablespoons + teaspoons.</p>
-
-        <h3>4. Full Floating-Point Precision</h3>
-        <p>Internal calculations retain 64-bit floating-point precision. Rounding is applied strictly at the final rendering stage so rounding errors never compound during bidirectional calculations.</p>
+        <p>
+          Published baking charts and manufacturer references provide useful starting points. For example, <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" target="_blank" rel="noopener noreferrer">King Arthur Baking's ingredient chart</a> lists all-purpose flour at 120g per cup and granulated white sugar at 198g per cup. Our butter reference uses the 227g-per-cup entry in the <a href="https://www.landolakes.com/kitchen-reference/measurements-abbreviations/" target="_blank" rel="noopener noreferrer">Land O'Lakes butter table</a>.
+        </p>
+        <p>
+          The ingredient description matters as much as the number. A reference for packed brown sugar should not be presented as a measurement of loosely filled sugar. Likewise, a dry-rice reference does not describe cooked rice.
+        </p>
+        <p>
+          Use our <a href="/grams-per-cup/">grams-per-cup reference table</a> to check the ingredient, preparation and source behind a conversion. A linked source supports the stated reference; it does not mean the source endorses this website.
+        </p>
       </div>
     </section>
 
+    <!-- Section 2: Published values and calculated estimates -->
     <section class="content-section">
-      <h2 class="section-title">Reference Data &amp; Tools</h2>
-      <div class="grid-cards">
-        <a href="/grams-per-cup/" class="card-link">
-          <span class="card-title">Master Density Chart</span>
-          <span class="card-desc">All source citations in one table</span>
-        </a>
-        <a href="/cup-sizes/" class="card-link">
-          <span class="card-title">Cup Sizes Explained</span>
-          <span class="card-desc">US Customary vs Metric volumes</span>
-        </a>
-        <a href="/about/" class="card-link">
-          <span class="card-title">About Grams to Cups</span>
-          <span class="card-desc">Our mission for baking accuracy</span>
-        </a>
+      <h2 class="section-title">Published values and calculated estimates</h2>
+      <div class="prose">
+        <p>There are two different kinds of numbers to keep in mind:</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>What it represents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Published reference</strong></td>
+              <td>A weight or density reported by a named source for a particular ingredient</td>
+            </tr>
+            <tr>
+              <td><strong>Calculated result</strong></td>
+              <td>A value obtained by applying our formula, cup-size convention and rounding to a reference</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          For example, 120g per cup is our published flour reference. A result of 2.08 cups for 250g of flour is calculated from it. The result is not a separate kitchen test.
+        </p>
+        <p>
+          Our conversions are reference-based calculations. We do not claim that we independently weighed every ingredient or tested every recipe. If a value is derived from a density rather than a published cup weight, that distinction belongs with its reference.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: The formulas we use -->
+    <section class="content-section">
+      <h2 class="section-title">The formulas we use</h2>
+      <div class="prose">
+        <p>For an ingredient with a known grams-per-cup reference:</p>
+
+        <div class="formula-box">
+          <div class="formula-highlight">Cups = grams &divide; grams per cup</div>
+          <div class="formula-highlight" style="margin-bottom: 0;">Grams = cups &times; grams per cup</div>
+        </div>
+
+        <p>
+          Using the US flour reference, 250g &divide; 120g per cup gives 2.0833&hellip; cups. In the reverse direction, 1.5 cups &times; 120g per cup gives 180g.
+        </p>
+        <p>
+          If a source instead gives density in grams per milliliter, first calculate the cup weight:
+        </p>
+
+        <div class="formula-box">
+          <div class="formula-highlight" style="margin-bottom: 0;">Grams per cup = density in g/mL &times; cup volume in mL</div>
+        </div>
+
+        <p>
+          Grams per cup and grams per milliliter are different units. A cup weight should not be multiplied by cup volume a second time.
+        </p>
+        <p>
+          Try the <a href="/">grams-to-cups converter</a> or the <a href="/cups-to-grams/">cups-to-grams converter</a> with your ingredient selected.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: How we handle different cup sizes -->
+    <section class="content-section">
+      <h2 class="section-title">How we handle different cup sizes</h2>
+      <div class="prose">
+        <p>The converter offers three settings:</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th class="text-right">Cup volume used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>US Customary</strong></td>
+              <td class="text-right">236.588mL</td>
+            </tr>
+            <tr>
+              <td><strong>US Legal</strong></td>
+              <td class="text-right">240mL</td>
+            </tr>
+            <tr>
+              <td><strong>Metric</strong></td>
+              <td class="text-right">250mL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">NIST lists the US cup at approximately 236.588mL</a>. The <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-guidelines-determining-metric-equivalents-household-measures" target="_blank" rel="noopener noreferrer">FDA uses 240mL for a cup in US nutrition labeling</a>. &ldquo;US Legal&rdquo; here identifies that setting; it does not mean every US recipe uses it.
+        </p>
+        <p>
+          For the cup-weight references adopted on this site, our baseline is the US Customary setting. Assigning a published culinary cup weight to that precise volume is <strong>our calculation convention</strong>. It is not a claim that the publisher measured the ingredient in a 236.588mL vessel.
+        </p>
+        <p>
+          We adjust the reference in proportion to the selected volume:
+        </p>
+
+        <div class="formula-box">
+          <div class="formula-highlight" style="margin-bottom: 0;">Adjusted grams per cup = baseline grams per cup &times; selected cup mL &divide; 236.588</div>
+        </div>
+
+        <p>
+          For flour, 120 &times; 250 &divide; 236.588 gives about 126.8g per metric cup. This assumes the same ingredient and filling method. It is a proportional estimate, not a separately measured metric-cup weight.
+        </p>
+        <p>
+          Choose the standard your recipe specifies. Our <a href="/cup-sizes/">cup-size guide</a> explains the settings in more detail.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: How results are rounded -->
+    <section class="content-section">
+      <h2 class="section-title">How results are rounded</h2>
+      <div class="prose">
+        <p>
+          Calculations retain their working precision until the answer is displayed. Cup results in the calculator use up to three decimal places; most conversion tables use two. Gram results use up to one decimal place. Trailing zeros may be omitted.
+        </p>
+        <p>
+          For example, 250g of flour produces 2.0833&hellip; cups before rounding. That can appear as 2.083 in the calculator and 2.08 in a table. Both displays come from the same calculation.
+        </p>
+        <p>
+          Rounding can also explain differences between references. A rounded half-cup weight, doubled, may differ from a full-cup weight rounded separately. We use the declared full-cup baseline consistently rather than switching between rounded values.
+        </p>
+        <p>
+          Extra decimal places describe the arithmetic; they do not guarantee that a cup filled in your kitchen matches the reference that closely.
+        </p>
+
+        <h3>Cups and spoon approximations</h3>
+        <p>
+          When a result includes a practical cup-and-spoon measure, that is a further approximation. The decimal cup result remains the main calculation.
+        </p>
+        <p>
+          Our spoon output uses US Customary spoons with the US Customary setting, and 15mL tablespoons with 5mL teaspoons for the US Legal and Metric settings. It does not represent a 20mL Australian tablespoon. Check the displayed spoon standard before using your utensils.
+        </p>
+        <p>
+          Practical measures round to the nearest quarter teaspoon under the displayed standard. Very small positive results are labelled as less than a quarter teaspoon instead of being shown as zero. These small portions can be difficult to measure reliably; use a scale when the recipe requires a precise weight.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Why your measured amount may differ -->
+    <section class="content-section">
+      <h2 class="section-title">Why your measured amount may differ</h2>
+      <div class="prose">
+        <p>
+          A reference cannot account for every product or filling method. Flour packed into a cup may weigh more than flour spooned in gently. For consistent technique, see our <a href="/how-to-measure-flour/">guide to measuring flour</a>.
+        </p>
+        <p>
+          Check that your ingredient matches the reference: packed or loose, sifted or unsifted, dry or cooked, standard or whipped. Also check the cup size before comparing two converters.
+        </p>
+        <p>
+          If your recipe includes its own weight equivalent, follow that reference. Converting measurements does not establish whether one ingredient can replace another, or guarantee that a recipe will turn out as intended.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 7: Report a conversion issue -->
+    <section class="content-section">
+      <h2 class="section-title">Report a conversion issue</h2>
+      <div class="prose">
+        <p>
+          If an answer looks wrong, use our <a href="/contact/">contact page</a> and include:
+        </p>
+        <ul>
+          <li>The page and ingredient you used.</li>
+          <li>The amount, conversion direction and cup setting.</li>
+          <li>The result you received and the result you expected.</li>
+          <li>A source link or screenshot, if available.</li>
+        </ul>
+        <p>
+          These details help distinguish a calculation error from a different ingredient reference. You can also read <a href="/about/">about this website</a>.
+        </p>
       </div>
     </section>
   </main>
