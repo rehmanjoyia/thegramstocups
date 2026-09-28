@@ -53,8 +53,21 @@ export class CalculatorComponent {
     const inputPlaceholder = isGramsToCups ? 'e.g. 100' : 'e.g. 1';
 
     let resultHTML = '';
-    if (isGramsToCups) {
+    if (isNaN(this.state.value) || this.state.value < 0) {
+      resultHTML = `
+        <div class="results-primary">
+          <span class="result-number" style="font-size:1.75rem; color:var(--brand-terracotta);">Invalid input</span>
+        </div>
+        <div class="practical-badge" style="color:var(--brand-warm-dark);">
+          <span>Please enter a positive ${isGramsToCups ? 'weight in grams' : 'volume in cups'}.</span>
+        </div>
+      `;
+    } else if (isGramsToCups) {
       const result = convertGramsToCups(this.state.value, ingredient, cupStandard);
+      const effectiveDensity = Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10;
+      const gtcDensityNote = cupStandard.id !== 'us_customary'
+        ? ` (${effectiveDensity}g per ${cupStandard.shortName})`
+        : ` (${result.sourceAttribution.gramsPerCupReference}g / cup)`;
       
       const altHTML = (result.alternateComparison && this.state.showAlternate)
         ? `<div class="provenance-line" style="margin-top:0.375rem; color:var(--brand-terracotta);">
@@ -74,14 +87,18 @@ export class CalculatorComponent {
            </div>`
         : '';
 
+      const cupUnitLabel = (result.decimalCupsFormatted === '1' || result.decimalCupsFormatted === '<0.01')
+        ? cupStandard.name
+        : `${cupStandard.name}s`;
+
       resultHTML = `
         <div class="results-primary">
           <span class="result-number">${result.decimalCupsFormatted}</span>
-          <span class="result-unit">${cupStandard.name}</span>
+          <span class="result-unit">${cupUnitLabel}</span>
         </div>
         
         <div class="practical-badge">
-          <span>Approximate kitchen measure: <strong>${result.practicalMeasure}</strong></span>
+          <span>Approximately <strong>${result.practicalMeasure}</strong></span>
         </div>
 
         ${butterBadge}
@@ -89,7 +106,7 @@ export class CalculatorComponent {
         <div class="provenance-card">
           <div class="provenance-line">
             <span class="provenance-label">Reference source:</span>
-            <span>${result.sourceAttribution.sourceName} (${result.sourceAttribution.gramsPerCupReference}g / cup)</span>
+            <span>${result.sourceAttribution.sourceName}${gtcDensityNote}</span>
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Measuring method:</span>
@@ -108,6 +125,9 @@ export class CalculatorComponent {
       const ctgSourceLink = ingredient.primarySource.url
         ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;">${ingredient.primarySource.name}</a>`
         : ingredient.primarySource.name;
+      const scalingNote = cupStandard.id !== 'us_customary'
+        ? ` (${ingredient.gramsPerReferenceCup}g per US Cup, scaled for ${cupStandard.name})`
+        : '';
       resultHTML = `
         <div class="results-primary">
           <span class="result-number">${formatDecimal(gramsOutput)}</span>
@@ -125,7 +145,7 @@ export class CalculatorComponent {
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Source:</span>
-            <span>${ctgSourceLink} (${ingredient.state})</span>
+            <span>${ctgSourceLink} (${ingredient.state})${scalingNote}</span>
           </div>
         </div>
       `;
@@ -193,8 +213,14 @@ export class CalculatorComponent {
     const valInput = this.container.querySelector('#calc-value-input') as HTMLInputElement;
     if (valInput) {
       valInput.addEventListener('input', (e) => {
-        const val = parseFloat((e.target as HTMLInputElement).value);
-        this.state.value = isNaN(val) ? 0 : val;
+        const raw = (e.target as HTMLInputElement).value.trim();
+        if (raw === '') {
+          this.state.value = 0;
+          this.updateResultsOnly();
+          return;
+        }
+        const val = parseFloat(raw);
+        this.state.value = val;
         this.updateResultsOnly();
       });
     }
@@ -257,8 +283,24 @@ export class CalculatorComponent {
     const cupStandard = CUP_STANDARDS[this.state.cupStandardId] || DEFAULT_CUP_STANDARD;
     const isGramsToCups = this.state.direction === 'gramsToCups';
 
+    if (isNaN(this.state.value) || this.state.value < 0) {
+      resultsBox.innerHTML = `
+        <div class="results-primary">
+          <span class="result-number" style="font-size:1.75rem; color:var(--brand-terracotta);">Invalid input</span>
+        </div>
+        <div class="practical-badge" style="color:var(--brand-warm-dark);">
+          <span>Please enter a positive ${isGramsToCups ? 'weight in grams' : 'volume in cups'}.</span>
+        </div>
+      `;
+      return;
+    }
+
     if (isGramsToCups) {
       const result = convertGramsToCups(this.state.value, ingredient, cupStandard);
+      const effectiveDensity = Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10;
+      const gtcDensityNote = cupStandard.id !== 'us_customary'
+        ? ` (${effectiveDensity}g per ${cupStandard.shortName})`
+        : ` (${result.sourceAttribution.gramsPerCupReference}g / cup)`;
       
       const altHTML = (result.alternateComparison && this.state.showAlternate)
         ? `<div class="provenance-line" style="margin-top:0.375rem; color:var(--brand-terracotta);">
@@ -278,14 +320,18 @@ export class CalculatorComponent {
            </div>`
         : '';
 
+      const cupUnitLabel = (result.decimalCupsFormatted === '1' || result.decimalCupsFormatted === '<0.01')
+        ? cupStandard.name
+        : `${cupStandard.name}s`;
+
       resultsBox.innerHTML = `
         <div class="results-primary">
           <span class="result-number">${result.decimalCupsFormatted}</span>
-          <span class="result-unit">${cupStandard.name}</span>
+          <span class="result-unit">${cupUnitLabel}</span>
         </div>
         
         <div class="practical-badge">
-          <span>Approximate kitchen measure: <strong>${result.practicalMeasure}</strong></span>
+          <span>Approximately <strong>${result.practicalMeasure}</strong></span>
         </div>
 
         ${butterBadge}
@@ -293,7 +339,7 @@ export class CalculatorComponent {
         <div class="provenance-card">
           <div class="provenance-line">
             <span class="provenance-label">Reference source:</span>
-            <span>${result.sourceAttribution.sourceName} (${result.sourceAttribution.gramsPerCupReference}g / cup)</span>
+            <span>${result.sourceAttribution.sourceName}${gtcDensityNote}</span>
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Measuring method:</span>
@@ -311,6 +357,9 @@ export class CalculatorComponent {
       const updSourceLink = ingredient.primarySource.url
         ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;">${ingredient.primarySource.name}</a>`
         : ingredient.primarySource.name;
+      const scalingNote = cupStandard.id !== 'us_customary'
+        ? ` (${ingredient.gramsPerReferenceCup}g per US Cup, scaled for ${cupStandard.name})`
+        : '';
       resultsBox.innerHTML = `
         <div class="results-primary">
           <span class="result-number">${formatDecimal(gramsOutput)}</span>
@@ -328,7 +377,7 @@ export class CalculatorComponent {
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Source:</span>
-            <span>${updSourceLink} (${ingredient.state})</span>
+            <span>${updSourceLink} (${ingredient.state})${scalingNote}</span>
           </div>
         </div>
       `;

@@ -142,7 +142,7 @@ The supplied contextual links point to the homepage, reverse converter, grams-pe
 
 - Check the three selector values against the constants above in both conversion directions.
 - With flour at 120g per baseline cup, one cup returns 120g, 121.7g and 126.8g respectively at the agreed display precision.
-- For 100g flour, the calculator's three-decimal values are 0.833, 0.821 and 0.789 cups; the fixed article examples deliberately use two decimals.
+- For 100g flour, the cup values across calculators and tables are 0.83, 0.82, and 0.79 cups for US Customary, US Legal, and Metric respectively.
 - Confirm switching the cup setting updates both the primary result and practical result label. No stale spoon label may survive a switch.
 - Confirm 250mL divided by a 15mL tablespoon is 16⅔, not 16. The prose's Australian example is 2 × 20 = 2 × 15 + 2 × 5 = 40mL.
 - Preserve full precision until final formatting. Apply the already specified rounding and small-value handling; do not derive new rules from the rounded article examples.

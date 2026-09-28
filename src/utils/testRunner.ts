@@ -27,9 +27,10 @@ function runTests() {
   assert(flour120.cups === 1, '120g flour = 1 US Customary Cup');
   assert(flour120.decimalCupsFormatted === '1', '120g flour decimal formatted is "1"');
 
-  // Test 2: 100g Flour = 0.833 US Customary Cups & Practical measure
+  // Test 2: 100g Flour = 0.83 US Customary Cups & Practical measure
   const flour100 = convertGramsToCups(100, flour, CUP_STANDARDS.us_customary);
-  assert(Math.abs(flour100.cups - 0.83333) < 0.001, '100g flour = 0.8333 cups');
+  assert(Math.abs(flour100.cups - 0.83333) < 0.001, '100g flour internal precision = 0.8333 cups');
+  assert(flour100.decimalCupsFormatted === '0.83', '100g flour decimal formatted is "0.83"');
   assert(flour100.practicalMeasure.includes('¾ cup'), '100g flour practical measure includes "¾ cup"');
 
   // Test 3: Reverse Identity (100g -> cups -> grams)
@@ -70,6 +71,25 @@ function runTests() {
   } catch {
     assert(true, 'Negative input throws error as expected');
   }
+
+  // Test 10: 100g Brown Sugar practical measure matches ¼ cup + 3 tbsp + 1½ tsp (99.84g representation)
+  assert(bsResult.practicalMeasure === '¼ cup + 3 tbsp + 1½ tsp', '100g brown sugar practical measure is "¼ cup + 3 tbsp + 1½ tsp"');
+
+  // Test 11: 0.1g flour below measurable quantity explanation
+  const tinyFlour = convertGramsToCups(0.1, flour, CUP_STANDARDS.us_customary);
+  assert(tinyFlour.practicalMeasure === 'Less than ¼ teaspoon', '0.1g flour practical measure is "Less than ¼ teaspoon"');
+
+  // Test 12: 1 metric cup flour converts to 126.8g
+  const metricFlourGrams = convertCupsToGrams(1, flour, CUP_STANDARDS.metric);
+  assert(metricFlourGrams === 126.8, '1 metric cup flour = 126.8g');
+
+  // Test 13: Positive result below 0.01 cup displays "<0.01"
+  const tinyGrams = convertGramsToCups(0.5, flour, CUP_STANDARDS.us_customary);
+  assert(tinyGrams.decimalCupsFormatted === '<0.01', '0.5g flour (<0.01 cup) decimal formatted is "<0.01"');
+
+  // Test 14: Trailing zero removal (e.g. 60g flour = 0.5 cups)
+  const halfCupFlour = convertGramsToCups(60, flour, CUP_STANDARDS.us_customary);
+  assert(halfCupFlour.decimalCupsFormatted === '0.5', '60g flour decimal formatted removes trailing zero to "0.5"');
 
   console.log(`\n--- TESTS COMPLETED: ${passed}/${total} PASSED ---`);
 }

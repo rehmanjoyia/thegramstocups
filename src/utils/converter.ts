@@ -16,6 +16,7 @@ export interface ConversionResult {
   sourceAttribution: {
     sourceName: string;
     gramsPerCupReference: number;
+    effectiveGramsPerCup?: number;
     state: string;
     method: string;
   };
@@ -65,9 +66,9 @@ export function convertGramsToCups(
   const effectiveGramsPerCup = ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl);
   const rawCups = grams / effectiveGramsPerCup;
 
-  const decimalCupsFormatted = formatDecimal(rawCups);
+  const decimalCupsFormatted = formatCupDecimal(rawCups);
   const fractionFormatted = formatFraction(rawCups);
-  const practicalMeasure = formatPracticalMeasure(rawCups);
+  const practicalMeasure = formatPracticalMeasure(rawCups, cupStandard);
 
   let butterSticksFormatted: string | undefined;
   if (ingredient.id === 'butter') {
@@ -109,6 +110,7 @@ export function convertGramsToCups(
     sourceAttribution: {
       sourceName: ingredient.primarySource.name,
       gramsPerCupReference: ingredient.gramsPerReferenceCup,
+      effectiveGramsPerCup: Math.round(effectiveGramsPerCup * 10) / 10,
       state: ingredient.state,
       method: ingredient.measurementMethod
     },
@@ -135,15 +137,32 @@ export function convertCupsToGrams(
 }
 
 /**
- * Formats decimal numbers cleanly (e.g. 0.833, 1.5, 2).
+ * Formats decimal cups according to the site rounding policy:
+ * - Up to two decimal places across calculators and conversion tables.
+ * - Conventional rounding with halfway values rounded up.
+ * - Removes unnecessary trailing zeros (e.g. 1, 0.5, 0.83).
+ * - For any positive result below 0.01 cup, displays "<0.01".
+ * - Exact zero displays "0".
+ */
+export function formatCupDecimal(cups: number): string {
+  if (cups <= 0) return '0';
+  if (cups < 0.01) return '<0.01';
+
+  // Conventional rounding with halfway values rounded up
+  const rounded = Number(Math.round(Number(cups + 'e2')) + 'e-2');
+  return rounded.toString();
+}
+
+/**
+ * Formats general decimal numbers cleanly (up to 1 decimal place for grams/spoons).
  */
 export function formatDecimal(val: number): string {
   if (val === 0) return '0';
   if (val >= 10) {
-    return Math.round(val).toString();
+    return (Math.round(val * 10) / 10).toString();
   }
-  const formatted = val.toFixed(3);
-  return parseFloat(formatted).toString();
+  const formatted = (Math.round(val * 10) / 10).toString();
+  return formatted;
 }
 
 /**
@@ -181,64 +200,95 @@ export function formatFraction(cups: number): string {
 /**
  * Decomposes cups into practical kitchen measures: whole cups + ¾, ½, ⅓, ¼ cup + tbsp + tsp.
  */
-export function formatPracticalMeasure(cups: number): string {
+export function formatPracticalMeasure(
+  cups: number,
+  cupStandard: CupStandard = DEFAULT_CUP_STANDARD
+): string {
   if (cups <= 0) return '0 cups';
 
-  const whole = Math.floor(cups);
-  let remainderCups = cups - whole;
-  let totalTbsp = remainderCups * 16;
+  // Number of quarter-teaspoons per cup:
+  // US Customary / US Legal: 16 tbsp * 3 tsp * 4 = 192 quarter-tsp.
+  // Metric (250 mL): 250 mL / 1.25 mL = 200 quarter-tsp.
+  const unitsPerCup = cupStandard.id === 'metric' ? 200 : 192;
+  const totalQuarterTsp = cups * unitsPerCup;
+
+  // Below-measurable-quantity threshold (under 0.75 quarter-teaspoon)
+  if (totalQuarterTsp < 0.75) {
+    return 'Less than ¼ teaspoon';
+  }
+
+  let units = Math.round(totalQuarterTsp);
+  const wholeCups = Math.floor(units / unitsPerCup);
+  units = units % unitsPerCup;
 
   let cupPart = '';
-  if (whole > 0) {
-    cupPart = `${whole} ${whole === 1 ? 'cup' : 'cups'}`;
+  if (wholeCups > 0) {
+    cupPart = wholeCups === 1 ? '1 cup' : `${wholeCups} cups`;
   }
 
-  // Major fraction thresholds in tablespoons
-  // ¾ cup = 12 tbsp, ⅔ cup = 10.67 tbsp, ½ cup = 8 tbsp, ⅓ cup = 5.33 tbsp, ¼ cup = 4 tbsp, ⅛ cup = 2 tbsp
-  let fractionLabel = '';
-  if (totalTbsp >= 11.5) {
-    fractionLabel = '¾ cup';
-    totalTbsp -= 12;
-  } else if (totalTbsp >= 9.5) {
-    fractionLabel = '⅔ cup';
-    totalTbsp -= 10.667;
-  } else if (totalTbsp >= 7.5) {
-    fractionLabel = '½ cup';
-    totalTbsp -= 8;
-  } else if (totalTbsp >= 4.8) {
-    fractionLabel = '⅓ cup';
-    totalTbsp -= 5.333;
-  } else if (totalTbsp >= 3.5) {
-    fractionLabel = '¼ cup';
-    totalTbsp -= 4;
-  } else if (totalTbsp >= 1.8) {
-    fractionLabel = '⅛ cup';
-    totalTbsp -= 2;
+  let fractionPart = '';
+  // Fractional cup thresholds (in quarter-teaspoons)
+  const threeQuarter = Math.round(unitsPerCup * 0.75); // 144 US, 150 Metric
+  const twoThirds = Math.round(unitsPerCup * (2 / 3)); // 128 US, 133 Metric
+  const half = Math.round(unitsPerCup * 0.5);          // 96 US, 100 Metric
+  const oneThird = Math.round(unitsPerCup * (1 / 3));  // 64 US, 67 Metric
+  const oneQuarter = Math.round(unitsPerCup * 0.25);   // 48 US, 50 Metric
+
+  // Check near-exact ⅔ or ⅓ match
+  if (Math.abs(units - twoThirds) <= 1) {
+    fractionPart = '⅔ cup';
+    units -= twoThirds;
+  } else if (Math.abs(units - oneThird) <= 1) {
+    fractionPart = '⅓ cup';
+    units -= oneThird;
+  } else if (units >= threeQuarter) {
+    fractionPart = '¾ cup';
+    units -= threeQuarter;
+  } else if (units >= half) {
+    fractionPart = '½ cup';
+    units -= half;
+  } else if (units >= oneQuarter) {
+    fractionPart = '¼ cup';
+    units -= oneQuarter;
   }
 
-  // Combine cup parts
-  const cupsCombined = [cupPart, fractionLabel].filter(Boolean).join(' + ');
+  // If a major cup fraction was selected and remaining units is merely a tiny residual (<= 1 quarter-tsp), drop it for clean kitchen fractions
+  if (fractionPart && units <= 1) {
+    units = 0;
+  }
 
-  // Clamp totalTbsp to 0 if subtracting the fraction overshoot made it negative
-  if (totalTbsp < 0) totalTbsp = 0;
+  // 1 tablespoon = 3 teaspoons = 12 quarter-teaspoons (in both US and 15mL metric tbsp)
+  const tbspUnits = 12;
+  let tbsp = Math.floor(units / tbspUnits);
+  units = units % tbspUnits;
 
-  // Remaining tablespoons and teaspoons
-  let tbspCount = Math.floor(totalTbsp);
-  let remainingTbspFraction = totalTbsp - tbspCount;
+  // 1 teaspoon = 4 quarter-teaspoons
+  const tspWhole = Math.floor(units / 4);
+  const remQuarter = units % 4;
 
-  let tspCount = Math.round(remainingTbspFraction * 3);
-  if (tspCount === 3) {
-    tbspCount += 1;
-    tspCount = 0;
+  let tspStr = '';
+  if (tspWhole > 0 && remQuarter === 2) {
+    tspStr = `${tspWhole}½ tsp`;
+  } else if (tspWhole > 0 && remQuarter === 0) {
+    tspStr = `${tspWhole} tsp`;
+  } else if (tspWhole === 0 && remQuarter === 2) {
+    tspStr = '½ tsp';
+  } else if (tspWhole === 0 && remQuarter === 1) {
+    tspStr = '¼ tsp';
+  } else if (tspWhole === 0 && remQuarter === 3) {
+    tspStr = '¾ tsp';
+  } else if (tspWhole > 0 && remQuarter > 0) {
+    tspStr = `${tspWhole + remQuarter / 4} tsp`;
   }
 
   const parts: string[] = [];
-  if (cupsCombined) parts.push(cupsCombined);
-  if (tbspCount > 0) parts.push(`${tbspCount} ${tbspCount === 1 ? 'tbsp' : 'tbsp'}`);
-  if (tspCount > 0) parts.push(`${tspCount} ${tspCount === 1 ? 'tsp' : 'tsp'}`);
+  const combinedCups = [cupPart, fractionPart].filter(Boolean).join(' + ');
+  if (combinedCups) parts.push(combinedCups);
+  if (tbsp > 0) parts.push(`${tbsp} tbsp`);
+  if (tspStr) parts.push(tspStr);
 
   if (parts.length === 0) {
-    return '0 cups';
+    return 'Less than ¼ teaspoon';
   }
 
   return parts.join(' + ');
@@ -272,6 +322,7 @@ function createZeroResult(ingredient: Ingredient, cupStandard: CupStandard): Con
     sourceAttribution: {
       sourceName: ingredient.primarySource.name,
       gramsPerCupReference: ingredient.gramsPerReferenceCup,
+      effectiveGramsPerCup: Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10,
       state: ingredient.state,
       method: ingredient.measurementMethod
     }

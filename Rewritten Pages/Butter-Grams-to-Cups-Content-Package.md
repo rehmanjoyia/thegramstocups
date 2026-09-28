@@ -134,12 +134,12 @@ Baseline: 227g per site US Customary cup at 236.588mL. This assignment is the si
 
 `grams = cups * adjustedGramsPerCup`
 
-Calculate at full precision. Main table displays two decimals; retain the calculator's established three-decimal display if applicable.
+Calculate at full precision. Main table and calculators display up to two decimals.
 
 | Check | Expected |
 |---|---|
-| 100g, US Customary | 0.440528… cups; 0.441 at three decimals, 0.44 at two |
-| 113g, US Customary | 0.497797… cups; 0.498 at three decimals, 0.50 at two |
+| 100g, US Customary | 0.440528… cups; 0.44 at two decimals across calculators and charts |
+| 113g, US Customary | 0.497797… cups; 0.50 at two decimals across calculators and charts |
 | 227g, US Customary | 1 cup |
 | 250g, US Customary | 1.101321… cups |
 | 500g, US Customary | 2.202643… cups |

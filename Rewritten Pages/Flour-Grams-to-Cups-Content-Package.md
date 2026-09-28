@@ -159,16 +159,16 @@ Formula for cups to grams:
 
 `grams = cups * 120 * selectedCupMl / 236.588`
 
-Keep internal precision. Main table displays two decimal places. Cup-standard table shows adjusted weights to one decimal and results to two. Calculate from full precision, not from the displayed 121.7 or 126.8 values.
+Keep internal precision. Main table and calculators display up to two decimal places. Cup-standard table shows adjusted weights to one decimal and results to two. Calculate from full precision, not from the displayed 121.7 or 126.8 values.
 
 The 125g example is explicitly hypothetical arithmetic, not a new alternate source attribution. Do not label it USDA-backed without an exact verified supporting record. The earlier generic USDA 125g claim is not validated by this package.
 
 ### Concrete acceptance checks
 
-- 100g / 120g = 0.833333… US cups → 0.83 in the static table.
+- 100g / 120g = 0.833333… US cups → 0.83 across calculators and static tables.
 - 250g → 2.083333… US cups; 300g → 2.5; 500g → 4.166666… .
 - 1 metric cup → approximately 126.8g, with a matching reference label. Never label 120g as the metric reference.
-- 100g → approximately 0.82149 US Legal cups and 0.78863 metric cups.
+- 100g → approximately 0.82 US Legal cups and 0.79 metric cups.
 - 150g → 1.25 US cups; 1.5 US cups → 180g.
 - Check practical-measure rounding independently. Do not infer it is fixed from decimal results being correct.
 - Changing the calculator standard must not make the fixed US table appear to use that standard. Leave the table label explicit.

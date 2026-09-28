@@ -133,13 +133,13 @@ Baseline: 198g per site US Customary cup at 236.588mL. The source supplies a cul
 
 `grams = cups * adjustedGramsPerCup`
 
-Use full internal precision. Static chart: two decimals. The calculator may retain its established three-decimal display. Do not calculate from a rounded reference label. If a source switch exists, name its source and assumptions; the Domino recipe is evidence of that recipe's equivalent, not a universal brand density specification.
+Use full internal precision. Static charts and calculators use up to two decimal places. Do not calculate from a rounded reference label. If a source switch exists, name its source and assumptions; the Domino recipe is evidence of that recipe's equivalent, not a universal brand density specification.
 
 Acceptance values:
 
 | Input | Expected result |
 |---|---|
-| 100g, US Customary | 0.505050… cups; 0.505 at three decimals, 0.51 at two |
+| 100g, US Customary | 0.505050… cups; 0.51 at two decimals across calculators and charts |
 | 198g, US Customary | 1 cup |
 | 200g, US Customary | 1.010101… cups |
 | 250g, US Customary | 1.262626… cups |

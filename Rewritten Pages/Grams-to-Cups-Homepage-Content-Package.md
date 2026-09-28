@@ -218,7 +218,7 @@ Other ingredients remain linked as useful routes but no new numerical reference 
 - 100/213 = 0.469483… → table 0.47.
 - 100/113 = 0.884956… → table 0.88.
 - Check all common-amount rows against the same denominator; do not hand-maintain divergent tables.
-- A live calculator showing three decimals can coexist with two-decimal tables if both derive from the same reference and their precision is made clear.
+- Cup conversions use up to two decimal places across calculators and conversion tables, with unnecessary trailing zeros removed (e.g., 1 cup, 0.5 cups, 0.83 cups).
 - 1 metric cup of flour: 120 × 250/236.588 ≈ 126.8g. If the display rounds this to 127g, its reference label must not say 120g per metric cup.
 - Reproduce the previously reported 100g brown-sugar issue and verify the practical decomposition no longer returns 1/2 cup + 2 tsp. Check other fraction boundaries as well.
 - Spoon outputs must use explicit tablespoon/teaspoon volumes appropriate to the chosen convention. Do not assume 16 tablespoons for every cup standard without defining compatible spoon sizes.

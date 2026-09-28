@@ -89,9 +89,9 @@ Choose the standard your recipe specifies. Our [cup-size guide](https://thegrams
 
 ## How results are rounded
 
-Calculations retain their working precision until the answer is displayed. Cup results in the calculator use up to three decimal places; most conversion tables use two. Gram results use up to one decimal place. Trailing zeros may be omitted.
+Calculations retain their working precision until the answer is displayed. Cup results across calculators and conversion tables use up to two decimal places. Gram results use up to one decimal place. Unnecessary trailing zeros are removed (for example: 1 cup, 0.5 cups, and 0.83 cups).
 
-For example, 250g of flour produces 2.0833… cups before rounding. That can appear as 2.083 in the calculator and 2.08 in a table. Both displays come from the same calculation.
+For example, with flour at 120g per US Customary cup, 100g ÷ 120 = 0.833333… cups. Display 0.83 cups everywhere this conversion appears.
 
 Rounding can also explain differences between references. A rounded half-cup weight, doubled, may differ from a full-cup weight rounded separately. We use the declared full-cup baseline consistently rather than switching between rounded values.
 
@@ -147,11 +147,13 @@ Use Land O'Lakes for a direct 227g/cup butter attribution. King Arthur's butter 
 ### Numerical display policy
 
 - Keep full working precision; cup baseline volume is 236.588mL throughout the shared application.
-- Calculator cups: up to three decimals. Static grams-to-cups charts: two decimals unless explicitly stated otherwise.
+- Calculator cups and static conversion tables: up to two decimal places across calculators and conversion tables.
+- Remove unnecessary trailing zeros: show 1 cup, 0.5 cups, and 0.83 cups.
 - Grams: up to one decimal; suppress trailing `.0` in tool output. Table formatting may retain zeros for alignment.
 - For nonnegative results, round exact halfway cases upward. Avoid binary floating-point tie errors: 53.25g must display 53.3g and 170.25g must display 170.3g.
 - For fractional shortcuts, calculate 1/3 and 2/3 as ratios; do not turn them into 0.3 or 0.6. Round only for display.
-- A positive cup result below 0.0005 should display `<0.001 cup`, not zero. A positive gram result below 0.05 should display `<0.1g`, not zero. Exact zero remains zero. Add concise helper wording if needed; never silently lose a positive quantity.
+- For any positive result below 0.01 cup, display `<0.01 cup`. Exact zero remains `0 cups`. A positive gram result below 0.1g should display `<0.1g`, not zero. Exact zero remains `0g`. Add concise helper wording if needed; never silently lose a positive quantity.
+- Calculate practical cup-and-spoon suggestions from the full-precision result, never from the rounded decimal. Keep the established spoon sizes and quarter-teaspoon rounding, and label these suggestions "Approximately".
 - If the tool displays approximate reference weights for other standards, calculate from the full internal value, not the rounded label.
 
 ### Practical measure policy: explicit standards and a consistent formatter
@@ -176,7 +178,7 @@ Reconstruct the volume from the formatted result and compare it with the unround
 
 | Case | Expected |
 |---|---|
-| 250g flour, US Customary | 2.083333… cups; calculator 2.083, chart 2.08 |
+| 250g flour, US Customary | 2.083333… cups; display 2.08 cups across calculators and charts |
 | 1.5 US cups flour | 180g |
 | 1 metric cup flour | 120 × 250 / 236.588 = 126.8027…g; display 126.8g |
 | ¼ US cup brown sugar | 53.25g internally; display 53.3g |
