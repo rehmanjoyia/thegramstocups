@@ -497,6 +497,32 @@ body.menu-open {
   border-top: 1px solid var(--border-subtle);
 }
 
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 2.5rem 0 2rem 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subhead {
+  font-size: 1.063rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
 .section-title {
   font-family: var(--font-serif);
   font-size: 1.75rem;
@@ -518,6 +544,64 @@ body.menu-open {
   font-size: 1.25rem;
   color: var(--text-ink);
   margin: 1.5rem 0 0.5rem 0;
+}
+
+.prose ol, .prose ul {
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.text-right {
+  text-align: right;
+}
+
+.formula-box {
+  background-color: var(--bg-section-alt);
+  border-left: 3px solid var(--brand-terracotta);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.875rem 1.25rem;
+  margin: 0.75rem 0;
+  font-weight: 600;
+  color: var(--text-ink);
+}
+
+.formula-highlight {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brand-terracotta);
+  margin-bottom: 0.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.faq-question {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-ink);
+  margin-bottom: 0.4rem;
+}
+
+.faq-answer {
+  color: var(--text-secondary);
+  line-height: 1.65;
 }
 
 /* Open Magazine-Style Data Table */
