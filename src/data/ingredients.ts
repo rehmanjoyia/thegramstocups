@@ -86,9 +86,9 @@ export const INGREDIENTS: Ingredient[] = [
     referenceCupMl: 236.588,
     measurementMethod: 'Packed solid into cup or measured by stick',
     primarySource: {
-      name: 'King Arthur Baking Company',
-      url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
-      publicationOrRecord: '113.5g per half cup (1 stick)'
+      name: "Land O'Lakes",
+      url: 'https://www.landolakes.com/kitchen-reference/measurements-abbreviations/',
+      publicationOrRecord: 'Specific butter conversion table, 1 cup = 227g (2 sticks)'
     },
     confidence: 'high',
     aliases: ['unsalted butter', 'salted butter', 'butter stick'],
@@ -150,16 +150,21 @@ export const INGREDIENTS: Ingredient[] = [
     id: 'oats',
     name: 'Rolled Oats',
     category: 'grain',
-    state: 'Dry, old-fashioned rolled oats',
+    state: 'Dry old-fashioned or quick-cooking oats',
     gramsPerReferenceCup: 89,
     referenceCupMl: 236.588,
     measurementMethod: 'Scooped gently and leveled',
     primarySource: {
       name: 'King Arthur Baking Company',
       url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
-      publicationOrRecord: 'Official Ingredient Weight Chart'
+      publicationOrRecord: 'Official Ingredient Weight Chart (Oats: old-fashioned or quick-cooking)'
     },
     alternativeSources: [
+      {
+        name: 'King Arthur Branded Rolled Oats',
+        gramsPerCup: 113,
+        note: 'Branded King Arthur Rolled Oats product is listed separately at 113g per cup.'
+      },
       {
         name: 'USDA Food Buying Guide',
         gramsPerCup: 81,
@@ -168,22 +173,23 @@ export const INGREDIENTS: Ingredient[] = [
     ],
     confidence: 'high',
     aliases: ['old fashioned oats', 'rolled oats', 'oatmeal', 'quick oats'],
-    notes: 'Steel-cut oats are much denser (approx 170g/cup). This reference applies to old-fashioned rolled oats.',
+    notes: 'Generic dry oat reference of 89g per cup. Steel-cut oats are much denser (approx 170g/cup).',
     metaDescription: 'Convert rolled oats grams to cups with source-backed references (King Arthur 89g vs USDA 81g). Get practical baking fractions.'
   },
   {
     id: 'rice',
     name: 'Uncooked White Rice',
     category: 'grain',
-    state: 'Uncooked, long grain dry',
+    state: 'Raw, regular long-grain white rice',
     gramsPerReferenceCup: 185,
     referenceCupMl: 236.588,
-    measurementMethod: 'Scooped and leveled dry',
+    measurementMethod: 'Scooped and leveled dry (USDA 1 cup reference)',
     primarySource: {
-      name: 'USDA FoodData Central / Culinary Reference',
-      publicationOrRecord: 'USDA Standard Reference Portion Data'
+      name: 'USDA Home and Garden Bulletin 72 (Nutritive Value of Foods)',
+      url: 'https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf#page=56',
+      publicationOrRecord: 'Printed p. 50, food 635 (White, long grain, regular, raw)'
     },
-    confidence: 'medium_pinned',
+    confidence: 'high',
     aliases: ['white rice', 'raw rice', 'jasmine rice', 'basmati rice', 'dry rice'],
     notes: '1 cup of uncooked white rice yields approximately 3 cups of cooked rice. Cooked rice density differs significantly.',
     metaDescription: 'Convert uncooked white rice grams to cups with dry state clearly identified. See common recipe conversion tables.'
@@ -192,14 +198,14 @@ export const INGREDIENTS: Ingredient[] = [
     id: 'honey',
     name: 'Honey',
     category: 'sweetener',
-    state: 'Liquid at room temperature',
-    gramsPerReferenceCup: 336,
+    state: 'Strained or extracted honey',
+    gramsPerReferenceCup: 339,
     referenceCupMl: 236.588,
-    measurementMethod: 'Poured liquid volume (21g per tbsp × 16 tbsp)',
+    measurementMethod: 'Poured liquid measure (USDA 1 cup reference)',
     primarySource: {
-      name: 'King Arthur Baking Company',
-      url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
-      publicationOrRecord: '21g per tablespoon'
+      name: 'USDA Home and Garden Bulletin 72 (Nutritive Value of Foods)',
+      url: 'https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf#page=80',
+      publicationOrRecord: 'Printed p. 74, food 1005 (Honey, strained or extracted, 1 cup)'
     },
     alternativeSources: [
       {
@@ -211,42 +217,44 @@ export const INGREDIENTS: Ingredient[] = [
     confidence: 'high',
     aliases: ['pure honey', 'raw honey', 'liquid honey'],
     tablespoonEquivalentGrams: 21,
-    notes: 'Honey is a dense viscous liquid. 1 tablespoon weighs exactly 21 grams.',
-    metaDescription: 'Convert honey grams to cups, tablespoons, and teaspoons. Source-backed at 336g/cup (21g per tbsp) for sticky ingredient accuracy.'
+    notes: 'Honey is a dense viscous liquid. 1 cup weighs 339 grams based on USDA HG72.',
+    metaDescription: 'Convert honey grams to cups, tablespoons, and teaspoons. Source-backed at 339g/cup (USDA HG72) for sticky ingredient accuracy.'
   },
   {
     id: 'oil',
-    name: 'Vegetable / Olive Oil',
+    name: 'Olive Oil',
     category: 'oil',
-    state: 'Liquid (density 0.915 g/mL)',
+    state: 'Olive oil; not every cooking oil',
     gramsPerReferenceCup: 216,
     referenceCupMl: 236.588,
-    measurementMethod: 'Poured liquid measure',
+    measurementMethod: 'Poured liquid measure (USDA 1 cup reference)',
     primarySource: {
-      name: 'USDA FoodData Central',
-      publicationOrRecord: 'FDC ID 171413 (Olive Oil / Vegetable Oil)'
+      name: 'USDA Home and Garden Bulletin 72 (Nutritive Value of Foods)',
+      url: 'https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf#page=30',
+      publicationOrRecord: 'Printed p. 24, food 175 (Olive oil, 1 cup)'
     },
-    confidence: 'medium_pinned',
-    aliases: ['olive oil', 'vegetable oil', 'canola oil', 'cooking oil', 'sunflower oil'],
-    notes: 'Cooking oils float on water because their density (approx 0.915 g/mL) is lower than water (1.0 g/mL).',
-    metaDescription: 'Convert cooking oil grams to cups and tablespoons with liquid density (0.915 g/mL) transparency.'
+    confidence: 'high',
+    aliases: ['olive oil', 'cooking oil', 'oil'],
+    notes: 'Olive oil reference weight from USDA HG72 (216g per US cup). Does not represent every cooking oil.',
+    metaDescription: 'Convert olive oil grams to cups and tablespoons with USDA reference values (216g per US cup).'
   },
   {
     id: 'milk',
     name: 'Whole Milk',
     category: 'liquid',
-    state: 'Liquid (density 1.03 g/mL)',
+    state: 'Fluid whole milk, 3.3% fat',
     gramsPerReferenceCup: 244,
     referenceCupMl: 236.588,
-    measurementMethod: 'Poured liquid measure',
+    measurementMethod: 'Poured liquid measure (USDA 1 cup reference)',
     primarySource: {
-      name: 'USDA FoodData Central',
-      publicationOrRecord: 'FDC ID 171265 (Whole Milk 3.25%)'
+      name: 'USDA Home and Garden Bulletin 72 (Nutritive Value of Foods)',
+      url: 'https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf#page=26',
+      publicationOrRecord: 'Printed p. 20, food 118 (Fluid whole milk, 1 cup)'
     },
-    confidence: 'medium_pinned',
+    confidence: 'high',
     aliases: ['whole milk', 'fresh milk', 'milk', 'dairy milk'],
-    notes: 'Milk is slightly denser than pure water (236.6g/cup) due to milk solids, fat, and sugar content.',
-    metaDescription: 'Convert whole milk grams to cups with USDA FoodData Central reference values and cup-standard options.'
+    notes: 'Whole milk reference from USDA HG72 (3.3% fat, 244g per US cup). Does not describe condensed, evaporated or plant-based milks.',
+    metaDescription: 'Convert whole milk grams to cups with USDA reference values (244g per US cup).'
   }
 ];
 
