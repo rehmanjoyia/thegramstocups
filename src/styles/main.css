@@ -302,8 +302,21 @@ body.menu-open {
 .hero-subhead {
   font-size: 1.063rem;
   color: var(--text-secondary);
+  line-height: 1.6;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.hero-subhead strong {
+  color: var(--text-ink);
+}
+
+.hero-instruction {
+  font-size: 0.938rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 640px;
+  margin: 0.5rem auto 0 auto;
 }
 
 /* Centerpiece Calculator Container */
@@ -551,6 +564,14 @@ body.menu-open {
   line-height: 1.6;
   max-width: 680px;
   margin: 0 auto;
+}
+
+.hero-instruction {
+  font-size: 0.938rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0.5rem auto 0 auto;
 }
 
 .section-title {

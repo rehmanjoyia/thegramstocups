@@ -24,7 +24,9 @@ Publish only the copy between the markers. Insert the shared calculator immediat
 
 # Sugar Grams to Cups Converter
 
-100g of granulated white sugar is about **0.51 US cups**, using our 198g-per-cup reference. Enter your sugar weight below to convert another amount.
+100g of granulated white sugar is about 0.51 US cups, using our 198g-per-cup reference.
+
+Enter your sugar weight below to convert another amount.
 
 **Reference:** [King Arthur Baking's ingredient chart](https://www.kingarthurbaking.com/learn/ingredient-weight-chart) lists granulated white sugar at 198g per cup. We use that value for this site's US Customary setting. Choose the sugar type named in your recipe.
 

@@ -24,7 +24,9 @@ Implementation boundary: publish the text between BEGIN and END, with the existi
 
 # Grams to Cups Converter
 
-**100g of all-purpose flour is about 0.83 cups. The same weight of granulated sugar is about 0.51 cups, while butter is about 0.44 cups.** Choose your ingredient and cup size in the converter to find the amount you need. The examples on this page use our US Customary cup setting.
+100g of all-purpose flour is about 0.83 cups. The same weight of granulated sugar is about 0.51 cups, while butter is about 0.44 cups.
+
+Choose your ingredient and cup size in the converter to find the amount you need. The examples on this page use our US Customary cup setting.
 
 Need the reverse calculation? Use our [cups-to-grams converter](https://thegramstocups.com/cups-to-grams/).
 

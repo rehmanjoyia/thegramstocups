@@ -22,7 +22,9 @@ Publish only the content between the markers below. Insert the flour calculator 
 
 # Flour Grams to Cups Converter
 
-**100g of all-purpose flour is about 0.83 US cups, and 250g is about 2.08 cups.** Enter your flour weight in the converter to check another amount. These estimates use 120g per cup, with the flour fluffed, spooned into the measuring cup, and leveled.
+100g of all-purpose flour is about 0.83 US cups, and 250g is about 2.08 cups.
+
+Enter your flour weight in the converter to check another amount. These estimates use 120g per cup, with the flour fluffed, spooned into the measuring cup, and leveled.
 
 **Reference:** [King Arthur Baking's ingredient chart](https://www.kingarthurbaking.com/learn/ingredient-weight-chart) lists all-purpose flour at 120g per cup. We use that value for this site's US Customary setting. If your recipe gives its own weight equivalent, follow that instead.
 

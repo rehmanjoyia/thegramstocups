@@ -22,7 +22,9 @@ Only content between the markers belongs in the article. Insert the shared calcu
 
 # Cups to Grams Converter
 
-One US cup of all-purpose flour is about **120g**; one cup of granulated sugar is about **198g**. Choose your ingredient and cup amount below to find the weight for your recipe.
+One US cup of all-purpose flour is about 120g; one cup of granulated sugar is about 198g.
+
+Choose your ingredient and cup amount below to find the weight for your recipe.
 
 **About the results:** These are estimates based on ingredient-specific reference weights. This page's chart uses our US Customary setting. If your recipe gives its own gram equivalent, follow that value.
 

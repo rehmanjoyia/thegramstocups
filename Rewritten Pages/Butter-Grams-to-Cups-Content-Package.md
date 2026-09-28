@@ -24,7 +24,9 @@ Publish only the content between the markers. Insert the shared calculator after
 
 # Butter Grams to Cups Converter
 
-100g of butter is about **0.44 US cups**, using our 227g-per-cup reference. Enter your butter weight below, or check the chart for a common recipe amount.
+100g of butter is about 0.44 US cups, using our 227g-per-cup reference.
+
+Enter your butter weight below, or check the chart for a common recipe amount.
 
 **Reference:** The [Land O'Lakes butter conversion table](https://www.landolakes.com/kitchen-reference/measurements-abbreviations/) lists 227g per cup. We use that reference for standard butter under this site's US Customary setting. Follow your recipe's own weight equivalent when one is provided.
 
