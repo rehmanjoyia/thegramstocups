@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Granulated White Sugar Grams to Cups Converter | Source-Backed Kitchen Scale</title>
-  <meta name="description" content="Convert granulated white sugar from grams to cups with verified density reference (198g/cup). Includes practical spoon fractions and kitchen charts." />
+  <title>Sugar Grams to Cups Converter &amp; Conversion Chart</title>
+  <meta name="description" content="Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ." />
   <link rel="canonical" href="https://thegramstocups.com/grams-to-cups/sugar/" />
 
   <!-- Favicons -->
@@ -25,8 +25,9 @@
       "@type": "WebPage",
       "@id": "https://thegramstocups.com/grams-to-cups/sugar/#webpage",
       "url": "https://thegramstocups.com/grams-to-cups/sugar/",
-      "name": "Granulated White Sugar Grams to Cups Converter | Source-Backed Kitchen Scale",
-      "description": "Convert granulated white sugar from grams to cups with verified density reference (198g/cup). Includes practical spoon fractions and kitchen charts."
+      "name": "Sugar Grams to Cups Converter & Conversion Chart",
+      "isPartOf": { "@id": "https://thegramstocups.com/#website" },
+      "description": "Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ."
     },
     {
       "@type": "BreadcrumbList",
@@ -40,8 +41,39 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Granulated White Sugar Grams to Cups",
+          "name": "Sugar Grams to Cups",
           "item": "https://thegramstocups.com/grams-to-cups/sugar/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://thegramstocups.com/grams-to-cups/sugar/#app",
+      "name": "Sugar Grams to Cups Converter",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "url": "https://thegramstocups.com/grams-to-cups/sugar/",
+      "browserRequirements": "Requires JavaScript for interactive conversion. Static fallback values available."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://thegramstocups.com/grams-to-cups/sugar/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does a metric cup change the result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The converter's metric setting uses 250mL, compared with about 236.6mL for US Customary. Under our volume-scaling method, 100g of granulated sugar fills about 0.48 metric cups, versus 0.51 US cups. These are calculated estimates using the same sugar reference, not separate kitchen measurements. The table above stays in US cups even if you change the calculator setting. See our cup-size guide for help choosing a setting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for caster sugar or other sweeteners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This page's default is granulated white sugar. For caster sugar, coarse sugars or a sugar substitute, use a reference for that exact product or follow the recipe's stated weight. Our ingredient weight table explains the references available on this site."
+          }
         }
       ]
     }
@@ -53,15 +85,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Grams to Cups" />
   <meta property="og:url" content="https://thegramstocups.com/grams-to-cups/sugar/" />
-  <meta property="og:title" content="Sugar Grams to Cups Converter" />
-  <meta property="og:description" content="Convert granulated white sugar from grams to cups. Source-backed at 198g/cup with decimal cups and practical kitchen fractions." />
+  <meta property="og:title" content="Sugar Grams to Cups Converter &amp; Conversion Chart" />
+  <meta property="og:description" content="Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ." />
   <meta property="og:image" content="https://thegramstocups.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sugar Grams to Cups Converter" />
-  <meta name="twitter:description" content="Convert granulated white sugar from grams to cups. Source-backed at 198g/cup with decimal cups and practical kitchen fractions." />
+  <meta name="twitter:title" content="Sugar Grams to Cups Converter &amp; Conversion Chart" />
+  <meta name="twitter:description" content="Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ." />
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
@@ -117,9 +149,9 @@
 
   <main class="container">
     <section class="hero-section">
-      <h1 class="hero-title">Granulated White Sugar Grams to Cups</h1>
+      <h1 class="hero-title">Sugar Grams to Cups Converter</h1>
       <p class="hero-subhead">
-        Convert grams of granulated white sugar (granulated, dry) to precise cups, tablespoons, and kitchen measures. Reference density: <strong>198g per cup</strong>.
+        100g of granulated white sugar is about <strong>0.51 US cups</strong>, using our 198g-per-cup reference. Enter your sugar weight below to convert another amount.
       </p>
     </section>
 
@@ -128,11 +160,11 @@
       <div class="calculator-card">
         <div class="calculator-grid-inputs">
           <div class="form-group">
-            <label class="form-label" for="fallback-input">Grams (g)</label>
+            <label class="form-label" for="fallback-input">Weight in grams</label>
             <input type="number" id="fallback-input" class="form-input" value="100" />
           </div>
           <div class="form-group">
-            <label class="form-label" for="fallback-select">Select Ingredient</label>
+            <label class="form-label" for="fallback-select">Ingredient</label>
             <select id="fallback-select" class="form-select">
               <option value="sugar">Granulated White Sugar (Granulated, dry)</option>
             </select>
@@ -144,23 +176,27 @@
             <span class="result-unit">US Customary Cups</span>
           </div>
           <div class="practical-badge">
-            <span>Practical measure: <strong>≈ ½ cup</strong></span>
+            <span>Approximate kitchen measure: <strong>≈ ½ cup</strong></span>
           </div>
           <div class="provenance-card">
             <div class="provenance-line">
-              <span class="provenance-label">Reference Source:</span>
+              <span class="provenance-label">Reference source:</span>
               <span>King Arthur Baking Company (198g / cup reference)</span>
+            </div>
+            <div class="provenance-line">
+              <span class="provenance-label">Measuring method:</span>
+              <span>Spoon gently into cup and sweep level with a straight edge</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Educational Callout -->
+    <!-- Educational Callout / Reference Note -->
     <div class="educational-callout">
-      <div class="callout-title">Density &amp; Measurement Sourcing</div>
+      <div class="callout-title">Reference Density Benchmark</div>
       <div class="callout-text">
-        100g of Granulated White Sugar equals <strong>0.505 US Customary Cups</strong> (≈ ½ cup). Primary reference source: <strong>King Arthur Baking Company (198g / cup reference)</strong>.
+        <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" target="_blank" rel="noopener noreferrer">King Arthur Baking's ingredient chart</a> lists granulated white sugar at 198g per cup. We use that value for this site's US Customary setting. Choose the sugar type named in your recipe.
       </div>
     </div>
 
@@ -169,12 +205,12 @@
       <span>Advertisement</span>
     </div>
 
-    <!-- Quick Reference Table -->
+    <!-- Section 1: Sugar grams-to-cups conversion chart -->
     <section class="content-section">
-      <h2 class="section-title">Common Granulated White Sugar Grams to Cups Conversions</h2>
+      <h2 class="section-title">Sugar grams-to-cups conversion chart</h2>
       <div class="prose">
         <p>
-          Reference conversion table for granulated white sugar using standard US Customary Cups (236.6 mL) at <strong>198 grams per cup</strong>.
+          These amounts use <strong>198g of granulated white sugar per US Customary cup</strong>. Answers are rounded to two decimal places.
         </p>
       </div>
 
@@ -182,81 +218,241 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Grams (g)</th>
-              <th>US Cups</th>
-              <th>Practical Measure</th>
-              <th>Metric Cups (250 mL)</th>
+              <th class="text-right">Sugar weight</th>
+              <th class="text-right">Approximate US cups</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>25g</strong></td>
-              <td>0.126 cups</td>
-              <td>≈ 2.0 tbsp</td>
-              <td>0.119 cups</td>
+              <td class="text-right"><strong>25g</strong></td>
+              <td class="text-right">0.13</td>
             </tr>
             <tr>
-              <td><strong>50g</strong></td>
-              <td>0.253 cups</td>
-              <td>≈ 4.0 tbsp</td>
-              <td>0.239 cups</td>
+              <td class="text-right"><strong>50g</strong></td>
+              <td class="text-right">0.25</td>
             </tr>
             <tr>
-              <td><strong>100g</strong></td>
-              <td>0.505 cups</td>
-              <td>≈ ½ cup</td>
-              <td>0.478 cups</td>
+              <td class="text-right"><strong>75g</strong></td>
+              <td class="text-right">0.38</td>
             </tr>
             <tr>
-              <td><strong>150g</strong></td>
-              <td>0.758 cups</td>
-              <td>≈ 0.76 cups</td>
-              <td>0.717 cups</td>
+              <td class="text-right"><strong>100g</strong></td>
+              <td class="text-right">0.51</td>
             </tr>
             <tr>
-              <td><strong>200g</strong></td>
-              <td>1.010 cups</td>
-              <td>≈ 1.01 cups</td>
-              <td>0.956 cups</td>
+              <td class="text-right"><strong>125g</strong></td>
+              <td class="text-right">0.63</td>
             </tr>
             <tr>
-              <td><strong>250g</strong></td>
-              <td>1.263 cups</td>
-              <td>≈ 1.26 cups</td>
-              <td>1.195 cups</td>
+              <td class="text-right"><strong>150g</strong></td>
+              <td class="text-right">0.76</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>175g</strong></td>
+              <td class="text-right">0.88</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>198g</strong></td>
+              <td class="text-right">1.00</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>200g</strong></td>
+              <td class="text-right">1.01</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>225g</strong></td>
+              <td class="text-right">1.14</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>250g</strong></td>
+              <td class="text-right">1.26</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>300g</strong></td>
+              <td class="text-right">1.52</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>350g</strong></td>
+              <td class="text-right">1.77</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>400g</strong></td>
+              <td class="text-right">2.02</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>500g</strong></td>
+              <td class="text-right">2.53</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>750g</strong></td>
+              <td class="text-right">3.79</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>1,000g</strong></td>
+              <td class="text-right">5.05</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          The results are decimal cups: 0.25 means &frac14; cup, and 0.50 means &frac12; cup. Rounded results are estimates, so 50g appearing as 0.25 cup does not mean it is exactly one-quarter of 198g.
+        </p>
+        <p>
+          For a kitchen reference covering more ingredients, see our <a href="/conversion-chart/">printable conversion chart</a>.
+        </p>
+      </div>
     </section>
 
-    <!-- Explore Other Ingredients Grid -->
+    <!-- Section 2: Is one cup of sugar 198g or 200g? -->
     <section class="content-section">
-      <h2 class="section-title">Explore More Ingredient Guides</h2>
-      <div class="grid-cards">
+      <h2 class="section-title">Is one cup of sugar 198g or 200g?</h2>
+      <div class="prose">
+        <p>
+          Both figures appear in baking references. King Arthur lists 198g for a cup of granulated white sugar. For comparison, <a href="https://www.dominosugar.com/recipe/oatmeal-cream-pie-cake" target="_blank" rel="noopener noreferrer">this Domino Sugar recipe</a> lists 200g for one cup.
+        </p>
+        <p>
+          That explains why 200g becomes <strong>1.01 cups</strong> in our table but <strong>1 cup</strong> with a 200g-per-cup reference. The difference between those references is 2g per cup—about 1%.
+        </p>
+        <p>
+          If your recipe gives both grams and cups, use its own equivalent. If it gives grams and you have a kitchen scale, weigh that amount directly. Our calculator provides an estimate when you need to work with cups.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: How to convert sugar grams to cups -->
+    <section class="content-section">
+      <h2 class="section-title">How to convert sugar grams to cups</h2>
+      <div class="prose">
+        <p>
+          For granulated sugar under this page's US reference:
+        </p>
+        <p class="formula-highlight">
+          Cups of sugar = grams of sugar &divide; 198
+        </p>
+        <p>
+          For example:
+        </p>
+        <div class="formula-box">
+          250 &divide; 198 = 1.2626&hellip;, or about <strong>1.26 US cups</strong>.
+        </div>
+        <p style="margin-top: 1rem;">
+          Keep the full value while calculating and round the final answer.
+        </p>
+        <p>
+          For the reverse calculation, multiply cups by 198. <strong>&frac12; US cup &times; 198 = 99g</strong> under this reference. Switch the calculator's direction above, or use the <a href="/cups-to-grams/">cups-to-grams converter</a> with granulated sugar selected.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Does this work for brown or powdered sugar? -->
+    <section class="content-section">
+      <h2 class="section-title">Does this work for brown or powdered sugar?</h2>
+      <div class="prose">
+        <p>
+          Use the matching sugar reference. Equal weights of different sugars can fill different volumes.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Sugar type and preparation</th>
+              <th class="text-right">Reference grams per cup</th>
+              <th class="text-right">100g in cups, approximately</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Granulated white sugar</strong></td>
+              <td class="text-right">198g</td>
+              <td class="text-right">0.51</td>
+            </tr>
+            <tr>
+              <td><strong>Brown sugar, packed</strong></td>
+              <td class="text-right">213g</td>
+              <td class="text-right">0.47</td>
+            </tr>
+            <tr>
+              <td><strong>Powdered sugar, unsifted</strong></td>
+              <td class="text-right">113g</td>
+              <td class="text-right">0.88</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          The reference weights come from the King Arthur chart linked above and use this site's US cup setting. Follow the <a href="/grams-to-cups/brown-sugar/">brown sugar conversion guide</a> or <a href="/grams-to-cups/powdered-sugar/">powdered sugar conversion guide</a> for those ingredients.
+        </p>
+        <p>
+          This comparison helps you measure the sugar your recipe requests. It is not a substitution chart.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: How to measure granulated sugar in cups -->
+    <section class="content-section">
+      <h2 class="section-title">How to measure granulated sugar in cups</h2>
+      <div class="prose">
+        <ol>
+          <li><strong>Use a dry measuring cup</strong> in the size your recipe assumes.</li>
+          <li><strong>Spoon in the sugar</strong> until it sits slightly above the rim.</li>
+          <li><strong>Sweep a straight edge</strong> across the top to remove the excess.</li>
+        </ol>
+        <p>
+          <a href="https://www.bettycrocker.com/how-to/tipslibrary/baking-tips/cookie-baking-basics" target="_blank" rel="noopener noreferrer">Betty Crocker's measuring guidance</a> describes this method for granulated sugar and distinguishes it from firmly packing brown sugar. Do not apply brown sugar's packing instructions to the granulated sugar measurement here.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Questions about converting sugar (FAQs) -->
+    <section class="content-section">
+      <h2 class="section-title">Questions about converting sugar</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">Does a metric cup change the result?</h3>
+          <div class="faq-answer">
+            <p>
+              Yes. The converter's metric setting uses 250mL, compared with about 236.6mL for US Customary. Under our volume-scaling method, 100g of granulated sugar fills about <strong>0.48 metric cups</strong>, versus <strong>0.51 US cups</strong>. These are calculated estimates using the same sugar reference, not separate kitchen measurements. The table above stays in US cups even if you change the calculator setting. See our <a href="/cup-sizes/">cup-size guide</a> for help choosing a setting.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Can I use this for caster sugar or other sweeteners?</h3>
+          <div class="faq-answer">
+            <p>
+              This page's default is granulated white sugar. For caster sugar, coarse sugars or a sugar substitute, use a reference for that exact product or follow the recipe's stated weight. Our <a href="/grams-per-cup/">ingredient weight table</a> explains the references available on this site.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: More baking conversions -->
+    <section class="content-section">
+      <h2 class="section-title">More baking conversions</h2>
+      <div class="prose">
+        <p>
+          Measuring other ingredients for the same recipe? Use the <a href="/grams-to-cups/flour/">flour converter</a> or <a href="/grams-to-cups/butter/">butter converter</a>, or return to the <a href="/">grams-to-cups converter</a> to choose another ingredient.
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 1.5rem;">
         <a href="/grams-to-cups/flour/" class="card-link">
           <span class="card-title">All-Purpose Flour</span>
-          <span class="card-desc">120g/cup reference</span>
-        </a>
-        <a href="/grams-to-cups/sugar/" class="card-link">
-          <span class="card-title">Granulated Sugar</span>
-          <span class="card-desc">198g/cup reference</span>
+          <span class="card-desc">120g/cup reference • Spoon &amp; level</span>
         </a>
         <a href="/grams-to-cups/butter/" class="card-link">
           <span class="card-title">Butter</span>
-          <span class="card-desc">227g/cup • Cups, sticks & tbsp</span>
+          <span class="card-desc">227g/cup • Cups, sticks &amp; tbsp</span>
         </a>
-        <a href="/grams-to-cups/brown-sugar/" class="card-link">
-          <span class="card-title">Brown Sugar</span>
-          <span class="card-desc">213g/cup packed reference</span>
-        </a>
-        <a href="/grams-to-cups/powdered-sugar/" class="card-link">
-          <span class="card-title">Powdered Sugar</span>
-          <span class="card-desc">113g/cup unsifted reference</span>
-        </a>
-        <a href="/grams-to-cups/oats/" class="card-link">
-          <span class="card-title">Rolled Oats</span>
-          <span class="card-desc">89g/cup dry oats</span>
+        <a href="/" class="card-link">
+          <span class="card-title">Grams to Cups Converter</span>
+          <span class="card-desc">Choose from all baking ingredients</span>
         </a>
       </div>
     </section>
