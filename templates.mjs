@@ -6,7 +6,7 @@ const SHARED_HEADER_AND_DRAWER = `  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" />
+        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" />
       </a>
 
       <!-- Desktop Nav -->
@@ -31,7 +31,7 @@ const SHARED_HEADER_AND_DRAWER = `  <!-- Site Header -->
     <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
       <div class="mobile-nav-header">
         <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-          <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" style="height:36px;" />
+          <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="108" height="36" style="height:36px; width:auto;" />
         </a>
         <button type="button" class="mobile-menu-btn" id="mobile-menu-close" style="display:flex;" aria-label="Close navigation menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -152,10 +152,11 @@ const INGREDIENT_DATA = {
     state: 'Firmly packed',
     gPerCup: 213,
     source: 'King Arthur Baking Company (213g / cup reference)',
+    sourceUrl: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
     altSource: 'Unpacked / loose brown sugar weighs roughly 170g per cup',
     calcVal: 100,
     calcCups: '0.469',
-    practical: '≈ ½ cup - 1 tbsp'
+    practical: '≈ ½ cup'
   },
   'powdered-sugar': {
     name: 'Powdered / Confectioners\' Sugar',
@@ -191,9 +192,10 @@ const INGREDIENT_DATA = {
     state: 'Liquid (21g per tbsp)',
     gPerCup: 336,
     source: 'King Arthur Baking Company (336g / cup reference)',
+    sourceUrl: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
     calcVal: 100,
     calcCups: '0.298',
-    practical: '≈ ¼ cup + 1 tbsp'
+    practical: '≈ ¼ cup + 2 tsp'
   },
   'oil': {
     name: 'Vegetable / Olive Oil',
@@ -202,7 +204,7 @@ const INGREDIENT_DATA = {
     source: 'USDA FoodData Central (216g / cup reference)',
     calcVal: 100,
     calcCups: '0.463',
-    practical: '≈ ½ cup - 1 tbsp'
+    practical: '≈ ⅓ cup + 2 tbsp'
   },
   'milk': {
     name: 'Whole Milk',
@@ -334,5 +336,29 @@ export {
   INGREDIENT_DATA,
   generateIngredientFallback,
   generateQuantityFallback,
-  generateCupsToGramsFallback
+  generateCupsToGramsFallback,
+  generateOgMeta
 };
+
+/**
+ * Generates Open Graph and Twitter Card meta tags for a page.
+ * @param {string} title - Page title (without site suffix)
+ * @param {string} description - Page description
+ * @param {string} url - Full canonical URL (https://thegramstocups.com/...)
+ */
+function generateOgMeta(title, description, url) {
+  return `  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Grams to Cups" />
+  <meta property="og:url" content="${url}" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <meta property="og:image" content="https://thegramstocups.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />`;
+}

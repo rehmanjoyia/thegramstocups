@@ -219,13 +219,12 @@ export function formatPracticalMeasure(cups: number): string {
   // Combine cup parts
   const cupsCombined = [cupPart, fractionLabel].filter(Boolean).join(' + ');
 
+  // Clamp totalTbsp to 0 if subtracting the fraction overshoot made it negative
+  if (totalTbsp < 0) totalTbsp = 0;
+
   // Remaining tablespoons and teaspoons
   let tbspCount = Math.floor(totalTbsp);
   let remainingTbspFraction = totalTbsp - tbspCount;
-  if (remainingTbspFraction < 0) {
-    tbspCount = 0;
-    remainingTbspFraction = 0;
-  }
 
   let tspCount = Math.round(remainingTbspFraction * 3);
   if (tspCount === 3) {

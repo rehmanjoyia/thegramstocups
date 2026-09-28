@@ -49,7 +49,7 @@ export class CalculatorComponent {
     const cupStandard = CUP_STANDARDS[this.state.cupStandardId] || DEFAULT_CUP_STANDARD;
     const isGramsToCups = this.state.direction === 'gramsToCups';
 
-    const inputLabel = isGramsToCups ? 'Grams (g)' : 'Cups';
+    const inputLabel = isGramsToCups ? 'Weight in grams' : 'Volume in cups';
     const inputPlaceholder = isGramsToCups ? 'e.g. 100' : 'e.g. 1';
 
     let resultHTML = '';
@@ -81,18 +81,18 @@ export class CalculatorComponent {
         </div>
         
         <div class="practical-badge">
-          <span>Practical measure: <strong>${result.practicalMeasure}</strong></span>
+          <span>Approximate kitchen measure: <strong>${result.practicalMeasure}</strong></span>
         </div>
 
         ${butterBadge}
 
         <div class="provenance-card">
           <div class="provenance-line">
-            <span class="provenance-label">Reference Source:</span>
+            <span class="provenance-label">Reference source:</span>
             <span>${result.sourceAttribution.sourceName} (${result.sourceAttribution.gramsPerCupReference}g / cup)</span>
           </div>
           <div class="provenance-line">
-            <span class="provenance-label">State & Method:</span>
+            <span class="provenance-label">Measuring method:</span>
             <span>${result.sourceAttribution.state} • ${result.sourceAttribution.method}</span>
           </div>
           <div style="margin-top:0.25rem;">
@@ -104,6 +104,10 @@ export class CalculatorComponent {
     } else {
       // Cups to Grams
       const gramsOutput = convertCupsToGrams(this.state.value, ingredient, cupStandard);
+      const effectiveDensity = Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10;
+      const ctgSourceLink = ingredient.primarySource.url
+        ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;">${ingredient.primarySource.name}</a>`
+        : ingredient.primarySource.name;
       resultHTML = `
         <div class="results-primary">
           <span class="result-number">${formatDecimal(gramsOutput)}</span>
@@ -117,11 +121,11 @@ export class CalculatorComponent {
         <div class="provenance-card">
           <div class="provenance-line">
             <span class="provenance-label">Reference Density:</span>
-            <span>${ingredient.gramsPerReferenceCup}g per ${cupStandard.shortName}</span>
+            <span>${effectiveDensity}g per ${cupStandard.shortName}</span>
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Source:</span>
-            <span>${ingredient.primarySource.name} (${ingredient.state})</span>
+            <span>${ctgSourceLink} (${ingredient.state})</span>
           </div>
         </div>
       `;
@@ -131,12 +135,12 @@ export class CalculatorComponent {
       <div class="calculator-card" id="calc-card-inner">
         <div class="controls-bar">
           <div class="toggle-group">
-            <button type="button" class="toggle-btn ${isGramsToCups ? 'active' : ''}" id="btn-dir-gtc">Grams &rarr; Cups</button>
-            <button type="button" class="toggle-btn ${!isGramsToCups ? 'active' : ''}" id="btn-dir-ctg">Cups &rarr; Grams</button>
+            <button type="button" class="toggle-btn ${isGramsToCups ? 'active' : ''}" id="btn-dir-gtc" aria-pressed="${isGramsToCups}">Grams &rarr; Cups</button>
+            <button type="button" class="toggle-btn ${!isGramsToCups ? 'active' : ''}" id="btn-dir-ctg" aria-pressed="${!isGramsToCups}">Cups &rarr; Grams</button>
           </div>
 
           <div style="font-size:0.813rem; font-weight:700; color:var(--text-secondary);">
-            Standard: 
+            <label for="calc-cup-standard" style="font-weight:700; color:var(--text-secondary); font-size:0.813rem;">Cup size:</label>
             <select class="form-select" id="calc-cup-standard" style="display:inline-block; width:auto; height:36px; padding:0 0.5rem; font-size:0.813rem;">
               ${Object.values(CUP_STANDARDS).map(cs => `
                 <option value="${cs.id}" ${cs.id === this.state.cupStandardId ? 'selected' : ''}>
@@ -165,7 +169,7 @@ export class CalculatorComponent {
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="calc-ingredient-select">Select Ingredient</label>
+            <label class="form-label" for="calc-ingredient-select">Ingredient</label>
             <select id="calc-ingredient-select" class="form-select">
               ${INGREDIENTS.map(ing => `
                 <option value="${ing.id}" ${ing.id === this.state.ingredientId ? 'selected' : ''}>
@@ -176,7 +180,7 @@ export class CalculatorComponent {
           </div>
         </div>
 
-        <div class="results-box" id="results-box">
+        <div class="results-box" id="results-box" aria-live="polite" aria-atomic="true">
           ${resultHTML}
         </div>
       </div>
@@ -281,18 +285,18 @@ export class CalculatorComponent {
         </div>
         
         <div class="practical-badge">
-          <span>Practical measure: <strong>${result.practicalMeasure}</strong></span>
+          <span>Approximate kitchen measure: <strong>${result.practicalMeasure}</strong></span>
         </div>
 
         ${butterBadge}
 
         <div class="provenance-card">
           <div class="provenance-line">
-            <span class="provenance-label">Reference Source:</span>
+            <span class="provenance-label">Reference source:</span>
             <span>${result.sourceAttribution.sourceName} (${result.sourceAttribution.gramsPerCupReference}g / cup)</span>
           </div>
           <div class="provenance-line">
-            <span class="provenance-label">State & Method:</span>
+            <span class="provenance-label">Measuring method:</span>
             <span>${result.sourceAttribution.state} • ${result.sourceAttribution.method}</span>
           </div>
           <div style="margin-top:0.25rem;">
@@ -303,6 +307,10 @@ export class CalculatorComponent {
       `;
     } else {
       const gramsOutput = convertCupsToGrams(this.state.value, ingredient, cupStandard);
+      const effDensity = Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10;
+      const updSourceLink = ingredient.primarySource.url
+        ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;">${ingredient.primarySource.name}</a>`
+        : ingredient.primarySource.name;
       resultsBox.innerHTML = `
         <div class="results-primary">
           <span class="result-number">${formatDecimal(gramsOutput)}</span>
@@ -316,11 +324,11 @@ export class CalculatorComponent {
         <div class="provenance-card">
           <div class="provenance-line">
             <span class="provenance-label">Reference Density:</span>
-            <span>${ingredient.gramsPerReferenceCup}g per ${cupStandard.shortName}</span>
+            <span>${effDensity}g per ${cupStandard.shortName}</span>
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Source:</span>
-            <span>${ingredient.primarySource.name} (${ingredient.state})</span>
+            <span>${updSourceLink} (${ingredient.state})</span>
           </div>
         </div>
       `;

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grams to Cups Converter by Ingredient | Source-Backed Kitchen Scale</title>
-  <meta name="description" content="Convert grams to cups by ingredient using source-backed weights for flour, sugar, butter, oats, rice, honey, oil, and milk. Get decimal cups, kitchen fractions, and cup standards." />
+  <title>Grams to Cups Converter: Flour, Sugar &amp; More</title>
+  <meta name="description" content="Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources." />
   <link rel="canonical" href="https://thegramstocups.com/" />
-
-  
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -30,25 +29,60 @@
         "@type": "WebPage",
         "@id": "https://thegramstocups.com/#webpage",
         "url": "https://thegramstocups.com/",
-        "name": "Grams to Cups Converter by Ingredient",
+        "name": "Grams to Cups Converter: Flour, Sugar & More",
         "isPartOf": { "@id": "https://thegramstocups.com/#website" },
-        "description": "Convert grams to cups for flour, sugar, butter, and other key baking ingredients with transparent density sourcing."
+        "description": "Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://thegramstocups.com/#app",
+        "name": "Grams to Cups Converter",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "url": "https://thegramstocups.com/",
+        "browserRequirements": "Requires JavaScript for interactive conversion. Static fallback values available."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://thegramstocups.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many grams are in one cup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no single answer for every ingredient. Under the reference values above, a cup of all-purpose flour is 120g, granulated sugar is 198g, and standard butter is about 227g. For another ingredient, check the converter or reference table."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does another converter give a different answer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It may use a different reference weight, preparation method, cup size, or rounding rule. Compare those assumptions first. A small difference does not necessarily mean a calculation is wrong, but the source and measuring method should be clear."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use an ordinary drinking cup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only if you know its volume. A mug or drinking glass may hold more or less than the measuring cup assumed by the recipe. Use a marked measuring cup or weigh the ingredient instead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use one ingredient's conversion to substitute another?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Matching the weight or volume does not establish a suitable recipe substitution. Use this converter for measurement, and follow recipe-specific guidance when changing ingredients."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,6 +92,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/main.css" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Grams to Cups" />
+  <meta property="og:url" content="https://thegramstocups.com/" />
+  <meta property="og:title" content="Grams to Cups Converter: Flour, Sugar &amp; More" />
+  <meta property="og:description" content="Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources." />
+  <meta property="og:image" content="https://thegramstocups.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Grams to Cups Converter: Flour, Sugar &amp; More" />
+  <meta name="twitter:description" content="Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources." />
+  <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
 
@@ -65,7 +114,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" />
+        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" />
       </a>
 
       <!-- Desktop Nav -->
@@ -90,7 +139,7 @@
     <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
       <div class="mobile-nav-header">
         <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-          <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" style="height:36px;" />
+          <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="108" height="36" style="height:36px; width:auto;" />
         </a>
         <button type="button" class="mobile-menu-btn" id="mobile-menu-close" style="display:flex;" aria-label="Close navigation menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -113,8 +162,8 @@
   <main class="container">
     <section class="hero-section">
       <h1 class="hero-title">Grams to Cups Converter</h1>
-      <p class="hero-subhead">
-        Source-backed kitchen volume conversions for baking and cooking. Exposes exact preparation state, cup standards, and practical kitchen measures.
+      <p class="hero-subhead" style="font-size: 1.125rem; line-height: 1.6; color: var(--text-ink); margin-bottom: 0.75rem;">
+        <strong>100g of all-purpose flour is about 0.83 cups. The same weight of granulated sugar is about 0.51 cups, while butter is about 0.44 cups.</strong> Choose your ingredient and cup size in the converter to find the amount you need. The examples on this page use our US Customary cup setting.
       </p>
     </section>
 
@@ -124,11 +173,11 @@
       <div class="calculator-card">
         <div class="calculator-grid-inputs">
           <div class="form-group">
-            <label class="form-label" for="fallback-input">Grams (g)</label>
+            <label class="form-label" for="fallback-input">Weight in grams</label>
             <input type="number" id="fallback-input" class="form-input" value="100" />
           </div>
           <div class="form-group">
-            <label class="form-label" for="fallback-select">Select Ingredient</label>
+            <label class="form-label" for="fallback-select">Ingredient</label>
             <select id="fallback-select" class="form-select">
               <option value="flour">All-Purpose Flour (Dry, spooned and leveled)</option>
               <option value="sugar">Granulated White Sugar (Granulated)</option>
@@ -142,37 +191,49 @@
             <span class="result-unit">US Customary Cups</span>
           </div>
           <div class="practical-badge">
-            <span>Practical measure: <strong>≈ ¾ cup + 1 tbsp + 1 tsp</strong></span>
+            <span>Approximate kitchen measure: <strong>≈ ¾ cup + 1 tbsp + 1 tsp</strong></span>
           </div>
           <div class="provenance-card">
             <div class="provenance-line">
-              <span class="provenance-label">Reference Source:</span>
+              <span class="provenance-label">Reference source:</span>
               <span>King Arthur Baking Company (120g / cup reference)</span>
+            </div>
+            <div class="provenance-line">
+              <span class="provenance-label">Measuring method:</span>
+              <span>Fluffed, spooned gently into cup, and leveled with a straight edge</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Core Educational Callout (Directly Below Calculator) -->
-    <div class="educational-callout">
-      <div class="callout-title">Why Ingredient Choice Matters</div>
-      <div class="callout-text">
-        Converting grams (mass) to cups (volume) depends entirely on density. For example, <strong>100g of All-Purpose Flour equals 0.833 cups</strong>, whereas <strong>100g of Honey equals only 0.298 cups</strong>.
-      </div>
-    </div>
+    <!-- Reverse Calculation Link -->
+    <p style="margin-top: 1.25rem; font-size: 0.938rem; color: var(--text-secondary);">
+      Need the reverse calculation? Use our <a href="/cups-to-grams/" style="font-weight: 600; color: var(--accent-coral); text-decoration: underline; text-underline-offset: 3px;">cups-to-grams converter</a>.
+    </p>
 
-    <!-- Pre-Reserved Ad Container (Zero CLS) -->
-    <div class="ad-slot-container" aria-label="Advertisement Slot">
-      <span>Advertisement</span>
-    </div>
-
-    <!-- Section 1: Common Conversion Matrix Table -->
+    <!-- Section 1: How to use the grams-to-cups converter -->
     <section class="content-section">
-      <h2 class="section-title">Common Grams to Cups Conversions</h2>
+      <h2 class="section-title">How to use the grams-to-cups converter</h2>
+      <div class="prose">
+        <ol style="padding-left: 1.25rem; line-height: 1.75; margin-bottom: 1rem;">
+          <li><strong>Choose your ingredient.</strong> Flour, sugar, butter, and other ingredients have different weights per cup.</li>
+          <li><strong>Enter the weight in grams.</strong> Use the amount listed in your recipe.</li>
+          <li><strong>Match the cup size.</strong> Select US Customary, US Legal, or Metric to match the recipe's stated measurement standard.</li>
+          <li><strong>Check the result and measuring method.</strong> Packed brown sugar and loosely spooned flour need different handling.</li>
+        </ol>
+        <p>
+          A conversion gives you an estimate based on a reference weight. If your recipe supplies grams and you have a kitchen scale, weighing the ingredient avoids the uncertainty of scooping it into a cup.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: How many cups is 100 grams? -->
+    <section class="content-section">
+      <h2 class="section-title">How many cups is 100 grams?</h2>
       <div class="prose">
         <p>
-          Converting grams to cups depends on ingredient density. Below is a quick conversion reference table for 100 grams across common baking ingredients using US Customary Cups (236.6 mL).
+          It depends on the ingredient. Use this table to compare five common baking staples.
         </p>
       </div>
 
@@ -181,151 +242,294 @@
           <thead>
             <tr>
               <th>Ingredient</th>
-              <th>State / Method</th>
-              <th>100 Grams Equals</th>
-              <th>Practical Measure</th>
-              <th>Reference Density</th>
+              <th>Preparation used for the reference</th>
+              <th style="text-align: right;">Reference grams per cup</th>
+              <th style="text-align: right;">100g in cups, approximately</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>All-Purpose Flour</strong></td>
-              <td>Spooned & leveled</td>
-              <td>0.833 cups</td>
-              <td>≈ ¾ cup + 1 tbsp + 1 tsp</td>
-              <td>120g / cup (King Arthur)</td>
+              <td><a href="/grams-to-cups/flour/"><strong>All-purpose flour</strong></a></td>
+              <td>Fluffed, spooned, and leveled</td>
+              <td style="text-align: right;">120g</td>
+              <td style="text-align: right;">0.83</td>
             </tr>
             <tr>
-              <td><strong>Granulated Sugar</strong></td>
-              <td>Granulated, dry</td>
-              <td>0.505 cups</td>
-              <td>≈ ½ cup</td>
-              <td>198g / cup (King Arthur)</td>
+              <td><a href="/grams-to-cups/sugar/"><strong>Granulated white sugar</strong></a></td>
+              <td>Granulated</td>
+              <td style="text-align: right;">198g</td>
+              <td style="text-align: right;">0.51</td>
             </tr>
             <tr>
-              <td><strong>Butter</strong></td>
-              <td>Solid / softened</td>
-              <td>0.441 cups</td>
-              <td>≈ 7 tbsp (0.88 sticks)</td>
-              <td>227g / cup (King Arthur)</td>
+              <td><a href="/grams-to-cups/butter/"><strong>Butter</strong></a></td>
+              <td>Standard butter, not whipped</td>
+              <td style="text-align: right;">227g</td>
+              <td style="text-align: right;">0.44</td>
             </tr>
             <tr>
-              <td><strong>Brown Sugar</strong></td>
-              <td>Firmly packed</td>
-              <td>0.469 cups</td>
-              <td>≈ ½ cup - 1 tbsp</td>
-              <td>213g / cup (King Arthur)</td>
+              <td><a href="/grams-to-cups/brown-sugar/"><strong>Brown sugar</strong></a></td>
+              <td>Packed</td>
+              <td style="text-align: right;">213g</td>
+              <td style="text-align: right;">0.47</td>
             </tr>
             <tr>
-              <td><strong>Powdered Sugar</strong></td>
+              <td><a href="/grams-to-cups/powdered-sugar/"><strong>Powdered sugar</strong></a></td>
               <td>Unsifted</td>
-              <td>0.885 cups</td>
-              <td>≈ ⅞ cup</td>
-              <td>113g / cup (King Arthur)</td>
-            </tr>
-            <tr>
-              <td><strong>Rolled Oats</strong></td>
-              <td>Dry rolled oats</td>
-              <td>1.124 cups</td>
-              <td>≈ 1 ⅛ cups</td>
-              <td>89g / cup (King Arthur)</td>
-            </tr>
-            <tr>
-              <td><strong>Uncooked Rice</strong></td>
-              <td>Dry long grain</td>
-              <td>0.541 cups</td>
-              <td>≈ ½ cup + 1 tbsp</td>
-              <td>185g / cup (USDA)</td>
-            </tr>
-            <tr>
-              <td><strong>Honey</strong></td>
-              <td>Liquid</td>
-              <td>0.298 cups</td>
-              <td>≈ ¼ cup + 1 tbsp</td>
-              <td>336g / cup (King Arthur)</td>
-            </tr>
-            <tr>
-              <td><strong>Vegetable / Olive Oil</strong></td>
-              <td>Liquid</td>
-              <td>0.463 cups</td>
-              <td>≈ ½ cup - 1 tbsp</td>
-              <td>216g / cup (USDA)</td>
-            </tr>
-            <tr>
-              <td><strong>Whole Milk</strong></td>
-              <td>Liquid</td>
-              <td>0.410 cups</td>
-              <td>≈ 6.5 tbsp</td>
-              <td>244g / cup (USDA)</td>
+              <td style="text-align: right;">113g</td>
+              <td style="text-align: right;">0.88</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <div class="educational-callout" style="margin-top: 1.5rem;">
+        <div class="callout-title">Reference Notes</div>
+        <div class="callout-text">
+          Flour and sugar weights follow the <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" target="_blank" rel="noopener noreferrer">King Arthur Baking ingredient chart</a>. Our butter reference rounds the standard 8-ounce cup to 227g using <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">NIST's ounce-to-gram conversion</a>. King Arthur lists butter as 4 ounces per half cup. These are reference values, not a promise that every filled cup will weigh the same.
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          Looking for more ingredients? See the full <a href="/100-grams-to-cups/"><strong>100 grams to cups comparison</strong></a>.
+        </p>
+      </div>
     </section>
 
-    <!-- Section 2: Launch Ingredient Guides Grid -->
+    <!-- Section 3: Common grams-to-cups conversions -->
     <section class="content-section">
-      <h2 class="section-title">Explore Ingredient-Specific Conversion Guides</h2>
+      <h2 class="section-title">Common grams-to-cups conversions</h2>
       <div class="prose">
         <p>
-          Each ingredient behaves differently in a kitchen scale. Explore our dedicated, source-backed ingredient guides for detailed measuring techniques, packed vs loose densities, and recipe charts.
+          Find a familiar recipe amount below. Each answer is calculated from the same reference weights used above and rounded to two decimal places.
         </p>
       </div>
 
-      <div class="grid-cards">
-        <a href="/grams-to-cups/flour/" class="card-link">
-          <span class="card-title">All-Purpose Flour</span>
-          <span class="card-desc">120g/cup reference • Spoon & level technique</span>
-        </a>
-        <a href="/grams-to-cups/sugar/" class="card-link">
-          <span class="card-title">Granulated Sugar</span>
-          <span class="card-desc">198g/cup reference • Granulated dry sugar</span>
-        </a>
-        <a href="/grams-to-cups/butter/" class="card-link">
-          <span class="card-title">Butter</span>
-          <span class="card-desc">227g/cup • Cups, sticks, and tbsp conversion</span>
-        </a>
-        <a href="/grams-to-cups/brown-sugar/" class="card-link">
-          <span class="card-title">Brown Sugar</span>
-          <span class="card-desc">213g/cup • Packed vs loose density rules</span>
-        </a>
-        <a href="/grams-to-cups/powdered-sugar/" class="card-link">
-          <span class="card-title">Powdered Sugar</span>
-          <span class="card-desc">113g/cup • Unsifted vs sifted measurement</span>
-        </a>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="text-align: right;">Grams</th>
+              <th style="text-align: right;">Flour: cups at 120g/cup</th>
+              <th style="text-align: right;">Granulated sugar: cups at 198g/cup</th>
+              <th style="text-align: right;">Butter: cups at 227g/cup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: right;"><strong>50g</strong></td>
+              <td style="text-align: right;">0.42</td>
+              <td style="text-align: right;">0.25</td>
+              <td style="text-align: right;">0.22</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>100g</strong></td>
+              <td style="text-align: right;">0.83</td>
+              <td style="text-align: right;">0.51</td>
+              <td style="text-align: right;">0.44</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>150g</strong></td>
+              <td style="text-align: right;">1.25</td>
+              <td style="text-align: right;">0.76</td>
+              <td style="text-align: right;">0.66</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>200g</strong></td>
+              <td style="text-align: right;">1.67</td>
+              <td style="text-align: right;">1.01</td>
+              <td style="text-align: right;">0.88</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>250g</strong></td>
+              <td style="text-align: right;">2.08</td>
+              <td style="text-align: right;">1.26</td>
+              <td style="text-align: right;">1.10</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>300g</strong></td>
+              <td style="text-align: right;">2.50</td>
+              <td style="text-align: right;">1.52</td>
+              <td style="text-align: right;">1.32</td>
+            </tr>
+            <tr>
+              <td style="text-align: right;"><strong>500g</strong></td>
+              <td style="text-align: right;">4.17</td>
+              <td style="text-align: right;">2.53</td>
+              <td style="text-align: right;">2.20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          These are decimal cups, not spoon-by-spoon measuring instructions. For example, 0.25 cup is one-quarter cup, and 1.25 cups is one and one-quarter cups. Keep the ingredient and measuring method in mind when using an approximate result.
+        </p>
+        <p>
+          You can also compare <a href="/50-grams-to-cups/">50 grams across ingredients</a> or keep our <a href="/conversion-chart/">printable conversion chart</a> nearby while you cook.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Why the ingredient changes the answer -->
+    <section class="content-section">
+      <h2 class="section-title">Why the ingredient changes the answer</h2>
+      <div class="prose">
+        <p>
+          Grams measure mass; cups measure volume. A cup tells you how much space an ingredient fills, not how much it weighs.
+        </p>
+        <p>
+          That is why flour and sugar need different conversions. How you fill the cup matters too: pressing a dry ingredient down can fit more of it into the same space.
+        </p>
+        <p>
+          Use the ingredient named in your recipe. Selecting powdered sugar when you need granulated sugar changes the reference weight and therefore the answer.
+        </p>
+
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);">How to calculate cups from grams</h3>
+        <p style="font-size: 1rem; font-weight: 700; color: var(--accent-coral);">
+          Cups = grams &divide; grams per cup
+        </p>
+        <p>
+          For 250g of flour using a 120g-per-cup reference:
+        </p>
+        <p style="font-weight: 600; padding: 0.75rem 1rem; background: var(--bg-surface); border-left: 3px solid var(--accent-coral); border-radius: 4px; margin: 0.5rem 0;">
+          250 &divide; 120 = 2.0833&hellip; cups, or about 2.08 cups.
+        </p>
+        <p style="margin-top: 1rem;">
+          For the reverse calculation:
+        </p>
+        <p style="font-size: 1rem; font-weight: 700; color: var(--accent-coral);">
+          Grams = cups &times; grams per cup
+        </p>
+        <p>
+          The reference weight must match the ingredient and cup standard. Our <a href="/grams-per-cup/">ingredient weight table</a> and <a href="/methodology/">conversion methodology</a> explain the references and calculations in more detail.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Which cup size should you use? -->
+    <section class="content-section">
+      <h2 class="section-title">Which cup size should you use?</h2>
+      <div class="prose">
+        <p>
+          Check the recipe or your measuring cup rather than assuming every cup has the same volume.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Converter setting</th>
+              <th style="text-align: right;">Volume</th>
+              <th>What it means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>US Customary</strong></td>
+              <td style="text-align: right;">About 236.6 mL</td>
+              <td>The default setting used for this page's examples</td>
+            </tr>
+            <tr>
+              <td><strong>US Legal</strong></td>
+              <td style="text-align: right;">240 mL</td>
+              <td>The cup definition used for US nutrition labeling</td>
+            </tr>
+            <tr>
+              <td><strong>Metric</strong></td>
+              <td style="text-align: right;">250 mL</td>
+              <td>Use when the recipe specifies a 250mL cup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">NIST lists the US cup volume</a>, while the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-guidelines-determining-metric-equivalents-household-measures" target="_blank" rel="noopener noreferrer">FDA defines the nutrition-labeling cup as 240mL</a>. The 250mL metric cup is also shown in <a href="https://www.taste.com.au/images/common/Taste-Weights-Measurements-A3-V3.pdf" target="_blank" rel="noopener noreferrer">Taste's measurement chart</a>.
+        </p>
+        <p>
+          A larger cup holds more of the same ingredient. That means a fixed weight fills fewer metric cups than US Customary cups. Read our <a href="/cup-sizes/">cup-size guide</a> if you are working between measurement standards.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Measuring tips before you start -->
+    <section class="content-section">
+      <h2 class="section-title">Measuring tips before you start</h2>
+      <div class="prose">
+        <ul style="padding-left: 1.25rem; line-height: 1.8;">
+          <li>
+            <strong>For flour, fluff it, spoon it into the cup, then level the top.</strong> Avoid pressing it down. This follows <a href="https://www.kingarthurbaking.com/blog/2023/10/13/how-to-measure-flour" target="_blank" rel="noopener noreferrer">King Arthur's flour-measuring method</a>. Our <a href="/how-to-measure-flour/">step-by-step flour guide</a> explains the process.
+          </li>
+          <li>
+            <strong>For brown sugar, check whether the recipe says packed.</strong> The brown-sugar reference in our table is for packed sugar; a loosely filled cup is a different measurement.
+          </li>
+          <li>
+            <strong>For liquids, use a measuring vessel with clear volume markings.</strong> Dry and liquid measuring cups serve different practical purposes; <a href="https://www.kingarthurbaking.com/blog/2025/07/28/dry-vs-liquid-measuring-cups" target="_blank" rel="noopener noreferrer">King Arthur explains when to use each</a>.
+          </li>
+          <li>
+            <strong>If the recipe gives its own weight equivalent, follow that reference.</strong> A general converter cannot tell how the recipe developer originally filled a cup.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 7: More ingredient conversion guides -->
+    <section class="content-section">
+      <h2 class="section-title">More ingredient conversion guides</h2>
+      <div class="prose">
+        <p>
+          Need an ingredient beyond the baking staples above? Choose its guide for the relevant conversion table and measurement assumptions:
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 1rem;">
         <a href="/grams-to-cups/oats/" class="card-link">
           <span class="card-title">Rolled Oats</span>
-          <span class="card-desc">89g/cup • Old fashioned rolled oats</span>
+          <span class="card-desc">Rolled oats grams to cups</span>
         </a>
         <a href="/grams-to-cups/rice/" class="card-link">
           <span class="card-title">Uncooked Rice</span>
-          <span class="card-desc">185g/cup • Dry long grain rice guide</span>
+          <span class="card-desc">Uncooked rice grams to cups</span>
         </a>
         <a href="/grams-to-cups/honey/" class="card-link">
           <span class="card-title">Honey</span>
-          <span class="card-desc">336g/cup • Dense liquid tbsp & tsp measures</span>
+          <span class="card-desc">Honey grams to cups</span>
         </a>
         <a href="/grams-to-cups/oil/" class="card-link">
           <span class="card-title">Cooking Oil</span>
-          <span class="card-desc">216g/cup • Olive & vegetable oil density</span>
+          <span class="card-desc">Cooking oil grams to cups</span>
         </a>
         <a href="/grams-to-cups/milk/" class="card-link">
           <span class="card-title">Whole Milk</span>
-          <span class="card-desc">244g/cup • Liquid volume scaling</span>
+          <span class="card-desc">Whole milk grams to cups</span>
         </a>
       </div>
     </section>
 
-    <!-- Section 3: Provenance & Sourcing Explanation -->
+    <!-- Section 8: Questions about converting grams to cups -->
     <section class="content-section">
-      <h2 class="section-title">Why Sourcing & Measuring Method Matter</h2>
-      <div class="prose">
-        <p>
-          A common cause of failed baking recipes is the assumption that 1 cup of flour has a fixed, universal weight. In reality, King Arthur Baking lists all-purpose flour at <strong>120 grams per cup</strong> using the spoon-and-level technique, while the USDA Food Buying Guide lists enriched white flour at <strong>125 grams per cup</strong>.
-        </p>
-        <p>
-          If you scoop flour directly from a bag with a measuring cup, you compress the flour grains, packing up to <strong>140 grams</strong> into a single cup. That 20g difference is enough to make cakes dry and tough. Our converter explicitly reveals the exact measurement state and primary reference source for every output.
-        </p>
+      <h2 class="section-title">Questions about converting grams to cups</h2>
+      <div class="prose" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+        <div class="faq-item">
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">How many grams are in one cup?</h3>
+          <p>There is no single answer for every ingredient. Under the reference values above, a cup of all-purpose flour is 120g, granulated sugar is 198g, and standard butter is about 227g. For another ingredient, check the converter or reference table.</p>
+        </div>
+        <div class="faq-item">
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">Why does another converter give a different answer?</h3>
+          <p>It may use a different reference weight, preparation method, cup size, or rounding rule. Compare those assumptions first. A small difference does not necessarily mean a calculation is wrong, but the source and measuring method should be clear.</p>
+        </div>
+        <div class="faq-item">
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">Can I use an ordinary drinking cup?</h3>
+          <p>Only if you know its volume. A mug or drinking glass may hold more or less than the measuring cup assumed by the recipe. Use a marked measuring cup or weigh the ingredient instead.</p>
+        </div>
+        <div class="faq-item">
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">Can I use one ingredient's conversion to substitute another?</h3>
+          <p>No. Matching the weight or volume does not establish a suitable recipe substitution. Use this converter for measurement, and follow recipe-specific guidance when changing ingredients.</p>
+        </div>
       </div>
     </section>
   </main>
