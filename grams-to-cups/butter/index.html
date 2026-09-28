@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Butter Grams to Cups Converter | Source-Backed Kitchen Scale</title>
-  <meta name="description" content="Convert butter from grams to cups with verified density reference (227g/cup). Includes practical spoon fractions and kitchen charts." />
+  <title>Butter Grams to Cups Converter &amp; US Stick Chart</title>
+  <meta name="description" content="Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter." />
   <link rel="canonical" href="https://thegramstocups.com/grams-to-cups/butter/" />
 
   <!-- Favicons -->
@@ -25,8 +25,9 @@
       "@type": "WebPage",
       "@id": "https://thegramstocups.com/grams-to-cups/butter/#webpage",
       "url": "https://thegramstocups.com/grams-to-cups/butter/",
-      "name": "Butter Grams to Cups Converter | Source-Backed Kitchen Scale",
-      "description": "Convert butter from grams to cups with verified density reference (227g/cup). Includes practical spoon fractions and kitchen charts."
+      "name": "Butter Grams to Cups Converter & US Stick Chart",
+      "isPartOf": { "@id": "https://thegramstocups.com/#website" },
+      "description": "Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter."
     },
     {
       "@type": "BreadcrumbList",
@@ -44,6 +45,45 @@
           "item": "https://thegramstocups.com/grams-to-cups/butter/"
         }
       ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://thegramstocups.com/grams-to-cups/butter/#app",
+      "name": "Butter Grams to Cups Converter",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "url": "https://thegramstocups.com/grams-to-cups/butter/",
+      "browserRequirements": "Requires JavaScript for interactive conversion. Static fallback values available."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://thegramstocups.com/grams-to-cups/butter/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does this work for whipped butter or butter spreads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Do not assume those products have the same weight per cup as standard butter. Land O'Lakes advises measuring whipped butter by weight rather than volume. For spreads or blended products, follow the package and recipe guidance; this chart does not establish that they are suitable substitutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about browned butter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the weight and measuring stage specified by the recipe. King Arthur explains that browning butter evaporates water, so the starting weight and finished weight differ. Do not use this standard-butter conversion to predict the amount remaining after browning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a 250mL metric cup give the same result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Under our volume-scaling method, 100g of butter fills about 0.42 metric cups, compared with 0.44 US Customary cups. These are calculated estimates, not separate kitchen measurements. Choose the cup setting your recipe uses; the chart on this page stays in US cups."
+          }
+        }
+      ]
     }
   ]
 }
@@ -53,15 +93,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Grams to Cups" />
   <meta property="og:url" content="https://thegramstocups.com/grams-to-cups/butter/" />
-  <meta property="og:title" content="Butter Grams to Cups Converter" />
-  <meta property="og:description" content="Convert butter grams to cups, sticks, and tablespoons. Verified at 227g/cup (113.5g per stick)." />
+  <meta property="og:title" content="Butter Grams to Cups Converter &amp; US Stick Chart" />
+  <meta property="og:description" content="Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter." />
   <meta property="og:image" content="https://thegramstocups.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Butter Grams to Cups Converter" />
-  <meta name="twitter:description" content="Convert butter grams to cups, sticks, and tablespoons. Verified at 227g/cup (113.5g per stick)." />
+  <meta name="twitter:title" content="Butter Grams to Cups Converter &amp; US Stick Chart" />
+  <meta name="twitter:description" content="Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter." />
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
@@ -117,9 +157,9 @@
 
   <main class="container">
     <section class="hero-section">
-      <h1 class="hero-title">Butter Grams to Cups</h1>
+      <h1 class="hero-title">Butter Grams to Cups Converter</h1>
       <p class="hero-subhead">
-        Convert grams of butter (solid / softened (standard stick)) to precise cups, tablespoons, and kitchen measures. Reference density: <strong>227g per cup</strong>.
+        100g of butter is about <strong>0.44 US cups</strong>, using our 227g-per-cup reference. Enter your butter weight below, or check the chart for a common recipe amount.
       </p>
     </section>
 
@@ -128,13 +168,13 @@
       <div class="calculator-card">
         <div class="calculator-grid-inputs">
           <div class="form-group">
-            <label class="form-label" for="fallback-input">Grams (g)</label>
+            <label class="form-label" for="fallback-input">Weight in grams</label>
             <input type="number" id="fallback-input" class="form-input" value="100" />
           </div>
           <div class="form-group">
-            <label class="form-label" for="fallback-select">Select Ingredient</label>
+            <label class="form-label" for="fallback-select">Ingredient</label>
             <select id="fallback-select" class="form-select">
-              <option value="butter">Butter (Solid / softened (standard stick))</option>
+              <option value="butter">Butter (Solid / softened, standard stick)</option>
             </select>
           </div>
         </div>
@@ -144,23 +184,27 @@
             <span class="result-unit">US Customary Cups</span>
           </div>
           <div class="practical-badge">
-            <span>Practical measure: <strong>≈ 7 tbsp (0.88 sticks)</strong></span>
+            <span>Approximate kitchen measure: <strong>≈ 7 tbsp</strong></span>
           </div>
           <div class="provenance-card">
             <div class="provenance-line">
-              <span class="provenance-label">Reference Source:</span>
-              <span>King Arthur Baking Company (227g / cup reference)</span>
+              <span class="provenance-label">Reference source:</span>
+              <span>Land O'Lakes butter conversion table (227g / cup reference)</span>
+            </div>
+            <div class="provenance-line">
+              <span class="provenance-label">Measuring method:</span>
+              <span>Standard solid or softened butter; use wrapper markings or scale</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Educational Callout -->
+    <!-- Educational Callout / Reference Note -->
     <div class="educational-callout">
-      <div class="callout-title">Density &amp; Measurement Sourcing</div>
+      <div class="callout-title">Reference Density Benchmark</div>
       <div class="callout-text">
-        100g of Butter equals <strong>0.441 US Customary Cups</strong> (≈ 7 tbsp (0.88 sticks)). Primary reference source: <strong>King Arthur Baking Company (227g / cup reference)</strong>.
+        The <a href="https://www.landolakes.com/kitchen-reference/measurements-abbreviations/" target="_blank" rel="noopener noreferrer">Land O'Lakes butter conversion table</a> lists 227g per cup. We use that reference for standard butter under this site's US Customary setting. Follow your recipe's own weight equivalent when one is provided.
       </div>
     </div>
 
@@ -169,12 +213,12 @@
       <span>Advertisement</span>
     </div>
 
-    <!-- Quick Reference Table -->
+    <!-- Section 1: Butter grams-to-cups conversion chart -->
     <section class="content-section">
-      <h2 class="section-title">Common Butter Grams to Cups Conversions</h2>
+      <h2 class="section-title">Butter grams-to-cups conversion chart</h2>
       <div class="prose">
         <p>
-          Reference conversion table for butter using standard US Customary Cups (236.6 mL) at <strong>227 grams per cup</strong>.
+          All answers below use <strong>227g of butter per US Customary cup</strong>, rounded to two decimal places.
         </p>
       </div>
 
@@ -182,81 +226,244 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Grams (g)</th>
-              <th>US Cups</th>
-              <th>Practical Measure</th>
-              <th>Metric Cups (250 mL)</th>
+              <th class="text-right">Butter weight</th>
+              <th class="text-right">Approximate US cups</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>25g</strong></td>
-              <td>0.110 cups</td>
-              <td>≈ 1.8 tbsp</td>
-              <td>0.104 cups</td>
+              <td class="text-right"><strong>25g</strong></td>
+              <td class="text-right">0.11</td>
             </tr>
             <tr>
-              <td><strong>50g</strong></td>
-              <td>0.220 cups</td>
-              <td>≈ 3.5 tbsp</td>
-              <td>0.208 cups</td>
+              <td class="text-right"><strong>50g</strong></td>
+              <td class="text-right">0.22</td>
             </tr>
             <tr>
-              <td><strong>100g</strong></td>
-              <td>0.441 cups</td>
-              <td>≈ 7 tbsp (0.88 sticks)</td>
-              <td>0.417 cups</td>
+              <td class="text-right"><strong>75g</strong></td>
+              <td class="text-right">0.33</td>
             </tr>
             <tr>
-              <td><strong>150g</strong></td>
-              <td>0.661 cups</td>
-              <td>≈ 0.66 cups</td>
-              <td>0.625 cups</td>
+              <td class="text-right"><strong>100g</strong></td>
+              <td class="text-right">0.44</td>
             </tr>
             <tr>
-              <td><strong>200g</strong></td>
-              <td>0.881 cups</td>
-              <td>≈ 0.88 cups</td>
-              <td>0.834 cups</td>
+              <td class="text-right"><strong>113g</strong></td>
+              <td class="text-right">0.50</td>
             </tr>
             <tr>
-              <td><strong>250g</strong></td>
-              <td>1.101 cups</td>
-              <td>≈ 1.10 cups</td>
-              <td>1.042 cups</td>
+              <td class="text-right"><strong>125g</strong></td>
+              <td class="text-right">0.55</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>150g</strong></td>
+              <td class="text-right">0.66</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>170g</strong></td>
+              <td class="text-right">0.75</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>200g</strong></td>
+              <td class="text-right">0.88</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>225g</strong></td>
+              <td class="text-right">0.99</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>227g</strong></td>
+              <td class="text-right">1.00</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>250g</strong></td>
+              <td class="text-right">1.10</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>300g</strong></td>
+              <td class="text-right">1.32</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>400g</strong></td>
+              <td class="text-right">1.76</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>500g</strong></td>
+              <td class="text-right">2.20</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          These are decimal cups: 0.50 means &frac12; cup, and 0.75 means &frac34; cup. A rounded answer is an estimate. For example, 113g rounds to 0.50 cup here, but exactly half of our 227g reference is 113.5g.
+        </p>
+        <p>
+          Need a reference for other ingredients too? Keep our <a href="/conversion-chart/">printable conversion chart</a> nearby.
+        </p>
+      </div>
     </section>
 
-    <!-- Explore Other Ingredients Grid -->
+    <!-- Section 2: How many US sticks of butter are in a cup? -->
     <section class="content-section">
-      <h2 class="section-title">Explore More Ingredient Guides</h2>
-      <div class="grid-cards">
+      <h2 class="section-title">How many US sticks of butter are in a cup?</h2>
+      <div class="prose">
+        <p>
+          One standard US stick is <strong>&frac12; cup or 8 US tablespoons</strong>; two sticks make one cup. The wrapper often provides useful cutting marks, as shown in the Land O'Lakes guide linked above.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>US butter measure</th>
+              <th class="text-right">US cups</th>
+              <th class="text-right">US tablespoons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>&frac12; stick</strong></td>
+              <td class="text-right">&frac14;</td>
+              <td class="text-right">4</td>
+            </tr>
+            <tr>
+              <td><strong>1 stick</strong></td>
+              <td class="text-right">&frac12;</td>
+              <td class="text-right">8</td>
+            </tr>
+            <tr>
+              <td><strong>1&frac12; sticks</strong></td>
+              <td class="text-right">&frac34;</td>
+              <td class="text-right">12</td>
+            </tr>
+            <tr>
+              <td><strong>2 sticks</strong></td>
+              <td class="text-right">1</td>
+              <td class="text-right">16</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top: 1rem;">
+        <p>
+          Check the package before using stick counts. This table refers to standard US sticks, not every block or package sold elsewhere.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: How to convert butter grams to cups -->
+    <section class="content-section">
+      <h2 class="section-title">How to convert butter grams to cups</h2>
+      <div class="prose">
+        <p>
+          Divide the butter weight by this page's reference:
+        </p>
+        <p class="formula-highlight">
+          US cups of butter = grams of butter &divide; 227
+        </p>
+        <p>
+          For example:
+        </p>
+        <div class="formula-box">
+          250 &divide; 227 = 1.1013&hellip;, or about <strong>1.10 US cups</strong>.
+        </div>
+        <p style="margin-top: 1rem;">
+          Calculate with the full reference and round only the final answer.
+        </p>
+        <p>
+          To go the other way, multiply US cups by 227: <strong>&frac34; cup &times; 227 = 170.25g</strong> under this convention. Use the reverse toggle above or select butter in the <a href="/cups-to-grams/">cups-to-grams converter</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Why do some charts use 226g instead of 227g? -->
+    <section class="content-section">
+      <h2 class="section-title">Why do some charts use 226g instead of 227g?</h2>
+      <div class="prose">
+        <p>
+          Rounding can explain the difference. <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" target="_blank" rel="noopener noreferrer">King Arthur Baking's ingredient chart</a> lists half a cup of butter as 4 ounces or 113g. Doubling that rounded gram value gives 226g.
+        </p>
+        <p>
+          Converting 8 ounces directly gives about 226.8g, which rounds to 227g, using <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">NIST's ounce-to-gram conversion</a>. Our calculator keeps 227g as its consistent full-cup reference. Neither rounded figure makes a cup measurement exact.
+        </p>
+        <p>
+          If a recipe specifies 225g, 226g or another weight, weigh that amount rather than changing it to match this chart.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Measuring butter for your recipe -->
+    <section class="content-section">
+      <h2 class="section-title">Measuring butter for your recipe</h2>
+      <div class="prose">
+        <p>
+          <strong>With a scale:</strong> Place a bowl on the scale, zero it, and add the stated weight of butter. This avoids having to estimate an awkward fraction such as 0.44 cup.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          <strong>With a marked wrapper:</strong> Use the cup or tablespoon marks for the amount requested. For an unmarked block or leftover pieces, weighing is more straightforward than estimating a fraction by eye.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          <strong>When melting butter:</strong> If the recipe asks for a quantity of butter followed by &ldquo;melted,&rdquo; measure that quantity first, then melt it. If it explicitly requests a measured amount of already-melted butter, follow that instruction. This converter does not model changes in liquid volume with temperature.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: Questions about converting butter (FAQs) -->
+    <section class="content-section">
+      <h2 class="section-title">Questions about converting butter</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">Does this work for whipped butter or butter spreads?</h3>
+          <div class="faq-answer">
+            <p>
+              Do not assume those products have the same weight per cup as standard butter. <a href="https://www.landolakes.com/kitchen-reference/ingredients-substitutions/powdered-sugar/" target="_blank" rel="noopener noreferrer">Land O'Lakes advises measuring whipped butter by weight rather than volume</a>. For spreads or blended products, follow the package and recipe guidance; this chart does not establish that they are suitable substitutes.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">What about browned butter?</h3>
+          <div class="faq-answer">
+            <p>
+              Use the weight and measuring stage specified by the recipe. <a href="https://www.kingarthurbaking.com/blog/2020/01/08/brown-butter" target="_blank" rel="noopener noreferrer">King Arthur explains that browning butter evaporates water</a>, so the starting weight and finished weight differ. Do not use this standard-butter conversion to predict the amount remaining after browning.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Does a 250mL metric cup give the same result?</h3>
+          <div class="faq-answer">
+            <p>
+              No. Under our volume-scaling method, 100g of butter fills about <strong>0.42 metric cups</strong>, compared with <strong>0.44 US Customary cups</strong>. These are calculated estimates, not separate kitchen measurements. Choose the cup setting your recipe uses; the chart on this page stays in US cups. Our <a href="/cup-sizes/">cup-size guide</a> explains the standards, and our <a href="/methodology/">methodology</a> explains the calculation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: More baking conversions -->
+    <section class="content-section">
+      <h2 class="section-title">More baking conversions</h2>
+      <div class="prose">
+        <p>
+          Use the <a href="/grams-to-cups/flour/">flour converter</a> or <a href="/grams-to-cups/sugar/">granulated sugar converter</a> for the rest of your recipe, or return to the <a href="/">grams-to-cups converter</a> to select another ingredient.
+        </p>
+      </div>
+
+      <div class="grid-cards" style="margin-top: 1.5rem;">
         <a href="/grams-to-cups/flour/" class="card-link">
           <span class="card-title">All-Purpose Flour</span>
-          <span class="card-desc">120g/cup reference</span>
+          <span class="card-desc">120g/cup reference • Spoon &amp; level</span>
         </a>
         <a href="/grams-to-cups/sugar/" class="card-link">
           <span class="card-title">Granulated Sugar</span>
           <span class="card-desc">198g/cup reference</span>
         </a>
-        <a href="/grams-to-cups/butter/" class="card-link">
-          <span class="card-title">Butter</span>
-          <span class="card-desc">227g/cup • Cups, sticks & tbsp</span>
-        </a>
-        <a href="/grams-to-cups/brown-sugar/" class="card-link">
-          <span class="card-title">Brown Sugar</span>
-          <span class="card-desc">213g/cup packed reference</span>
-        </a>
-        <a href="/grams-to-cups/powdered-sugar/" class="card-link">
-          <span class="card-title">Powdered Sugar</span>
-          <span class="card-desc">113g/cup unsifted reference</span>
-        </a>
-        <a href="/grams-to-cups/oats/" class="card-link">
-          <span class="card-title">Rolled Oats</span>
-          <span class="card-desc">89g/cup dry oats</span>
+        <a href="/" class="card-link">
+          <span class="card-title">Grams to Cups Converter</span>
+          <span class="card-desc">Choose from all baking ingredients</span>
         </a>
       </div>
     </section>
