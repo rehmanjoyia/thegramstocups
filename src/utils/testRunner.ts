@@ -106,6 +106,32 @@ function runTests() {
   // Test 18: Finding 2 - Honey has no unverified commercial chart alternative
   assert(!honey.alternativeSources || honey.alternativeSources.length === 0, 'Honey has no unsupported alternative sources');
 
+  // Test 19: Audit Finding 1 - Brown sugar has no unsupported unpacked 170g alternative source
+  assert(!brownSugar.alternativeSources || brownSugar.alternativeSources.length === 0, 'Brown sugar has no unsupported alternative sources');
+
+  // Test 20: Audit Finding 1 - Powdered sugar has no unsupported sifted 100g alternative source
+  assert(!powderedSugar.alternativeSources || powderedSugar.alternativeSources.length === 0, 'Powdered sugar has no unsupported alternative sources');
+
+  // Test 21: Audit Finding 1 - Flour has no unsupported USDA 125g alternative source
+  assert(!flour.alternativeSources || flour.alternativeSources.length === 0, 'Flour has no unsupported alternative sources');
+
+  // Test 22: Audit Finding 1 - Rolled oats retains verified King Arthur Branded Rolled Oats with URL
+  const oats = getIngredientById('oats')!;
+  assert(
+    Boolean(oats.alternativeSources && oats.alternativeSources.length > 0 && oats.alternativeSources[0].url),
+    'Rolled oats has verified King Arthur alternative source with direct URL'
+  );
+
+  // Test 23: Audit Finding 6 - Exact 1/3 cup flour under US Customary gives exactly 40g
+  const oneThirdFlour = convertCupsToGrams(1 / 3, flour, CUP_STANDARDS.us_customary);
+  assert(Math.round(oneThirdFlour * 10) / 10 === 40, '1/3 cup flour gives exactly 40g');
+  assert(formatGramDecimal(oneThirdFlour) === '40', '1/3 cup flour formats to "40" grams');
+
+  // Test 24: Audit Finding 6 - Exact 2/3 cup flour under US Customary gives exactly 80g
+  const twoThirdsFlour = convertCupsToGrams(2 / 3, flour, CUP_STANDARDS.us_customary);
+  assert(Math.round(twoThirdsFlour * 10) / 10 === 80, '2/3 cup flour gives exactly 80g');
+  assert(formatGramDecimal(twoThirdsFlour) === '80', '2/3 cup flour formats to "80" grams');
+
   console.log(`\n--- TESTS COMPLETED: ${passed}/${total} PASSED ---`);
 }
 

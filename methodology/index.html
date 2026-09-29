@@ -76,8 +76,10 @@
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Site Header -->
+<!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
@@ -126,11 +128,14 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="hero-section">
       <h1 class="hero-title">How Our Grams-to-Cups Conversions Work</h1>
-      <p class="hero-subhead">
-        Our converters use an ingredient's reference weight, your selected cup size, and a simple calculation. The results are <strong>estimates for cooking and baking</strong>, not measurements of the ingredient in your kitchen. This page explains the sources, assumptions and rounding behind the answers.
+      <p class="hero-subhead hero-direct-answer">
+        Our converters use an ingredient's reference weight, your selected cup size, and a simple calculation to provide <strong>estimates for cooking and baking</strong>.
+      </p>
+      <p class="hero-instruction">
+        This page explains the primary sources, density assumptions and rounding rules behind the answers.
       </p>
     </section>
 
@@ -166,8 +171,8 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Number</th>
-              <th>What it represents</th>
+              <th scope="col">Number</th>
+              <th scope="col">What it represents</th>
             </tr>
           </thead>
           <tbody>
@@ -235,8 +240,8 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Setting</th>
-              <th class="text-right">Cup volume used</th>
+              <th scope="col">Setting</th>
+              <th scope="col" class="text-right">Cup volume used</th>
             </tr>
           </thead>
           <tbody>

@@ -5,9 +5,37 @@ import { convertGramsToCups, convertCupsToGrams, formatCupDecimal, formatGramDec
 export interface CalculatorState {
   direction: 'gramsToCups' | 'cupsToGrams';
   value: number | null;
+  displayValue?: string;
+  selectedFraction?: string | null;
   ingredientId: string;
   cupStandardId: string;
   showAlternate: boolean;
+}
+
+function parseInputValue(raw: string): { val: number | null; fraction?: string; display?: string } {
+  const trimmed = raw.trim();
+  if (trimmed === '') return { val: null };
+  if (trimmed === '⅓' || trimmed === '1/3') return { val: 1 / 3, fraction: '1/3', display: '⅓' };
+  if (trimmed === '⅔' || trimmed === '2/3') return { val: 2 / 3, fraction: '2/3', display: '⅔' };
+  if (trimmed === '¼' || trimmed === '1/4') return { val: 0.25, fraction: '1/4', display: '¼' };
+  if (trimmed === '½' || trimmed === '1/2') return { val: 0.5, fraction: '1/2', display: '½' };
+  if (trimmed === '¾' || trimmed === '3/4') return { val: 0.75, fraction: '3/4', display: '¾' };
+  if (trimmed === '1') return { val: 1, fraction: '1', display: '1' };
+
+  if (trimmed.includes('/')) {
+    const parts = trimmed.split('/');
+    if (parts.length === 2) {
+      const num = parseFloat(parts[0]);
+      const den = parseFloat(parts[1]);
+      if (!isNaN(num) && !isNaN(den) && den !== 0) {
+        return { val: num / den, display: trimmed };
+      }
+    }
+  }
+
+  const num = parseFloat(trimmed);
+  if (isNaN(num)) return { val: NaN };
+  return { val: num, display: trimmed };
 }
 
 export class CalculatorComponent {
@@ -21,9 +49,14 @@ export class CalculatorComponent {
     }
     this.container = el;
 
+    const defaultDir = (el.dataset.direction as CalculatorState['direction']) || 'gramsToCups';
+    const initialVal = el.dataset.value ? parseFloat(el.dataset.value) : (defaultDir === 'gramsToCups' ? 100 : 1);
+
     this.state = {
-      direction: 'gramsToCups',
-      value: 100,
+      direction: defaultDir,
+      value: initialVal,
+      displayValue: String(initialVal),
+      selectedFraction: null,
       ingredientId: 'flour',
       cupStandardId: 'us_customary',
       showAlternate: false,
@@ -84,17 +117,34 @@ export class CalculatorComponent {
         ? ` (${effectiveDensity}g per ${cupStandard.shortName})`
         : ` (${result.sourceAttribution.gramsPerCupReference}g / cup)`;
       
-      const altHTML = (result.alternateComparison && this.state.showAlternate)
-        ? `<div class="provenance-line" style="margin-top:0.375rem; color:var(--brand-terracotta);">
-            <span class="provenance-label">Alternative Reference:</span> ${result.alternateComparison.sourceName} (${result.alternateComparison.note}) &rarr; <strong>${formatCupDecimal(result.alternateComparison.cups)} cups</strong>
-           </div>`
-        : '';
+      const gtcSourceLink = ingredient.primarySource.url
+        ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;text-decoration:underline;">${result.sourceAttribution.sourceName}</a>`
+        : result.sourceAttribution.sourceName;
 
-      const altToggleBtn = result.alternateComparison
-        ? `<button type="button" class="alt-toggle-link" id="alt-toggle-btn">
+      let altHTML = '';
+      let altToggleBtn = '';
+
+      if (result.alternateComparison) {
+        const altSourceDisplay = result.alternateComparison.url
+          ? `<a href="${result.alternateComparison.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;text-decoration:underline;">${result.alternateComparison.sourceName}</a>`
+          : result.alternateComparison.sourceName;
+        const formattedAltCups = formatCupDecimal(result.alternateComparison.cups);
+        const altCupUnit = (formattedAltCups === '1' || formattedAltCups === '<0.01') ? 'cup' : 'cups';
+
+        if (this.state.showAlternate) {
+          altHTML = `
+            <div class="provenance-line" style="margin-top:0.375rem; color:var(--brand-terracotta);">
+              <span class="provenance-label">Alternative Reference:</span> ${altSourceDisplay} (${result.alternateComparison.note}) &rarr; <strong>${formattedAltCups} ${altCupUnit}</strong>
+            </div>
+          `;
+        }
+
+        altToggleBtn = `
+          <button type="button" class="alt-toggle-link" id="alt-toggle-btn">
             ${this.state.showAlternate ? 'Hide alternative reference' : `Compare with ${result.alternateComparison.sourceName}`}
-           </button>`
-        : '';
+          </button>
+        `;
+      }
 
       const butterBadge = result.butterSticksFormatted
         ? `<div class="practical-badge">
@@ -121,15 +171,13 @@ export class CalculatorComponent {
         <div class="provenance-card">
           <div class="provenance-line">
             <span class="provenance-label">Reference source:</span>
-            <span>${result.sourceAttribution.sourceName}${gtcDensityNote}</span>
+            <span>${gtcSourceLink}${gtcDensityNote}</span>
           </div>
           <div class="provenance-line">
             <span class="provenance-label">Measuring method:</span>
             <span>${result.sourceAttribution.state} • ${result.sourceAttribution.method}</span>
           </div>
-          <div style="margin-top:0.25rem;">
-            ${altToggleBtn}
-          </div>
+          ${altToggleBtn ? `<div style="margin-top:0.25rem;">${altToggleBtn}</div>` : ''}
           ${altHTML}
         </div>
       `;
@@ -139,11 +187,15 @@ export class CalculatorComponent {
       const gramsFormatted = formatGramDecimal(rawGrams);
       const effectiveDensity = Math.round(ingredient.gramsPerReferenceCup * (cupStandard.volumeMl / ingredient.referenceCupMl) * 10) / 10;
       const ctgSourceLink = ingredient.primarySource.url
-        ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;">${ingredient.primarySource.name}</a>`
+        ? `<a href="${ingredient.primarySource.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-underline-offset:2px;text-decoration:underline;">${ingredient.primarySource.name}</a>`
         : ingredient.primarySource.name;
       const scalingNote = cupStandard.id !== 'us_customary'
         ? ` (${ingredient.gramsPerReferenceCup}g per US Cup, scaled for ${cupStandard.name})`
         : '';
+
+      const cupDisplay = this.state.displayValue
+        ? `${this.state.displayValue} ${cupStandard.name}`
+        : `${this.state.value} ${cupStandard.name}`;
 
       return `
         <div class="results-primary">
@@ -152,7 +204,7 @@ export class CalculatorComponent {
         </div>
         
         <div class="practical-badge">
-          <span>Calculation: <strong>${this.state.value} ${cupStandard.name}</strong> of ${ingredient.name}</span>
+          <span>Calculation: <strong>${cupDisplay}</strong> of ${ingredient.name}</span>
         </div>
 
         <div class="provenance-card">
@@ -169,11 +221,23 @@ export class CalculatorComponent {
     }
   }
 
-  private render() {
+  private render(focusTargetId?: string) {
     const isGramsToCups = this.state.direction === 'gramsToCups';
     const inputLabel = isGramsToCups ? 'Weight in grams' : 'Volume in cups';
     const inputPlaceholder = isGramsToCups ? 'e.g. 100' : 'e.g. 1';
-    const displayVal = this.state.value === null ? '' : this.state.value;
+    const displayVal = this.state.displayValue ?? (this.state.value === null ? '' : String(this.state.value));
+
+    const fractionShortcutsHTML = !isGramsToCups ? `
+      <div class="fraction-shortcuts" role="group" aria-label="Cup fraction shortcuts">
+        <span class="fraction-shortcuts-label">Quick fractions:</span>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '1/4' ? 'active' : ''}" data-fraction="1/4" data-value="0.25" data-label="¼" aria-label="One-quarter cup">&frac14;</button>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '1/3' ? 'active' : ''}" data-fraction="1/3" data-value="${1/3}" data-label="⅓" aria-label="One-third cup">&#8531;</button>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '1/2' ? 'active' : ''}" data-fraction="1/2" data-value="0.5" data-label="½" aria-label="One-half cup">&frac12;</button>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '2/3' ? 'active' : ''}" data-fraction="2/3" data-value="${2/3}" data-label="⅔" aria-label="Two-thirds cup">&#8532;</button>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '3/4' ? 'active' : ''}" data-fraction="3/4" data-value="0.75" data-label="¾" aria-label="Three-quarters cup">&frac34;</button>
+        <button type="button" class="fraction-btn ${this.state.selectedFraction === '1' ? 'active' : ''}" data-fraction="1" data-value="1" data-label="1" aria-label="One cup">1</button>
+      </div>
+    ` : '';
 
     const html = `
       <div class="calculator-card" id="calc-card-inner">
@@ -200,16 +264,16 @@ export class CalculatorComponent {
             <label class="form-label" for="calc-value-input">${inputLabel}</label>
             <div class="input-wrapper">
               <input 
-                type="number" 
+                type="text" 
                 id="calc-value-input" 
                 class="form-input" 
                 value="${displayVal}" 
                 placeholder="${inputPlaceholder}" 
-                step="any" 
-                min="0"
                 inputmode="decimal"
+                autocomplete="off"
               />
             </div>
+            ${fractionShortcutsHTML}
           </div>
 
           <div class="form-group">
@@ -231,20 +295,36 @@ export class CalculatorComponent {
     `;
 
     this.container.innerHTML = html;
+
+    if (focusTargetId) {
+      const elToFocus = this.container.querySelector(`#${focusTargetId}`) as HTMLElement | null;
+      if (elToFocus) {
+        elToFocus.focus();
+      }
+    }
   }
 
   private attachEventListeners() {
     const valInput = this.container.querySelector('#calc-value-input') as HTMLInputElement;
     if (valInput) {
       valInput.addEventListener('input', (e) => {
-        const raw = (e.target as HTMLInputElement).value.trim();
-        if (raw === '') {
-          this.state.value = null;
-          this.updateResultsOnly();
-          return;
-        }
-        const val = parseFloat(raw);
-        this.state.value = val;
+        const raw = (e.target as HTMLInputElement).value;
+        const parsed = parseInputValue(raw);
+        this.state.value = parsed.val;
+        this.state.displayValue = raw;
+        this.state.selectedFraction = parsed.fraction || null;
+
+        // Update active fraction button highlight
+        const fractionBtns = this.container.querySelectorAll('.fraction-btn');
+        fractionBtns.forEach(btn => {
+          const btnFraction = (btn as HTMLElement).dataset.fraction;
+          if (btnFraction && btnFraction === this.state.selectedFraction) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
         this.updateResultsOnly();
       });
     }
@@ -253,8 +333,8 @@ export class CalculatorComponent {
     if (ingSelect) {
       ingSelect.addEventListener('change', (e) => {
         this.state.ingredientId = (e.target as HTMLSelectElement).value;
-        this.render();
-        this.attachEventListeners();
+        // Keep focus on the ingredient dropdown: update results without replacing DOM elements
+        this.updateResultsOnly();
       });
     }
 
@@ -262,6 +342,7 @@ export class CalculatorComponent {
     if (csSelect) {
       csSelect.addEventListener('change', (e) => {
         this.state.cupStandardId = (e.target as HTMLSelectElement).value;
+        // Keep focus on the cup standard dropdown: update results without replacing DOM elements
         this.updateResultsOnly();
       });
     }
@@ -272,7 +353,9 @@ export class CalculatorComponent {
         if (this.state.direction !== 'gramsToCups') {
           this.state.direction = 'gramsToCups';
           this.state.value = 100;
-          this.render();
+          this.state.displayValue = '100';
+          this.state.selectedFraction = null;
+          this.render('btn-dir-gtc');
           this.attachEventListeners();
         }
       });
@@ -284,11 +367,37 @@ export class CalculatorComponent {
         if (this.state.direction !== 'cupsToGrams') {
           this.state.direction = 'cupsToGrams';
           this.state.value = 1;
-          this.render();
+          this.state.displayValue = '1';
+          this.state.selectedFraction = '1';
+          this.render('btn-dir-ctg');
           this.attachEventListeners();
         }
       });
     }
+
+    // Fraction buttons click listeners
+    const fractionBtns = this.container.querySelectorAll('.fraction-btn');
+    fractionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = (e.currentTarget as HTMLElement);
+        const fraction = target.dataset.fraction || null;
+        const val = parseFloat(target.dataset.value || '1');
+        const label = target.dataset.label || String(val);
+
+        this.state.value = val;
+        this.state.selectedFraction = fraction;
+        this.state.displayValue = label;
+
+        if (valInput) {
+          valInput.value = label;
+        }
+
+        fractionBtns.forEach(b => b.classList.remove('active'));
+        target.classList.add('active');
+
+        this.updateResultsOnly();
+      });
+    });
 
     const altBtn = this.container.querySelector('#alt-toggle-btn');
     if (altBtn) {

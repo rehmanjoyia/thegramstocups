@@ -107,6 +107,8 @@
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Site Header -->
   <header class="site-header">
@@ -157,7 +159,7 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="hero-section">
       <h1 class="hero-title">Cups to Grams Converter</h1>
       <p class="hero-subhead hero-direct-answer">
@@ -171,15 +173,20 @@
     <!-- Centerpiece Calculator Card Container -->
     <div id="calculator-app" data-direction="cupsToGrams" data-value="1">
       <div class="calculator-card">
+        <noscript>
+          <p class="calc-noscript-notice" style="font-size:0.813rem; color:var(--text-secondary); margin-bottom:0.75rem; text-align:center;">
+            <em>JavaScript is disabled. The example below illustrates standard 1 cup conversion; see complete reference tables below.</em>
+          </p>
+        </noscript>
         <div class="calculator-grid-inputs">
           <div class="form-group">
             <label class="form-label" for="fallback-input">Amount in cups</label>
-            <input type="number" id="fallback-input" class="form-input" value="1" placeholder="e.g. 1.5" />
-            <span style="display:block; font-size:0.8rem; color:var(--text-muted, #A8A29E); margin-top:0.35rem;">Enter a decimal, such as 1.5 for 1&frac12; cups, or choose a fraction below.</span>
+            <input type="number" id="fallback-input" class="form-input" value="1" placeholder="e.g. 1.5" disabled aria-disabled="true" />
+            <span style="display:block; font-size:0.8rem; color:var(--text-secondary); margin-top:0.35rem;">Enter a decimal, such as 1.5 for 1&frac12; cups, or choose a fraction below.</span>
           </div>
           <div class="form-group">
             <label class="form-label" for="fallback-select">Ingredient</label>
-            <select id="fallback-select" class="form-select">
+            <select id="fallback-select" class="form-select" disabled aria-disabled="true">
               <option value="flour">All-Purpose Flour (120g / cup)</option>
               <option value="sugar">Granulated Sugar (198g / cup)</option>
               <option value="butter">Butter (227g / cup)</option>
@@ -191,12 +198,12 @@
 
         <!-- Fraction Shortcut Buttons -->
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem;" role="group" aria-label="Cup fraction shortcuts">
-          <button type="button" class="fraction-btn" aria-label="One-quarter cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac14;</button>
-          <button type="button" class="fraction-btn" aria-label="One-third cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&#8531;</button>
-          <button type="button" class="fraction-btn" aria-label="One-half cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac12;</button>
-          <button type="button" class="fraction-btn" aria-label="Two-thirds cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&#8532;</button>
-          <button type="button" class="fraction-btn" aria-label="Three-quarters cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac34;</button>
-          <button type="button" class="fraction-btn" aria-label="One cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">1</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="One-quarter cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac14;</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="One-third cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&#8531;</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="One-half cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac12;</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="Two-thirds cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&#8532;</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="Three-quarters cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">&frac34;</button>
+          <button type="button" class="fraction-btn" disabled aria-disabled="true" aria-label="One cup" style="min-width:3rem; padding:0.4rem 0.6rem; border:1px solid var(--border-color, #E7E0D8); border-radius:0.375rem; background:var(--surface-alt, #FAF7F4); font-family:inherit; font-size:0.9rem; cursor:pointer; color:var(--text-primary, #2C1810);">1</button>
         </div>
 
         <div class="results-box">

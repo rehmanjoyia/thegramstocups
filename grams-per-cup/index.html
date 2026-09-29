@@ -97,8 +97,10 @@
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Site Header -->
+<!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
@@ -147,11 +149,14 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="hero-section">
       <h1 class="hero-title">Grams per Cup: Ingredient Weight Chart</h1>
-      <p class="hero-subhead">
-        One cup does not have a single weight in grams. Our reference is <strong>120g for all-purpose flour, 198g for granulated sugar and 227g for butter</strong>. Find your ingredient below, including the preparation and source used for its conversion.
+      <p class="hero-subhead hero-direct-answer">
+        One cup does not have a single weight in grams: our baseline reference is <strong>120g for all-purpose flour, 198g for granulated sugar and 227g for butter</strong>.
+      </p>
+      <p class="hero-instruction">
+        Find your ingredient below, including the preparation and source used for its conversion.
       </p>
     </section>
 
@@ -174,10 +179,10 @@
           <caption style="text-align:left; font-size:0.85rem; color:var(--text-muted, #A8A29E); margin-bottom:0.5rem; caption-side:top;">Reference grams per US Customary cup</caption>
           <thead>
             <tr>
-              <th>Ingredient</th>
-              <th class="text-right">Grams per cup</th>
-              <th>Ingredient or preparation covered</th>
-              <th>Source</th>
+              <th scope="col">Ingredient</th>
+              <th scope="col" class="text-right">Grams per cup</th>
+              <th scope="col">Ingredient or preparation covered</th>
+              <th scope="col">Source</th>
             </tr>
           </thead>
           <tbody>

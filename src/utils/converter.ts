@@ -25,6 +25,7 @@ export interface ConversionResult {
     grams: number;
     cups: number;
     note: string;
+    url?: string;
   };
 }
 
@@ -91,7 +92,8 @@ export function convertGramsToCups(
       sourceName: primaryAlt.name,
       grams,
       cups: altCups,
-      note: primaryAlt.note
+      note: primaryAlt.note,
+      url: primaryAlt.url
     };
   }
 

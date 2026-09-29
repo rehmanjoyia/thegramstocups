@@ -119,6 +119,8 @@
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Site Header -->
   <header class="site-header">
@@ -169,7 +171,7 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="hero-section">
       <h1 class="hero-title">Grams to Cups Converter</h1>
       <p class="hero-subhead hero-direct-answer">
@@ -184,14 +186,19 @@
     <div id="calculator-app">
       <!-- Fallback static pre-rendered HTML for Googlebot & instant paint -->
       <div class="calculator-card">
+        <noscript>
+          <p class="calc-noscript-notice" style="font-size:0.813rem; color:var(--text-secondary); margin-bottom:0.75rem; text-align:center;">
+            <em>JavaScript is disabled. The example below illustrates standard 100g conversion; see complete reference tables below.</em>
+          </p>
+        </noscript>
         <div class="calculator-grid-inputs">
           <div class="form-group">
             <label class="form-label" for="fallback-input">Weight in grams</label>
-            <input type="number" id="fallback-input" class="form-input" value="100" />
+            <input type="number" id="fallback-input" class="form-input" value="100" disabled aria-disabled="true" />
           </div>
           <div class="form-group">
             <label class="form-label" for="fallback-select">Ingredient</label>
-            <select id="fallback-select" class="form-select">
+            <select id="fallback-select" class="form-select" disabled aria-disabled="true">
               <option value="flour">All-Purpose Flour (Dry, spooned and leveled)</option>
               <option value="sugar">Granulated White Sugar (Granulated)</option>
               <option value="butter">Butter (Solid / softened)</option>
@@ -259,10 +266,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Ingredient</th>
-              <th>Preparation used for the reference</th>
-              <th class="text-right">Reference grams per cup</th>
-              <th class="text-right">100g in cups, approximately</th>
+              <th scope="col">Ingredient</th>
+              <th scope="col">Preparation used for the reference</th>
+              <th scope="col" class="text-right">Reference grams per cup</th>
+              <th scope="col" class="text-right">100g in cups, approximately</th>
             </tr>
           </thead>
           <tbody>
@@ -327,10 +334,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th class="text-right">Grams</th>
-              <th class="text-right">Flour: cups at 120g/cup</th>
-              <th class="text-right">Granulated sugar: cups at 198g/cup</th>
-              <th class="text-right">Butter: cups at 227g/cup</th>
+              <th scope="col" class="text-right">Grams</th>
+              <th scope="col" class="text-right">Flour: cups at 120g/cup</th>
+              <th scope="col" class="text-right">Granulated sugar: cups at 198g/cup</th>
+              <th scope="col" class="text-right">Butter: cups at 227g/cup</th>
             </tr>
           </thead>
           <tbody>
@@ -439,9 +446,9 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Converter setting</th>
-              <th class="text-right">Volume</th>
-              <th>What it means</th>
+              <th scope="col">Converter setting</th>
+              <th scope="col" class="text-right">Volume</th>
+              <th scope="col">What it means</th>
             </tr>
           </thead>
           <tbody>

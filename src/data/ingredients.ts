@@ -2,6 +2,7 @@ export interface AlternativeSource {
   name: string;
   gramsPerCup: number;
   note: string;
+  url?: string;
 }
 
 export interface Ingredient {
@@ -40,13 +41,6 @@ export const INGREDIENTS: Ingredient[] = [
       url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
       publicationOrRecord: 'Official Ingredient Weight Chart'
     },
-    alternativeSources: [
-      {
-        name: 'USDA Food Buying Guide',
-        gramsPerCup: 125,
-        note: 'USDA lists enriched white flour at 125g per cup using standard commercial packing.'
-      }
-    ],
     confidence: 'high',
     aliases: ['ap flour', 'white flour', 'plain flour', 'all purpose flour'],
     notes: 'Flour density varies greatly with technique. Dipping a measuring cup directly into a flour bag packs it down, resulting in up to 140g per cup.',
@@ -102,13 +96,6 @@ export const INGREDIENTS: Ingredient[] = [
       url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
       publicationOrRecord: 'Official Ingredient Weight Chart'
     },
-    alternativeSources: [
-      {
-        name: 'King Arthur Baking (Unpacked)',
-        gramsPerCup: 170,
-        note: 'King Arthur Ingredient Weight Chart lists loosely filled brown sugar at approximately 170g per cup.'
-      }
-    ],
     confidence: 'high',
     aliases: ['light brown sugar', 'dark brown sugar', 'packed brown sugar'],
     notes: 'Standard baking recipes specify packed brown sugar. If your recipe calls for unpacked brown sugar, density is lower.',
@@ -127,17 +114,10 @@ export const INGREDIENTS: Ingredient[] = [
       url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
       publicationOrRecord: 'Official Ingredient Weight Chart'
     },
-    alternativeSources: [
-      {
-        name: 'King Arthur Baking (Sifted)',
-        gramsPerCup: 100,
-        note: 'King Arthur Ingredient Weight Chart notes sifted confectioners’ sugar contains more air and weighs approximately 100g per cup.'
-      }
-    ],
     confidence: 'high',
     aliases: ['icing sugar', 'confectioners sugar', '10x sugar', 'powdered sugar'],
     notes: 'Always verify if a recipe asks to measure powdered sugar before or after sifting.',
-    metaDescription: 'Convert powdered sugar (icing sugar) grams to cups with clear unsifted (113g/cup) vs sifted (100g/cup) reference disclosures.'
+    metaDescription: 'Convert powdered sugar (icing sugar) grams to cups with clear unsifted (113g/cup) source-backed reference weights.'
   },
   {
     id: 'oats',
@@ -156,18 +136,14 @@ export const INGREDIENTS: Ingredient[] = [
       {
         name: 'King Arthur Branded Rolled Oats',
         gramsPerCup: 113,
-        note: 'Branded King Arthur Rolled Oats product is listed separately at 113g per cup.'
-      },
-      {
-        name: 'USDA Food Buying Guide',
-        gramsPerCup: 81,
-        note: 'USDA lists 81g per cup for regular and quick rolled oats.'
+        note: 'Branded King Arthur Rolled Oats product is listed separately at 113g per cup.',
+        url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart'
       }
     ],
     confidence: 'high',
     aliases: ['old fashioned oats', 'rolled oats', 'oatmeal', 'quick oats'],
     notes: 'Generic dry oat reference of 89g per cup. Steel-cut oats are much denser (approx 170g/cup).',
-    metaDescription: 'Convert rolled oats grams to cups with source-backed references (King Arthur 89g vs USDA 81g). Get practical baking fractions.'
+    metaDescription: 'Convert rolled oats grams to cups with source-backed references (King Arthur 89g standard). Get practical baking fractions.'
   },
   {
     id: 'rice',

@@ -21,6 +21,11 @@ export function initContactForm(): void {
     return;
   }
 
+  // Safely activate client-handled submission
+  form.setAttribute('novalidate', '');
+  submitBtn.removeAttribute('disabled');
+  submitBtn.removeAttribute('aria-disabled');
+
   // Rate limiting tracker in memory (session scope)
   const SUBMISSION_TIMESTAMPS: number[] = [];
   const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000; // 5 minutes

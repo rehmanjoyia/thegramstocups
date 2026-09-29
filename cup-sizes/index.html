@@ -105,8 +105,10 @@
   <meta name="twitter:image" content="https://thegramstocups.com/og-image.png" />
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Site Header -->
+<!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
@@ -155,11 +157,14 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="hero-section">
       <h1 class="hero-title">Cup Sizes: US Customary, US Legal and Metric</h1>
-      <p class="hero-subhead">
-        A cup is not always the same size. Our converter offers <strong>US Customary (236.588mL), US Legal (240mL) and Metric (250mL)</strong>. Choose the size that matches your recipe or measuring cup before converting between cups and grams.
+      <p class="hero-subhead hero-direct-answer">
+        A cup is not always the same size: our converter offers <strong>US Customary (236.588mL), US Legal (240mL) and Metric (250mL)</strong>.
+      </p>
+      <p class="hero-instruction">
+        Choose the size that matches your recipe or measuring cup before converting between cups and grams.
       </p>
     </section>
 
@@ -180,9 +185,9 @@
           <caption style="text-align:left; font-size:0.85rem; color:var(--text-muted, #A8A29E); margin-bottom:0.5rem; caption-side:top;">Standard measuring cup volumes</caption>
           <thead>
             <tr>
-              <th>Cup setting</th>
-              <th class="text-right">Volume of one cup</th>
-              <th>When to choose it</th>
+              <th scope="col">Cup setting</th>
+              <th scope="col" class="text-right">Volume of one cup</th>
+              <th scope="col">When to choose it</th>
             </tr>
           </thead>
           <tbody>
@@ -248,8 +253,8 @@
           <caption style="text-align:left; font-size:0.85rem; color:var(--text-muted, #A8A29E); margin-bottom:0.5rem; caption-side:top;">Flour weight across cup standards (120g baseline)</caption>
           <thead>
             <tr>
-              <th>Selected cup</th>
-              <th class="text-right">Estimated flour weight for one cup</th>
+              <th scope="col">Selected cup</th>
+              <th scope="col" class="text-right">Estimated flour weight for one cup</th>
             </tr>
           </thead>
           <tbody>
@@ -293,9 +298,9 @@
           <caption style="text-align:left; font-size:0.85rem; color:var(--text-muted, #A8A29E); margin-bottom:0.5rem; caption-side:top;">Tablespoon and teaspoon volumes by setting</caption>
           <thead>
             <tr>
-              <th>Calculator setting</th>
-              <th class="text-right">Tablespoon used</th>
-              <th class="text-right">Teaspoon used</th>
+              <th scope="col">Calculator setting</th>
+              <th scope="col" class="text-right">Tablespoon used</th>
+              <th scope="col" class="text-right">Teaspoon used</th>
             </tr>
           </thead>
           <tbody>
