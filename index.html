@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FAF8F5" />
   <title>Grams to Cups Converter: Flour, Sugar &amp; More</title>
   <meta name="description" content="Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources." />
   <link rel="canonical" href="https://thegramstocups.com/" />
@@ -33,7 +34,13 @@
         "@type": "Organization",
         "@id": "https://thegramstocups.com/#organization",
         "name": "The Grams to Cups",
-        "url": "https://thegramstocups.com/"
+        "url": "https://thegramstocups.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://thegramstocups.com/logo.png",
+          "width": 2172,
+          "height": 724
+        }
       },
       {
         "@type": "WebPage",
@@ -98,6 +105,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Google Fonts: Fraunces, Playfair Display & Plus Jakarta Sans -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -126,7 +135,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" />
+        <img src="/logo.png" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" fetchpriority="high" />
       </a>
 
       <!-- Desktop Nav -->

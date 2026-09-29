@@ -2,8 +2,6 @@
    Design System: Modern Editorial Cooking Utility (thegramstocups.com)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 :root {
   /* Warm Ivory & Linen Color Palette */
   --bg-page: #FAF8F5;

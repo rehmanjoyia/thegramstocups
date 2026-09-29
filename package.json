@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "nodemailer": "^10.0.12",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "nodemailer": "^10.0.12"
   },
   "devDependencies": {
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
   }
 }
