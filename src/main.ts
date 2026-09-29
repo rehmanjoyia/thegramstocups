@@ -1,9 +1,21 @@
 import { CalculatorComponent } from './components/calculator.ts';
 import { initNavigation } from './components/navigation.ts';
+import { initContactForm } from './components/contactForm.ts';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize mobile navigation drawer & menu toggle
   initNavigation();
+
+  // Initialize contact form if present on current page
+  initContactForm();
+
+  // Initialize print chart button if present
+  const printBtn = document.getElementById('btn-print-chart');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
 
   // If calculator container exists on current page, initialize calculator
   const calcContainer = document.getElementById('calculator-app');
