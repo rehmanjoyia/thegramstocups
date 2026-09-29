@@ -65,13 +65,6 @@ export const INGREDIENTS: Ingredient[] = [
       url: 'https://www.kingarthurbaking.com/learn/ingredient-weight-chart',
       publicationOrRecord: 'Official Ingredient Weight Chart'
     },
-    alternativeSources: [
-      {
-        name: 'Standard Kitchen Chart Rounding',
-        gramsPerCup: 200,
-        note: 'Many general recipe conversion charts round granulated sugar to 200g per cup.'
-      }
-    ],
     confidence: 'high',
     aliases: ['white sugar', 'table sugar', 'granulated sugar', 'sugar'],
     notes: 'Granulated sugar has a consistent density because crystals do not pack or compress significantly.',
@@ -111,9 +104,9 @@ export const INGREDIENTS: Ingredient[] = [
     },
     alternativeSources: [
       {
-        name: 'Unpacked / Loose Brown Sugar',
+        name: 'King Arthur Baking (Unpacked)',
         gramsPerCup: 170,
-        note: 'Unpacked brown sugar weighs roughly 170g per cup.'
+        note: 'King Arthur Ingredient Weight Chart lists loosely filled brown sugar at approximately 170g per cup.'
       }
     ],
     confidence: 'high',
@@ -136,9 +129,9 @@ export const INGREDIENTS: Ingredient[] = [
     },
     alternativeSources: [
       {
-        name: 'Sifted Powdered Sugar',
+        name: 'King Arthur Baking (Sifted)',
         gramsPerCup: 100,
-        note: 'Sifted powdered sugar contains more air pockets and weighs approximately 100g per cup.'
+        note: 'King Arthur Ingredient Weight Chart notes sifted confectioners’ sugar contains more air and weighs approximately 100g per cup.'
       }
     ],
     confidence: 'high',
@@ -207,13 +200,6 @@ export const INGREDIENTS: Ingredient[] = [
       url: 'https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf#page=80',
       publicationOrRecord: 'Printed p. 74, food 1005 (Honey, strained or extracted, 1 cup)'
     },
-    alternativeSources: [
-      {
-        name: 'Commercial Conversion Charts',
-        gramsPerCup: 340,
-        note: 'Many commercial kitchen charts round honey density to 340g per cup.'
-      }
-    ],
     confidence: 'high',
     aliases: ['pure honey', 'raw honey', 'liquid honey'],
     tablespoonEquivalentGrams: 21,

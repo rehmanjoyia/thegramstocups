@@ -467,6 +467,13 @@ body.menu-open {
   margin-bottom: 0.75rem;
 }
 
+.spoon-standard-helper {
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
 .provenance-card {
   border-top: 1px dashed var(--border-medium);
   padding-top: 0.75rem;

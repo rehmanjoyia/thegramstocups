@@ -120,6 +120,7 @@ export function convertGramsToCups(
 
 /**
  * Converts cups to grams for a specific ingredient and cup standard.
+ * Returns raw unrounded grams to preserve full calculation precision until display.
  */
 export function convertCupsToGrams(
   cups: number,
@@ -132,8 +133,7 @@ export function convertCupsToGrams(
   if (cups === 0) return 0;
 
   const scaleFactor = cupStandard.volumeMl / ingredient.referenceCupMl;
-  const rawGrams = cups * ingredient.gramsPerReferenceCup * scaleFactor;
-  return Math.round(rawGrams * 10) / 10;
+  return cups * ingredient.gramsPerReferenceCup * scaleFactor;
 }
 
 /**
@@ -150,6 +150,22 @@ export function formatCupDecimal(cups: number): string {
 
   // Conventional rounding with halfway values rounded up
   const rounded = Number(Math.round(Number(cups + 'e2')) + 'e-2');
+  return rounded.toString();
+}
+
+/**
+ * Formats gram results according to the site rounding policy:
+ * - Up to one decimal place across calculators and tables.
+ * - Conventional rounding with halfway values rounded up.
+ * - Removes unnecessary trailing zeros (e.g. 100, 53.3, 169.5).
+ * - For positive raw results below 0.05g, displays "<0.1".
+ * - Exact zero displays "0".
+ */
+export function formatGramDecimal(grams: number): string {
+  if (grams <= 0) return '0';
+  if (grams < 0.05) return '<0.1';
+
+  const rounded = Number(Math.round(Number(grams + 'e1')) + 'e-1');
   return rounded.toString();
 }
 
@@ -199,6 +215,7 @@ export function formatFraction(cups: number): string {
 
 /**
  * Decomposes cups into practical kitchen measures: whole cups + ¾, ½, ⅓, ¼ cup + tbsp + tsp.
+ * Operates on the quarter-teaspoon grid without arbitrary tolerance expansions.
  */
 export function formatPracticalMeasure(
   cups: number,
@@ -212,8 +229,8 @@ export function formatPracticalMeasure(
   const unitsPerCup = cupStandard.id === 'metric' ? 200 : 192;
   const totalQuarterTsp = cups * unitsPerCup;
 
-  // Below-measurable-quantity threshold (under 0.75 quarter-teaspoon)
-  if (totalQuarterTsp < 0.75) {
+  // Below-measurable-quantity rule: positive volume less than ¼ teaspoon (< 1 quarter-teaspoon)
+  if (totalQuarterTsp < 1.0) {
     return 'Less than ¼ teaspoon';
   }
 
@@ -234,11 +251,11 @@ export function formatPracticalMeasure(
   const oneThird = Math.round(unitsPerCup * (1 / 3));  // 64 US, 67 Metric
   const oneQuarter = Math.round(unitsPerCup * 0.25);   // 48 US, 50 Metric
 
-  // Check near-exact ⅔ or ⅓ match
-  if (Math.abs(units - twoThirds) <= 1) {
+  // Match exact thirds on the quarter-teaspoon grid, or standard quarter-based cup steps
+  if (units === twoThirds) {
     fractionPart = '⅔ cup';
     units -= twoThirds;
-  } else if (Math.abs(units - oneThird) <= 1) {
+  } else if (units === oneThird) {
     fractionPart = '⅓ cup';
     units -= oneThird;
   } else if (units >= threeQuarter) {
@@ -252,11 +269,6 @@ export function formatPracticalMeasure(
     units -= oneQuarter;
   }
 
-  // If a major cup fraction was selected and remaining units is merely a tiny residual (<= 1 quarter-tsp), drop it for clean kitchen fractions
-  if (fractionPart && units <= 1) {
-    units = 0;
-  }
-
   // 1 tablespoon = 3 teaspoons = 12 quarter-teaspoons (in both US and 15mL metric tbsp)
   const tbspUnits = 12;
   let tbsp = Math.floor(units / tbspUnits);
@@ -267,18 +279,13 @@ export function formatPracticalMeasure(
   const remQuarter = units % 4;
 
   let tspStr = '';
-  if (tspWhole > 0 && remQuarter === 2) {
-    tspStr = `${tspWhole}½ tsp`;
-  } else if (tspWhole > 0 && remQuarter === 0) {
+  const quarterUnicode = remQuarter === 1 ? '¼' : remQuarter === 2 ? '½' : remQuarter === 3 ? '¾' : '';
+  if (tspWhole > 0 && remQuarter > 0) {
+    tspStr = `${tspWhole}${quarterUnicode} tsp`;
+  } else if (tspWhole > 0) {
     tspStr = `${tspWhole} tsp`;
-  } else if (tspWhole === 0 && remQuarter === 2) {
-    tspStr = '½ tsp';
-  } else if (tspWhole === 0 && remQuarter === 1) {
-    tspStr = '¼ tsp';
-  } else if (tspWhole === 0 && remQuarter === 3) {
-    tspStr = '¾ tsp';
-  } else if (tspWhole > 0 && remQuarter > 0) {
-    tspStr = `${tspWhole + remQuarter / 4} tsp`;
+  } else if (remQuarter > 0) {
+    tspStr = `${quarterUnicode} tsp`;
   }
 
   const parts: string[] = [];

@@ -1,6 +1,6 @@
 import { getIngredientById } from '../data/ingredients';
 import { CUP_STANDARDS } from '../data/cupStandards';
-import { convertGramsToCups, convertCupsToGrams } from './converter';
+import { convertGramsToCups, convertCupsToGrams, formatGramDecimal } from './converter';
 
 function runTests() {
   console.log('--- STARTING CONVERSION ENGINE UNIT TESTS ---\n');
@@ -21,6 +21,7 @@ function runTests() {
   const butter = getIngredientById('butter')!;
   const brownSugar = getIngredientById('brown-sugar')!;
   const powderedSugar = getIngredientById('powdered-sugar')!;
+  const honey = getIngredientById('honey')!;
 
   // Test 1: 120g All-Purpose Flour = 1 US Customary Cup
   const flour120 = convertGramsToCups(120, flour, CUP_STANDARDS.us_customary);
@@ -51,7 +52,6 @@ function runTests() {
   assert(butter113.cups === 0.5, '113.5g butter = 0.5 cups');
   assert(Boolean(butter113.butterSticksFormatted?.includes('1 stick')), '113.5g butter = 1 stick');
 
-
   // Test 6: Brown Sugar state metadata
   const bsResult = convertGramsToCups(100, brownSugar, CUP_STANDARDS.us_customary);
   assert(bsResult.sourceAttribution.state.toLowerCase().includes('packed'), 'Brown sugar state explicitly includes "packed"');
@@ -79,9 +79,9 @@ function runTests() {
   const tinyFlour = convertGramsToCups(0.1, flour, CUP_STANDARDS.us_customary);
   assert(tinyFlour.practicalMeasure === 'Less than ¼ teaspoon', '0.1g flour practical measure is "Less than ¼ teaspoon"');
 
-  // Test 12: 1 metric cup flour converts to 126.8g
+  // Test 12: 1 metric cup flour converts to 126.8g formatted
   const metricFlourGrams = convertCupsToGrams(1, flour, CUP_STANDARDS.metric);
-  assert(metricFlourGrams === 126.8, '1 metric cup flour = 126.8g');
+  assert(formatGramDecimal(metricFlourGrams) === '126.8', '1 metric cup flour formatted = 126.8g');
 
   // Test 13: Positive result below 0.01 cup displays "<0.01"
   const tinyGrams = convertGramsToCups(0.5, flour, CUP_STANDARDS.us_customary);
@@ -90,6 +90,21 @@ function runTests() {
   // Test 14: Trailing zero removal (e.g. 60g flour = 0.5 cups)
   const halfCupFlour = convertGramsToCups(60, flour, CUP_STANDARDS.us_customary);
   assert(halfCupFlour.decimalCupsFormatted === '0.5', '60g flour decimal formatted removes trailing zero to "0.5"');
+
+  // Test 15: Finding 3 - 39.375g flour on quarter-teaspoon grid (exactly 15.75 tsp = ¼ cup + 1 tbsp + ¾ tsp)
+  const flour39 = convertGramsToCups(39.375, flour, CUP_STANDARDS.us_customary);
+  assert(flour39.decimalCupsFormatted === '0.33', '39.375g flour decimal formatted is "0.33"');
+  assert(flour39.practicalMeasure === '¼ cup + 1 tbsp + ¾ tsp', '39.375g flour practical measure decomposes to "¼ cup + 1 tbsp + ¾ tsp"');
+
+  // Test 16: Finding 3 - 0.5g flour (< ¼ tsp threshold) produces "Less than ¼ teaspoon"
+  assert(tinyGrams.practicalMeasure === 'Less than ¼ teaspoon', '0.5g flour practical measure is "Less than ¼ teaspoon"');
+
+  // Test 17: Finding 6 - 0.00001 cup honey raw unrounded preserved to display "<0.1"
+  const honeyTinyCups = convertCupsToGrams(0.00001, honey, CUP_STANDARDS.us_customary);
+  assert(formatGramDecimal(honeyTinyCups) === '<0.1', '0.00001 cup honey formats to "<0.1" grams');
+
+  // Test 18: Finding 2 - Honey has no unverified commercial chart alternative
+  assert(!honey.alternativeSources || honey.alternativeSources.length === 0, 'Honey has no unsupported alternative sources');
 
   console.log(`\n--- TESTS COMPLETED: ${passed}/${total} PASSED ---`);
 }

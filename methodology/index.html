@@ -7,6 +7,16 @@
   <meta name="description" content="See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue." />
   <link rel="canonical" href="https://thegramstocups.com/methodology/" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVJWGWDZM9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVJWGWDZM9');
+  </script>
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -52,7 +62,7 @@
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Grams to Cups" />
+  <meta property="og:site_name" content="The Grams to Cups" />
   <meta property="og:url" content="https://thegramstocups.com/methodology/" />
   <meta property="og:title" content="Conversion Methodology: Sources, Formulas &amp; Rounding" />
   <meta property="og:description" content="See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue." />
@@ -110,7 +120,7 @@
           <li><a href="/cup-sizes/" class="mobile-nav-link">Cup Standards &amp; Sizes</a></li>
           <li><a href="/how-to-measure-flour/" class="mobile-nav-link">Spoon &amp; Level Guide</a></li>
           <li><a href="/methodology/" class="mobile-nav-link">Data Methodology</a></li>
-          <li><a href="/about/" class="mobile-nav-link">About Grams to Cups</a></li>
+          <li><a href="/about/" class="mobile-nav-link">About The Grams to Cups</a></li>
         </ul>
       </nav>
     </div>
@@ -275,10 +285,13 @@
       <h2 class="section-title">How results are rounded</h2>
       <div class="prose">
         <p>
-          Calculations retain their working precision until the answer is displayed. Cup results in the calculator use up to three decimal places; most conversion tables use two. Gram results use up to one decimal place. Trailing zeros may be omitted.
+          Calculations retain full mathematical precision until the answer is displayed. Across our calculators and conversion tables, cup results display up to two decimal places, while gram results display up to one decimal place. Standard conventional rounding is applied (halfway values round up), and unnecessary trailing zeros are omitted for clarity.
         </p>
         <p>
-          For example, 250g of flour produces 2.0833&hellip; cups before rounding. That can appear as 2.083 in the calculator and 2.08 in a table. Both displays come from the same calculation.
+          For example, 250g of flour produces 2.0833&hellip; cups before rounding. That displays consistently as <strong>2.08 cups</strong> in both the calculator and our reference tables.
+        </p>
+        <p>
+          Very small positive results are handled through defined minimum display thresholds rather than rounding falsely to zero. Any positive volume below 0.01 cup displays as <strong>&lt;0.01 cup</strong>, and any positive gram weight below 0.05g displays as <strong>&lt;0.1g</strong>. Exact numerical zero displays as <strong>0</strong>.
         </p>
         <p>
           Rounding can also explain differences between references. A rounded half-cup weight, doubled, may differ from a full-cup weight rounded separately. We use the declared full-cup baseline consistently rather than switching between rounded values.
