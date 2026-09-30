@@ -140,22 +140,72 @@
     <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
       <div class="mobile-nav-header">
         <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-          <img src="/logo.svg" alt="Grams to Cups" class="brand-logo-img" width="108" height="36" style="height:36px; width:auto;" />
+          <img src="/logo.svg" alt="Grams to Cups" class="brand-logo-img" width="144" height="48" style="height:48px; width:auto;" />
         </a>
         <button type="button" class="mobile-menu-btn" id="mobile-menu-close" style="display:flex;" aria-label="Close navigation menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-      <nav>
-        <ul class="mobile-nav-list">
-          <li><a href="/" class="mobile-nav-link">Grams to Cups Converter</a></li>
-          <li><a href="/cups-to-grams/" class="mobile-nav-link">Cups to Grams Converter</a></li>
-          <li><a href="/grams-per-cup/" class="mobile-nav-link">Ingredient Density Chart</a></li>
-          <li><a href="/cup-sizes/" class="mobile-nav-link">Cup Standards &amp; Sizes</a></li>
-          <li><a href="/how-to-measure-flour/" class="mobile-nav-link">Spoon &amp; Level Guide</a></li>
-          <li><a href="/methodology/" class="mobile-nav-link">Data Methodology</a></li>
-          <li><a href="/about/" class="mobile-nav-link">About The Grams to Cups</a></li>
-        </ul>
+
+      <nav class="mobile-nav-scroll" aria-label="Mobile Navigation">
+        <!-- Pillar 1: Converters & Tools -->
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-title">Kitchen Scale Converters</div>
+          <ul class="mobile-nav-list">
+            <li><a href="/" class="mobile-nav-link">Grams to Cups Converter</a></li>
+            <li><a href="/cups-to-grams/" class="mobile-nav-link">Cups to Grams Converter</a></li>
+            <li><a href="/50-grams-to-cups/" class="mobile-nav-link">50 Grams to Cups Matrix</a></li>
+            <li><a href="/100-grams-to-cups/" class="mobile-nav-link">100 Grams to Cups Matrix</a></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Popular Ingredients -->
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-title">Popular Ingredients</div>
+          <div class="mobile-ingredient-grid">
+            <a href="/grams-to-cups/flour/" class="mobile-ingredient-chip">Flour</a>
+            <a href="/grams-to-cups/sugar/" class="mobile-ingredient-chip">Sugar</a>
+            <a href="/grams-to-cups/butter/" class="mobile-ingredient-chip">Butter</a>
+            <a href="/grams-to-cups/brown-sugar/" class="mobile-ingredient-chip">Brown Sugar</a>
+            <a href="/grams-to-cups/powdered-sugar/" class="mobile-ingredient-chip">Powdered Sugar</a>
+            <a href="/grams-to-cups/oats/" class="mobile-ingredient-chip">Rolled Oats</a>
+            <a href="/grams-to-cups/rice/" class="mobile-ingredient-chip">Rice</a>
+            <a href="/grams-to-cups/oil/" class="mobile-ingredient-chip">Cooking Oil</a>
+            <a href="/grams-to-cups/milk/" class="mobile-ingredient-chip">Whole Milk</a>
+            <a href="/grams-to-cups/honey/" class="mobile-ingredient-chip">Honey</a>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Guides & Standards -->
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-title">Culinary Guides &amp; Standards</div>
+          <ul class="mobile-nav-list">
+            <li><a href="/grams-per-cup/" class="mobile-nav-link">Master Density Chart</a></li>
+            <li><a href="/cup-sizes/" class="mobile-nav-link">US vs Metric Cup Sizes</a></li>
+            <li><a href="/how-to-measure-flour/" class="mobile-nav-link">Spoon &amp; Level Guide</a></li>
+            <li><a href="/conversion-chart/" class="mobile-nav-link">Printable Conversion Chart</a></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4: Trust & Company -->
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-title">Trust &amp; About</div>
+          <ul class="mobile-nav-list">
+            <li><a href="/methodology/" class="mobile-nav-link">Data Methodology &amp; Sources</a></li>
+            <li><a href="/about/" class="mobile-nav-link">About Grams to Cups</a></li>
+            <li><a href="/contact/" class="mobile-nav-link">Contact &amp; Feedback</a></li>
+          </ul>
+        </div>
+
+        <!-- Drawer Footer Utility -->
+        <div class="mobile-drawer-footer">
+          <div class="mobile-drawer-legal">
+            <a href="/privacy/">Privacy Policy</a>
+            <span>&bull;</span>
+            <a href="/terms/">Terms of Use</a>
+          </div>
+          <p class="mobile-drawer-copy">&copy; 2026 The Grams to Cups</p>
+        </div>
       </nav>
     </div>
   </div>
@@ -394,6 +444,10 @@
             <li><a href="/grams-to-cups/brown-sugar/">Brown Sugar Grams to Cups</a></li>
             <li><a href="/grams-to-cups/powdered-sugar/">Powdered Sugar Grams to Cups</a></li>
             <li><a href="/grams-to-cups/oats/">Rolled Oats Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/rice/">Rice Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/oil/">Cooking Oil Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/milk/">Whole Milk Grams to Cups</a></li>
+            <li><a href="/grams-to-cups/honey/">Honey Grams to Cups</a></li>
           </ul>
         </div>
 
@@ -406,6 +460,7 @@
             <li><a href="/grams-per-cup/">Master Density Chart</a></li>
             <li><a href="/cup-sizes/">US vs Metric Cup Sizes</a></li>
             <li><a href="/how-to-measure-flour/">Spoon &amp; Level Guide</a></li>
+            <li><a href="/conversion-chart/">Printable Conversion Chart</a></li>
           </ul>
         </div>
 
