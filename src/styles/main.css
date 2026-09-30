@@ -170,8 +170,15 @@ a:focus-visible {
 
 .nav-links {
   display: flex;
-  gap: 1.75rem;
+  align-items: center;
+  gap: 1.5rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
 }
 
 .nav-link {
@@ -179,13 +186,115 @@ a:focus-visible {
   color: var(--text-secondary);
   font-weight: 600;
   font-size: 0.9rem;
-  padding-bottom: 2px;
-  transition: all 0.15s ease;
+  padding: 0.35rem 0;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
 }
 
 .nav-link:hover {
   color: var(--brand-terracotta);
-  border-bottom: 2px solid var(--brand-terracotta);
+}
+
+/* Dropdown toggle button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0;
+  transition: color 0.15s ease;
+  line-height: 1.2;
+}
+
+.dropdown-toggle:hover,
+.nav-item.has-dropdown:hover .dropdown-toggle,
+.nav-item.has-dropdown.active .dropdown-toggle {
+  color: var(--brand-terracotta);
+}
+
+.dropdown-chevron {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-muted);
+}
+
+.nav-item.has-dropdown:hover .dropdown-chevron,
+.nav-item.has-dropdown.active .dropdown-chevron {
+  transform: rotate(180deg);
+  color: var(--brand-terracotta);
+}
+
+/* Dropdown menu card */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px -4px rgba(28, 25, 23, 0.10), 0 4px 10px -2px rgba(28, 25, 23, 0.04);
+  padding: 0.5rem;
+  list-style: none;
+  min-width: 210px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 100;
+}
+
+/* Invisible bridge so cursor doesn't lose hover across gap */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+/* Hover or active class reveals dropdown */
+.nav-item.has-dropdown:hover .dropdown-menu,
+.nav-item.has-dropdown:focus-within .dropdown-menu,
+.nav-item.has-dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 2-column grid for Popular Ingredients */
+.dropdown-menu-grid {
+  min-width: 320px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover,
+.dropdown-link:focus {
+  background-color: var(--bg-badge);
+  color: var(--brand-terracotta);
+  padding-left: 0.95rem;
 }
 
 /* Mobile Menu Button */
@@ -201,7 +310,7 @@ a:focus-visible {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-links {
     display: none;
   }
@@ -763,7 +872,7 @@ body.menu-open {
 }
 
 .prose-narrow {
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -952,34 +1061,73 @@ details.faq-item[open] .faq-answer {
 /* Clean Editorial Ingredient Grid */
 .grid-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-top: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  gap: 1.125rem;
+  margin-top: 1.5rem;
 }
 
 .card-link {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 1.125rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D8;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.35rem;
   text-decoration: none;
   color: var(--text-ink);
-  transition: all 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.2s ease, 
+              box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.45rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(28, 25, 23, 0.03);
+}
+
+.card-link::after {
+  content: '→';
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-terracotta);
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .card-link:hover {
   border-color: var(--brand-terracotta);
-  box-shadow: var(--shadow-subtle);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -4px rgba(28, 25, 23, 0.08), 0 3px 6px -2px rgba(194, 65, 12, 0.06);
+}
+
+.card-link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .card-title {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.063rem;
+  font-size: 1.125rem;
   color: var(--text-ink);
+  line-height: 1.3;
+  padding-right: 1.25rem;
+  transition: color 0.15s ease;
+}
+
+.card-link:hover .card-title {
+  color: var(--brand-terracotta);
+}
+
+.card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.813rem;
+  line-height: 1.5;
+  color: var(--text-muted);
 }
 
 /* Contact Form & Messaging Card */
@@ -987,11 +1135,11 @@ details.faq-item[open] .faq-answer {
   background: var(--bg-card);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 2.25rem;
   box-shadow: var(--shadow-card);
   margin: 0 auto 2.5rem auto;
   width: 100%;
-  max-width: 720px;
+  max-width: 1000px;
 }
 
 @media (max-width: 640px) {

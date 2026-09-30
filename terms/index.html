@@ -85,16 +85,45 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand-logo" aria-label="Grams to Cups Homepage">
-        <img src="/logo.svg" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" />
+        <img src="/logo.svg" alt="Grams to Cups" class="brand-logo-img" width="200" height="67" fetchpriority="high" />
       </a>
 
       <!-- Desktop Nav -->
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="/cups-to-grams/" class="nav-link">Cups to Grams</a></li>
-          <li><a href="/grams-per-cup/" class="nav-link">Density Chart</a></li>
-          <li><a href="/cup-sizes/" class="nav-link">Cup Sizes</a></li>
-          <li><a href="/methodology/" class="nav-link">Methodology</a></li>
+          <li class="nav-item has-dropdown">
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Conversions
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/" class="dropdown-link" role="menuitem">Grams to Cups</a></li>
+              <li><a href="/cups-to-grams/" class="dropdown-link" role="menuitem">Cups to Grams</a></li>
+              <li><a href="/50-grams-to-cups/" class="dropdown-link" role="menuitem">50g Matrix</a></li>
+              <li><a href="/100-grams-to-cups/" class="dropdown-link" role="menuitem">100g Matrix</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Ingredients
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-grid" role="menu">
+              <li><a href="/grams-to-cups/flour/" class="dropdown-link" role="menuitem">All-Purpose Flour</a></li>
+              <li><a href="/grams-to-cups/sugar/" class="dropdown-link" role="menuitem">Granulated Sugar</a></li>
+              <li><a href="/grams-to-cups/butter/" class="dropdown-link" role="menuitem">Butter</a></li>
+              <li><a href="/grams-to-cups/brown-sugar/" class="dropdown-link" role="menuitem">Brown Sugar</a></li>
+              <li><a href="/grams-to-cups/powdered-sugar/" class="dropdown-link" role="menuitem">Powdered Sugar</a></li>
+              <li><a href="/grams-to-cups/oats/" class="dropdown-link" role="menuitem">Rolled Oats</a></li>
+              <li><a href="/grams-to-cups/rice/" class="dropdown-link" role="menuitem">White Rice</a></li>
+              <li><a href="/grams-to-cups/oil/" class="dropdown-link" role="menuitem">Cooking Oil</a></li>
+              <li><a href="/grams-to-cups/milk/" class="dropdown-link" role="menuitem">Whole Milk</a></li>
+              <li><a href="/grams-to-cups/honey/" class="dropdown-link" role="menuitem">Honey</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="/cup-sizes/" class="nav-link">Cup Sizes</a></li>
+          <li class="nav-item"><a href="/grams-per-cup/" class="nav-link">Density Chart</a></li>
+          <li class="nav-item"><a href="/methodology/" class="nav-link">Methodology</a></li>
         </ul>
       </nav>
 
@@ -105,7 +134,6 @@
     </div>
   </header>
 
-  <!-- Mobile Navigation Overlay & Drawer -->
   <!-- Mobile Drawer Menu Overlay -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
     <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
@@ -119,14 +147,14 @@
       </div>
 
       <nav class="mobile-nav-scroll" aria-label="Mobile Navigation">
-        <!-- Pillar 1: Converters & Tools -->
+        <!-- Pillar 1: Conversions -->
         <div class="mobile-nav-group">
-          <div class="mobile-nav-group-title">Kitchen Scale Converters</div>
+          <div class="mobile-nav-group-title">Conversions</div>
           <ul class="mobile-nav-list">
-            <li><a href="/" class="mobile-nav-link">Grams to Cups Converter</a></li>
-            <li><a href="/cups-to-grams/" class="mobile-nav-link">Cups to Grams Converter</a></li>
-            <li><a href="/50-grams-to-cups/" class="mobile-nav-link">50 Grams to Cups Matrix</a></li>
-            <li><a href="/100-grams-to-cups/" class="mobile-nav-link">100 Grams to Cups Matrix</a></li>
+            <li><a href="/" class="mobile-nav-link">Grams to Cups</a></li>
+            <li><a href="/cups-to-grams/" class="mobile-nav-link">Cups to Grams</a></li>
+            <li><a href="/50-grams-to-cups/" class="mobile-nav-link">50g Matrix</a></li>
+            <li><a href="/100-grams-to-cups/" class="mobile-nav-link">100g Matrix</a></li>
           </ul>
         </div>
 
@@ -149,31 +177,22 @@
 
         <!-- Pillar 3: Guides & Standards -->
         <div class="mobile-nav-group">
-          <div class="mobile-nav-group-title">Culinary Guides &amp; Standards</div>
+          <div class="mobile-nav-group-title">Guides &amp; Standards</div>
           <ul class="mobile-nav-list">
-            <li><a href="/grams-per-cup/" class="mobile-nav-link">Master Density Chart</a></li>
-            <li><a href="/cup-sizes/" class="mobile-nav-link">US vs Metric Cup Sizes</a></li>
-            <li><a href="/how-to-measure-flour/" class="mobile-nav-link">Spoon &amp; Level Guide</a></li>
+            <li><a href="/cup-sizes/" class="mobile-nav-link">Cup Sizes</a></li>
+            <li><a href="/grams-per-cup/" class="mobile-nav-link">Density Chart</a></li>
+            <li><a href="/methodology/" class="mobile-nav-link">Methodology</a></li>
+            <li><a href="/how-to-measure-flour/" class="mobile-nav-link">How to Measure Flour</a></li>
             <li><a href="/conversion-chart/" class="mobile-nav-link">Printable Conversion Chart</a></li>
-          </ul>
-        </div>
-
-        <!-- Pillar 4: Trust & Company -->
-        <div class="mobile-nav-group">
-          <div class="mobile-nav-group-title">Trust &amp; About</div>
-          <ul class="mobile-nav-list">
-            <li><a href="/methodology/" class="mobile-nav-link">Data Methodology &amp; Sources</a></li>
-            <li><a href="/about/" class="mobile-nav-link">About Grams to Cups</a></li>
-            <li><a href="/contact/" class="mobile-nav-link">Contact &amp; Feedback</a></li>
           </ul>
         </div>
 
         <!-- Drawer Footer Utility -->
         <div class="mobile-drawer-footer">
           <div class="mobile-drawer-legal">
-            <a href="/privacy/">Privacy Policy</a>
+            <a href="/about/">About Us</a>
             <span>&bull;</span>
-            <a href="/terms/">Terms of Use</a>
+            <a href="/contact/">Contact Us</a>
           </div>
           <p class="mobile-drawer-copy">&copy; 2026 The Grams to Cups</p>
         </div>
@@ -324,7 +343,7 @@
             <li><a href="/100-grams-to-cups/">100 Grams to Cups Matrix</a></li>
             <li><a href="/grams-per-cup/">Master Density Chart</a></li>
             <li><a href="/cup-sizes/">US vs Metric Cup Sizes</a></li>
-            <li><a href="/how-to-measure-flour/">Spoon &amp; Level Guide</a></li>
+            <li><a href="/how-to-measure-flour/">How to Measure Flour</a></li>
             <li><a href="/conversion-chart/">Printable Conversion Chart</a></li>
           </ul>
         </div>
