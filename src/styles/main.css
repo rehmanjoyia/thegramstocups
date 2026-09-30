@@ -2,6 +2,13 @@
    Design System: Modern Editorial Cooking Utility (thegramstocups.com)
    ========================================================================== */
 
+/* Self-hosted fonts via @fontsource-variable (eliminates Google Fonts CDN dependency) */
+@import '@fontsource-variable/fraunces/wght.css';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+@import '@fontsource-variable/playfair-display/wght.css';
+@import '@fontsource-variable/playfair-display/wght-italic.css';
+@import '@fontsource-variable/plus-jakarta-sans/wght.css';
+
 :root {
   /* Warm Ivory & Linen Color Palette */
   --bg-page: #FAF8F5;
@@ -35,9 +42,9 @@
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-logo: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --font-logo: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --max-width: 1000px;
 }
 
