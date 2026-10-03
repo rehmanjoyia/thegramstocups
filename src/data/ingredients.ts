@@ -220,14 +220,19 @@ export const INGREDIENTS: Ingredient[] = [
   }
 ];
 
+// O(1) Map index — built once at module load, zero per-call cost.
+const INGREDIENT_MAP = new Map<string, Ingredient>(
+  INGREDIENTS.map(ing => [ing.id, ing])
+);
+
 export function getIngredientById(id: string): Ingredient | undefined {
-  return INGREDIENTS.find(item => item.id === id);
+  return INGREDIENT_MAP.get(id);
 }
 
 export function searchIngredients(query: string): Ingredient[] {
-  const cleanQuery = query.trim().toLowerCase();
+  const cleanQuery = query.trim().toLowerCase().slice(0, 200); // guard against pathological strings
   if (!cleanQuery) return INGREDIENTS;
-  return INGREDIENTS.filter(item => 
+  return INGREDIENTS.filter(item =>
     item.name.toLowerCase().includes(cleanQuery) ||
     item.aliases.some(alias => alias.toLowerCase().includes(cleanQuery))
   );

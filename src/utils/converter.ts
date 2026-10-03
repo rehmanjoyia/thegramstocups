@@ -147,11 +147,13 @@ export function convertCupsToGrams(
  * - Exact zero displays "0".
  */
 export function formatCupDecimal(cups: number): string {
+  if (!isFinite(cups) || isNaN(cups)) return '0'; // guard Infinity / NaN
   if (cups <= 0) return '0';
   if (cups < 0.01) return '<0.01';
 
-  // Conventional rounding with halfway values rounded up
-  const rounded = Number(Math.round(Number(cups + 'e2')) + 'e-2');
+  // Explicit exponential rounding — avoids the fragile `Number(x + 'e2')` trick
+  // which breaks for numbers expressed in scientific notation (e.g. 1e-10).
+  const rounded = Math.round(cups * 100) / 100;
   return rounded.toString();
 }
 
@@ -164,10 +166,11 @@ export function formatCupDecimal(cups: number): string {
  * - Exact zero displays "0".
  */
 export function formatGramDecimal(grams: number): string {
+  if (!isFinite(grams) || isNaN(grams)) return '0'; // guard Infinity / NaN
   if (grams <= 0) return '0';
   if (grams < 0.05) return '<0.1';
 
-  const rounded = Number(Math.round(Number(grams + 'e1')) + 'e-1');
+  const rounded = Math.round(grams * 10) / 10;
   return rounded.toString();
 }
 
@@ -175,12 +178,10 @@ export function formatGramDecimal(grams: number): string {
  * Formats general decimal numbers cleanly (up to 1 decimal place for grams/spoons).
  */
 export function formatDecimal(val: number): string {
+  if (!isFinite(val) || isNaN(val)) return '0';
   if (val === 0) return '0';
-  if (val >= 10) {
-    return (Math.round(val * 10) / 10).toString();
-  }
-  const formatted = (Math.round(val * 10) / 10).toString();
-  return formatted;
+  // Collapsed dead-code duplicate branches — both did identical arithmetic.
+  return (Math.round(val * 10) / 10).toString();
 }
 
 /**
@@ -307,10 +308,12 @@ export function formatPracticalMeasure(
  * Formats stick count for butter.
  */
 export function formatSticks(sticks: number): string {
-  if (sticks === 0) return '0 sticks';
-  if (sticks === 1) return '1 stick';
-  if (sticks === 0.5) return '½ stick (4 tbsp)';
-  if (sticks === 0.25) return '¼ stick (2 tbsp)';
+  if (!isFinite(sticks) || isNaN(sticks) || sticks <= 0) return '0 sticks';
+  // Use tolerance-based comparisons (± 0.005) instead of exact float equality
+  // to handle computed stick values (e.g. grams / 113.5) that carry FP residue.
+  if (Math.abs(sticks - 1) < 0.005)   return '1 stick';
+  if (Math.abs(sticks - 0.5) < 0.005) return '½ stick (4 tbsp)';
+  if (Math.abs(sticks - 0.25) < 0.005) return '¼ stick (2 tbsp)';
 
   const formatted = Math.round(sticks * 100) / 100;
   return `${formatted} sticks`;

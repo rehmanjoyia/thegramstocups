@@ -1,6 +1,11 @@
 import { CalculatorComponent } from './components/calculator.ts';
 import { initNavigation } from './components/navigation.ts';
 import { initContactForm } from './components/contactForm.ts';
+import { INGREDIENTS } from './data/ingredients.ts';
+import { CUP_STANDARDS } from './data/cupStandards.ts';
+
+const VALID_INGREDIENT_IDS = new Set(INGREDIENTS.map(i => i.id));
+const VALID_CUP_STANDARD_IDS = new Set(Object.keys(CUP_STANDARDS));
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize mobile navigation drawer & menu toggle
@@ -32,17 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataVal = calcContainer.getAttribute('data-value');
     const dataDir = calcContainer.getAttribute('data-direction');
 
-    if (dataIng) initialState.ingredientId = dataIng;
+    if (dataIng && VALID_INGREDIENT_IDS.has(dataIng)) initialState.ingredientId = dataIng;
     if (dataVal && !isNaN(parseFloat(dataVal))) initialState.value = parseFloat(dataVal);
     if (dataDir === 'ctg' || dataDir === 'cupsToGrams') initialState.direction = 'cupsToGrams';
 
-    if (gramsParam && !isNaN(parseFloat(gramsParam))) {
-      initialState.value = Math.max(0, parseFloat(gramsParam));
+    if (gramsParam) {
+      const parsed = parseFloat(gramsParam);
+      // Clamp to [0, 100000] — same upper bound enforced by parseInputValue()
+      if (!isNaN(parsed) && isFinite(parsed)) {
+        initialState.value = Math.min(Math.max(0, parsed), 100_000);
+      }
     }
-    if (ingredientParam) {
+    if (ingredientParam && VALID_INGREDIENT_IDS.has(ingredientParam)) {
       initialState.ingredientId = ingredientParam;
     }
-    if (cupParam) {
+    if (cupParam && VALID_CUP_STANDARD_IDS.has(cupParam)) {
       initialState.cupStandardId = cupParam;
     }
     if (dirParam === 'ctg' || dirParam === 'cupsToGrams') {

@@ -34,7 +34,12 @@ function parseInputValue(raw: string): { val: number | null; fraction?: string; 
   }
 
   const num = parseFloat(trimmed);
-  if (isNaN(num)) return { val: NaN };
+  // Return null (not NaN) for unparseable strings so the invalid-input
+  // branch in generateResultsHTML catches it via value === null path and
+  // the NaN guard below it covers only numeric NaN from valid parsing paths.
+  if (isNaN(num)) return { val: null };
+  // Upper bound: prevent runaway computation on absurd inputs.
+  if (!isFinite(num) || num > 100_000) return { val: null };
   return { val: num, display: trimmed };
 }
 
@@ -70,7 +75,9 @@ export class CalculatorComponent {
   public setState(newState: Partial<CalculatorState>) {
     this.state = { ...this.state, ...newState };
     this.render();
-    this.attachEventListeners();
+    // Note: render() calls attachEventListeners() internally.
+    // Do NOT call attachEventListeners() here as well — that would
+    // double-bind every listener category on each external setState call.
   }
 
   public getState(): CalculatorState {
@@ -357,7 +364,7 @@ export class CalculatorComponent {
           this.state.displayValue = '100';
           this.state.selectedFraction = null;
           this.render('btn-dir-gtc');
-          this.attachEventListeners();
+          // render() calls attachEventListeners() internally — no second call needed.
         }
       });
     }
@@ -371,7 +378,7 @@ export class CalculatorComponent {
           this.state.displayValue = '1';
           this.state.selectedFraction = '1';
           this.render('btn-dir-ctg');
-          this.attachEventListeners();
+          // render() calls attachEventListeners() internally — no second call needed.
         }
       });
     }
