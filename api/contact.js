@@ -2,11 +2,48 @@ import nodemailer from 'nodemailer';
 
 /**
  * Vercel Serverless Function: /api/contact
- * Handles contact form submissions with server-side validation,
- * sanitization, honeypot spam protection, and transactional email dispatch.
+ * Production-hardened contact form handler:
+ * 1. Payload size controls (Content-Length < 16KB)
+ * 2. Strict Content-Type enforcement (application/json)
+ * 3. Safe JSON parsing with zero unhandled exception escape
+ * 4. Control character stripping & XSS entity escaping
+ * 5. Anti-header-injection guards (\r, \n)
+ * 6. Origin / Referer validation against cross-origin spam bots
+ * 7. Serverless-safe memory-bounded sliding-window rate limiting
+ * 8. Honeypot + link-density spam heuristics with silent drop
+ * 9. Information leakage prevention & security response headers
+ * 10. Multi-provider delivery pipeline (Resend, Postmark, SendGrid, Webhook, SMTP)
  */
 
-// Helper to escape HTML characters in email templates
+// Max body size in bytes (16 KB is plenty for 5,000 char message + metadata)
+const MAX_PAYLOAD_BYTES = 16 * 1024;
+
+// Rate limiting parameters (5 requests per 5 minutes per IP)
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 5;
+const MAX_RATE_LIMIT_ENTRIES = 1000; // Cap map size to prevent serverless memory bloat
+
+// Bounded in-memory store for warm container lifecycle
+const rateLimitMap = new Map();
+
+/**
+ * Clean control characters, null bytes, and directional overrides
+ */
+function sanitizeString(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    // Strip null bytes
+    .replace(/\0/g, '')
+    // Strip ASCII control chars except standard whitespace (\t, \n, \r)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
+    // Strip Unicode bidirectional override characters (prevents visual spoofing)
+    .replace(/[\u202A-\u202E\u2066-\u2069]/g, '')
+    .trim();
+}
+
+/**
+ * Comprehensive HTML escaping for safe injection into email templates
+ */
 function escapeHtml(str) {
   if (!str) return '';
   return String(str)
@@ -14,57 +51,184 @@ function escapeHtml(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+    .replace(/'/g, '&#039;')
+    .replace(/\//g, '&#x2F;')
+    .replace(/`/g, '&#x60;');
 }
 
-// In-memory rate limiting by IP (per serverless lambda instance)
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
-const MAX_REQUESTS_PER_WINDOW = 5;
+/**
+ * Extract true client IP across edge proxies & headers
+ */
+function getClientIp(req) {
+  const xRealIp = req.headers['x-real-ip'];
+  if (typeof xRealIp === 'string' && xRealIp.trim()) {
+    return xRealIp.trim();
+  }
+  const xForwardedFor = req.headers['x-forwarded-for'];
+  if (typeof xForwardedFor === 'string' && xForwardedFor.trim()) {
+    return xForwardedFor.split(',')[0].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
+}
 
-export default async function handler(req, res) {
-  // Only accept POST requests
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Method Not Allowed' });
+/**
+ * Sliding window rate limiting with automatic pruning to prevent memory leaks
+ */
+function checkRateLimit(clientIp) {
+  const now = Date.now();
+
+  // Prune map if it grows beyond threshold
+  if (rateLimitMap.size > MAX_RATE_LIMIT_ENTRIES) {
+    for (const [ip, timestamps] of rateLimitMap.entries()) {
+      const active = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+      if (active.length === 0) {
+        rateLimitMap.delete(ip);
+      } else {
+        rateLimitMap.set(ip, active);
+      }
+    }
   }
 
-  // Basic IP rate limiting
-  const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
-  const now = Date.now();
-  const clientTimestamps = rateLimitMap.get(clientIp) || [];
-  const recentTimestamps = clientTimestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+  const existing = rateLimitMap.get(clientIp) || [];
+  const recent = existing.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
 
-  if (recentTimestamps.length >= MAX_REQUESTS_PER_WINDOW) {
+  if (recent.length >= MAX_REQUESTS_PER_WINDOW) {
+    return false;
+  }
+
+  recent.push(now);
+  rateLimitMap.set(clientIp, recent);
+  return true;
+}
+
+/**
+ * Origin validation: prevent cross-origin automated script abuse
+ */
+function isAllowedOrigin(req) {
+  const origin = req.headers['origin'] || req.headers['referer'];
+  if (!origin) {
+    // If headers are omitted (e.g. privacy proxy), don't block outright,
+    // let remaining security layers evaluate.
+    return true;
+  }
+
+  try {
+    const parsed = new URL(origin);
+    const host = parsed.hostname.toLowerCase();
+
+    // Whitelist production domains, Vercel preview deployments, and local dev
+    return (
+      host === 'thegramstocups.com' ||
+      host === 'www.thegramstocups.com' ||
+      host.endsWith('.vercel.app') ||
+      host === 'localhost' ||
+      host === '127.0.0.1'
+    );
+  } catch {
+    return false;
+  }
+}
+
+export default async function handler(req, res) {
+  // Apply uniform security and caching headers to all responses
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+  res.setHeader('Pragma', 'no-cache');
+
+  // 1. Method verification
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
+    return res.status(405).json({
+      error: 'Method Not Allowed',
+      message: 'Only POST requests are permitted.'
+    });
+  }
+
+  // 2. Origin / Referer validation (Anti-CSRF & Bot Gateway)
+  if (!isAllowedOrigin(req)) {
+    return res.status(403).json({
+      error: 'Forbidden',
+      message: 'Cross-origin request blocked.'
+    });
+  }
+
+  // 3. Payload size check (before body parsing)
+  const contentLength = parseInt(req.headers['content-length'] || '0', 10);
+  if (contentLength > MAX_PAYLOAD_BYTES) {
+    return res.status(413).json({
+      error: 'Payload Too Large',
+      message: 'Request payload exceeds the maximum allowed limit of 16KB.'
+    });
+  }
+
+  // 4. Content-Type check
+  const contentType = req.headers['content-type'] || '';
+  if (!contentType.toLowerCase().includes('application/json')) {
+    return res.status(415).json({
+      error: 'Unsupported Media Type',
+      message: 'Content-Type must be application/json.'
+    });
+  }
+
+  // 5. Rate limiting with bounded memory
+  const clientIp = getClientIp(req);
+  if (!checkRateLimit(clientIp)) {
     return res.status(429).json({
       error: 'Too Many Requests',
       message: 'You’ve sent several messages recently. Please wait a few minutes and try again, or email support@thegramstocups.com.'
     });
   }
 
-  recentTimestamps.push(now);
-  rateLimitMap.set(clientIp, recentTimestamps);
+  // 6. Safe body parsing wrapped in exception handler
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+    if (typeof body !== 'object' || body === null || Array.isArray(body)) {
+      return res.status(400).json({
+        error: 'Bad Request',
+        message: 'Request payload must be a JSON object.'
+      });
+    }
+  } catch {
+    return res.status(400).json({
+      error: 'Malformed JSON',
+      message: 'Unable to parse request body as valid JSON.'
+    });
+  }
 
-  // Parse body safely
-  const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
   const { name, email, topic, pageUrl, message, website_hp } = body;
 
-  // Bot Honeypot: silently accept without sending if filled
+  // 7. Bot Honeypot: silently accept without sending if filled
   if (website_hp && String(website_hp).trim().length > 0) {
     return res.status(200).json({ ok: true });
   }
 
-  // Server-side validation
+  // 8. Sanitize input strings (strip control chars, null bytes, bidirectional overrides)
+  const cleanName = sanitizeString(name);
+  const cleanEmail = sanitizeString(email);
+  const cleanTopic = sanitizeString(topic);
+  const cleanUrl = sanitizeString(pageUrl);
+  const cleanMessage = sanitizeString(message);
+
+  // 9. Anti-Spam Heuristic: Hyperlink density & BBCode check in message body
+  const urlMatches = cleanMessage.match(/https?:\/\/[^\s]+/gi) || [];
+  const hasBbCode = /\[url[=\]]|\[link[=\]]|<a\s+href=/i.test(cleanMessage);
+  if (urlMatches.length > 2 || hasBbCode) {
+    // Silent drop: automated spam bot gets 200 OK without dispatching email
+    return res.status(200).json({ ok: true });
+  }
+
+  // 10. Strict Server-Side Validation
   const errors = {};
 
-  // 1. Name: optional, max 100
-  const cleanName = (typeof name === 'string' ? name.trim() : '');
+  // Name: optional, max 100
   if (cleanName.length > 100) {
     errors.name = 'Keep your name to 100 characters or fewer.';
   }
 
-  // 2. Email: required, max 254, valid format
-  const cleanEmail = (typeof email === 'string' ? email.trim() : '');
+  // Email: required, max 254, RFC 5322 compliant regex
   if (!cleanEmail) {
     errors.email = 'Enter your email address.';
   } else if (cleanEmail.length > 254) {
@@ -76,20 +240,18 @@ export default async function handler(req, res) {
     }
   }
 
-  // 3. Topic: required, must match allowed set
+  // Topic: required, whitelist enforcement
   const validTopics = [
     'Conversion question',
     'Report an error',
     'Ingredient request',
     'Other feedback'
   ];
-  const cleanTopic = (typeof topic === 'string' ? topic.trim() : '');
   if (!cleanTopic || !validTopics.includes(cleanTopic)) {
     errors.topic = 'Choose a topic.';
   }
 
-  // 4. Page URL: optional, max 2048, http/https only
-  const cleanUrl = (typeof pageUrl === 'string' ? pageUrl.trim() : '');
+  // Page URL: optional, max 2048, strictly http: or https:
   if (cleanUrl) {
     if (cleanUrl.length > 2048) {
       errors.pageUrl = 'Keep the page address to 2,048 characters or fewer.';
@@ -105,24 +267,26 @@ export default async function handler(req, res) {
     }
   }
 
-  // 5. Message: required, max 5000, not whitespace only
-  const cleanMessage = (typeof message === 'string' ? message.trim() : '');
+  // Message: required, max 5000, not whitespace only
   if (!cleanMessage) {
     errors.message = 'Enter your message.';
   } else if (cleanMessage.length > 5000) {
     errors.message = 'Keep your message to 5,000 characters or fewer.';
   }
 
-  // Prevent header injection (newlines in single-line fields)
-  if (/[\r\n]/.test(cleanEmail) || /[\r\n]/.test(cleanName) || /[\r\n]/.test(cleanTopic)) {
-    return res.status(400).json({ error: 'Invalid input characters detected' });
+  // Header injection prevention: reject CRLF in single-line headers
+  if (/[\r\n]/.test(cleanEmail) || /[\r\n]/.test(cleanName) || /[\r\n]/.test(cleanTopic) || /[\r\n]/.test(cleanUrl)) {
+    return res.status(400).json({
+      error: 'Invalid Characters',
+      message: 'Invalid newline characters detected in single-line fields.'
+    });
   }
 
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ error: 'Validation failed', errors });
   }
 
-  // Dispatch Email
+  // 11. Compose Message Templates
   const destinationEmail = process.env.CONTACT_DESTINATION_EMAIL || 'support@thegramstocups.com';
   const senderEmail = process.env.CONTACT_SENDER_EMAIL || process.env.SMTP_USER || 'support@thegramstocups.com';
   const subject = `[The Grams to Cups] ${cleanTopic}: ${cleanName || 'Visitor'}`;
@@ -138,9 +302,12 @@ Message:
 ${cleanMessage}
 `;
 
-  const htmlContent = `
-<!DOCTYPE html>
+  const htmlContent = `<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1C1917; max-width: 600px; margin: 0 auto; padding: 20px;">
   <h2 style="color: #C2410C; border-bottom: 2px solid #E7E5E4; padding-bottom: 8px;">New Message from The Grams to Cups</h2>
   <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
@@ -152,12 +319,11 @@ ${cleanMessage}
   <h3 style="margin-bottom: 8px;">Message:</h3>
   <div style="background-color: #FAF8F5; border: 1px solid #E7E5E4; border-radius: 6px; padding: 16px; white-space: pre-wrap;">${escapeHtml(cleanMessage)}</div>
 </body>
-</html>
-`;
+</html>`;
 
-  // Delivery Provider Integration
+  // 12. Transactional Email Dispatch Pipeline
   try {
-    // 1. Resend API
+    // A. Resend API
     if (process.env.RESEND_API_KEY) {
       const resendRes = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -176,8 +342,8 @@ ${cleanMessage}
       });
 
       if (!resendRes.ok) {
-        const errText = await resendRes.text();
-        console.error('Resend delivery failure:', errText);
+        const errSnippet = (await resendRes.text()).slice(0, 200);
+        console.error('Resend delivery failure:', errSnippet);
         return res.status(502).json({
           error: 'Delivery failed',
           message: 'We couldn’t submit your message. Your details are still here—please try again, or email support@thegramstocups.com.'
@@ -187,7 +353,7 @@ ${cleanMessage}
       return res.status(200).json({ ok: true });
     }
 
-    // 2. Postmark API
+    // B. Postmark API
     if (process.env.POSTMARK_SERVER_TOKEN) {
       const postmarkRes = await fetch('https://api.postmarkapp.com/email', {
         method: 'POST',
@@ -207,8 +373,8 @@ ${cleanMessage}
       });
 
       if (!postmarkRes.ok) {
-        const errText = await postmarkRes.text();
-        console.error('Postmark delivery failure:', errText);
+        const errSnippet = (await postmarkRes.text()).slice(0, 200);
+        console.error('Postmark delivery failure:', errSnippet);
         return res.status(502).json({
           error: 'Delivery failed',
           message: 'We couldn’t submit your message. Your details are still here—please try again, or email support@thegramstocups.com.'
@@ -218,7 +384,7 @@ ${cleanMessage}
       return res.status(200).json({ ok: true });
     }
 
-    // 3. SendGrid API
+    // C. SendGrid API
     if (process.env.SENDGRID_API_KEY) {
       const sendgridRes = await fetch('https://api.sendgrid.com/v3/mail/send', {
         method: 'POST',
@@ -239,8 +405,8 @@ ${cleanMessage}
       });
 
       if (!sendgridRes.ok) {
-        const errText = await sendgridRes.text();
-        console.error('SendGrid delivery failure:', errText);
+        const errSnippet = (await sendgridRes.text()).slice(0, 200);
+        console.error('SendGrid delivery failure:', errSnippet);
         return res.status(502).json({
           error: 'Delivery failed',
           message: 'We couldn’t submit your message. Your details are still here—please try again, or email support@thegramstocups.com.'
@@ -250,7 +416,7 @@ ${cleanMessage}
       return res.status(200).json({ ok: true });
     }
 
-    // 4. Webhook / Internal Gateway
+    // D. Webhook Gateway
     if (process.env.CONTACT_WEBHOOK_URL) {
       const hookRes = await fetch(process.env.CONTACT_WEBHOOK_URL, {
         method: 'POST',
@@ -277,13 +443,13 @@ ${cleanMessage}
       return res.status(200).json({ ok: true });
     }
 
-    // 5. Hostinger / Custom SMTP via nodemailer
+    // E. Hostinger / Custom SMTP via nodemailer
     if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
       const port = parseInt(process.env.SMTP_PORT || '465', 10);
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: port,
-        secure: port === 465, // true for 465, false for 587
+        secure: port === 465,
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS
@@ -302,16 +468,15 @@ ${cleanMessage}
       return res.status(200).json({ ok: true });
     }
 
-    // If no provider API key is configured in production, report 503 Service Unavailable
-    // as required by Section D so that the user is guided to email support directly without false success.
-    console.warn('Contact API: No email provider credentials configured (SMTP_HOST/SMTP_USER/SMTP_PASS, RESEND_API_KEY, POSTMARK_SERVER_TOKEN, SENDGRID_API_KEY, or CONTACT_WEBHOOK_URL).');
+    // If no provider credentials exist in runtime environment, return 503
+    console.warn('Contact API: No transactional email provider credentials configured.');
     return res.status(503).json({
       error: 'Service Unavailable',
       message: 'We couldn’t submit your message. Your details are still here—please try again, or email support@thegramstocups.com.'
     });
 
   } catch (err) {
-    console.error('Unexpected contact delivery error:', err);
+    console.error('Unexpected contact delivery error:', err?.message || 'Unknown error');
     return res.status(500).json({
       error: 'Internal Server Error',
       message: 'We couldn’t submit your message. Your details are still here—please try again, or email support@thegramstocups.com.'
