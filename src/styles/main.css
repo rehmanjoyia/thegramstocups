@@ -4,9 +4,7 @@
 
 /* Self-hosted fonts via @fontsource-variable (eliminates Google Fonts CDN dependency) */
 @import '@fontsource-variable/fraunces/wght.css';
-@import '@fontsource-variable/fraunces/wght-italic.css';
 @import '@fontsource-variable/playfair-display/wght.css';
-@import '@fontsource-variable/playfair-display/wght-italic.css';
 @import '@fontsource-variable/plus-jakarta-sans/wght.css';
 
 :root {
