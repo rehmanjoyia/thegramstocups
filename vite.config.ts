@@ -3,6 +3,25 @@ import { resolve } from 'path';
 
 export default defineConfig({
   build: {
+    // Target modern mobile browsers: smaller output, no unnecessary transpilation shims
+    target: 'es2022',
+
+    // Prevent any asset from being base64-inlined (avoids +33% size bloat and
+    // allows fonts/SVGs to be preloaded via <link rel="preload"> and cached immutably)
+    assetsInlineLimit: 0,
+
+    // Drop Vite's internal modulepreload polyfill — all target browsers support it natively
+    modulePreload: {
+      polyfill: false
+    },
+
+    // Use esbuild for faster, tighter CSS minification
+    cssMinify: 'esbuild',
+    cssCodeSplit: true,
+
+    // Faster CI/Vercel builds — compressed size is calculated by Vercel's CDN anyway
+    reportCompressedSize: false,
+
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -28,6 +47,12 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact/index.html'),
         privacy: resolve(__dirname, 'privacy/index.html'),
         terms: resolve(__dirname, 'terms/index.html')
+      },
+      output: {
+        // Deterministic hashed naming enables immutable long-term Vercel edge caching
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
       }
     }
   }

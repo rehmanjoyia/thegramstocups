@@ -1,0 +1,2390 @@
+[
+  {
+    "file": "index.html",
+    "title": "Grams to Cups Converter: Flour, Sugar &amp; More",
+    "description": "Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources.",
+    "canonical": "https://thegramstocups.com/",
+    "og": {
+      "title": "Grams to Cups Converter: Flour, Sugar &amp; More",
+      "desc": "Find how many cups you need for flour, sugar, butter and more. Convert grams to cups, compare common amounts, and check measuring tips and sources.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Grams to Cups Converter: Flour, Sugar &amp; More"
+    },
+    "headings": {
+      "total": 13,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "How to use the grams-to-cups converter"
+        },
+        {
+          "level": 2,
+          "text": "How many cups is 100 grams?"
+        },
+        {
+          "level": 2,
+          "text": "Common grams-to-cups conversions"
+        },
+        {
+          "level": 2,
+          "text": "Why the ingredient changes the answer"
+        },
+        {
+          "level": 3,
+          "text": "How to calculate cups from grams"
+        },
+        {
+          "level": 2,
+          "text": "Which cup size should you use?"
+        },
+        {
+          "level": 2,
+          "text": "Measuring tips before you start"
+        },
+        {
+          "level": 2,
+          "text": "Explore Ingredient-Specific Conversion Guides"
+        },
+        {
+          "level": 2,
+          "text": "Questions about converting grams to cups"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "cups-to-grams/index.html",
+    "title": "Cups to Grams Converter &amp; Ingredient Conversion Chart",
+    "description": "Turn recipe cup measurements into grams for flour, sugar, butter and more. Check common cup fractions, choose your ingredient, and match your cup size.",
+    "canonical": "https://thegramstocups.com/cups-to-grams/",
+    "og": {
+      "title": "Cups to Grams Converter &amp; Ingredient Conversion Chart",
+      "desc": "Turn recipe cup measurements into grams for flour, sugar, butter and more. Check common cup fractions, choose your ingredient, and match your cup size.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Cups to Grams Converter &amp; Ingredient Conversion Chart"
+    },
+    "headings": {
+      "total": 10,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Cups to Grams Converter"
+        },
+        {
+          "level": 2,
+          "text": "Cups-to-grams conversion chart"
+        },
+        {
+          "level": 2,
+          "text": "How to convert cups to grams"
+        },
+        {
+          "level": 2,
+          "text": "Turning a cup-based recipe into weights"
+        },
+        {
+          "level": 2,
+          "text": "Which cup size should I select?"
+        },
+        {
+          "level": 2,
+          "text": "More ingredient guides"
+        },
+        {
+          "level": 2,
+          "text": "Questions about converting cups to grams"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": "e.g. 1.5"
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/flour/index.html",
+    "title": "Flour Grams to Cups Converter &amp; Conversion Chart",
+    "description": "Measure flour with confidence. Convert flour grams to cups, check common amounts, and learn how spooning, leveling, and cup size affect the result.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/flour/",
+    "og": {
+      "title": "Flour Grams to Cups Converter &amp; Conversion Chart",
+      "desc": "Measure flour with confidence. Convert flour grams to cups, check common amounts, and learn how spooning, leveling, and cup size affect the result.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Flour Grams to Cups Converter &amp; Conversion Chart"
+    },
+    "headings": {
+      "total": 12,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Flour Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Flour grams-to-cups conversion chart"
+        },
+        {
+          "level": 2,
+          "text": "How to convert flour grams to cups"
+        },
+        {
+          "level": 3,
+          "text": "Converting flour cups back to grams"
+        },
+        {
+          "level": 2,
+          "text": "How to measure flour without a scale"
+        },
+        {
+          "level": 2,
+          "text": "Does the cup size change the answer?"
+        },
+        {
+          "level": 2,
+          "text": "Why do flour conversion charts disagree?"
+        },
+        {
+          "level": 2,
+          "text": "Questions about measuring flour"
+        },
+        {
+          "level": 2,
+          "text": "Convert another ingredient"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/sugar/index.html",
+    "title": "Sugar Grams to Cups Converter &amp; Conversion Chart",
+    "description": "Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/sugar/",
+    "og": {
+      "title": "Sugar Grams to Cups Converter &amp; Conversion Chart",
+      "desc": "Find the cup equivalent for your sugar weight, from 50g to 500g and beyond. Convert granulated sugar and check how brown and powdered sugar differ.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Sugar Grams to Cups Converter &amp; Conversion Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Sugar Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Sugar grams-to-cups conversion chart"
+        },
+        {
+          "level": 2,
+          "text": "Is one cup of sugar 198g or 200g?"
+        },
+        {
+          "level": 2,
+          "text": "How to convert sugar grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Does this work for brown or powdered sugar?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure granulated sugar in cups"
+        },
+        {
+          "level": 2,
+          "text": "Questions about converting sugar"
+        },
+        {
+          "level": 2,
+          "text": "More baking conversions"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/butter/index.html",
+    "title": "Butter Grams to Cups Converter &amp; US Stick Chart",
+    "description": "Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/butter/",
+    "og": {
+      "title": "Butter Grams to Cups Converter &amp; US Stick Chart",
+      "desc": "Check how much butter your recipe needs in cups, grams or US sticks. Find common conversions, measuring tips, and guidance for melted and whipped butter.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Butter Grams to Cups Converter &amp; US Stick Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Butter Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Butter grams-to-cups conversion chart"
+        },
+        {
+          "level": 2,
+          "text": "How many US sticks of butter are in a cup?"
+        },
+        {
+          "level": 2,
+          "text": "How to convert butter grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Why do some charts use 226g instead of 227g?"
+        },
+        {
+          "level": 2,
+          "text": "Measuring butter for your recipe"
+        },
+        {
+          "level": 2,
+          "text": "Questions about converting butter"
+        },
+        {
+          "level": 2,
+          "text": "More baking conversions"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/brown-sugar/index.html",
+    "title": "Brown Sugar Grams to Cups Converter &amp; Chart",
+    "description": "Convert packed brown sugar from grams to cups, with a handy chart and measuring tips. Check light or dark sugar amounts using a clear, sourced reference.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/brown-sugar/",
+    "og": {
+      "title": "Brown Sugar Grams to Cups Converter &amp; Chart",
+      "desc": "Convert packed brown sugar from grams to cups, with a handy chart and measuring tips. Check light or dark sugar amounts using a clear, sourced reference.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Brown Sugar Grams to Cups Converter &amp; Chart"
+    },
+    "headings": {
+      "total": 10,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Brown Sugar Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Brown sugar grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "How to measure packed brown sugar"
+        },
+        {
+          "level": 2,
+          "text": "How the conversion works"
+        },
+        {
+          "level": 2,
+          "text": "Does light or dark brown sugar change the result?"
+        },
+        {
+          "level": 2,
+          "text": "What if my recipe gives a different cup weight?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/powdered-sugar/index.html",
+    "title": "Powdered Sugar Grams to Cups Converter &amp; Chart",
+    "description": "Find the cup equivalent for your powdered sugar weight. Use an unsifted conversion chart and learn when a recipe calls for sifting before or after measuring.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/powdered-sugar/",
+    "og": {
+      "title": "Powdered Sugar Grams to Cups Converter &amp; Chart",
+      "desc": "Find the cup equivalent for your powdered sugar weight. Use an unsifted conversion chart and learn when a recipe calls for sifting before or after measuring.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Powdered Sugar Grams to Cups Converter &amp; Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Powdered Sugar Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Powdered sugar grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Should I sift powdered sugar before measuring?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure unsifted powdered sugar"
+        },
+        {
+          "level": 2,
+          "text": "How to convert powdered sugar grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Is confectioners' sugar the same as powdered sugar?"
+        },
+        {
+          "level": 2,
+          "text": "Why might another chart give a different answer?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/oats/index.html",
+    "title": "Oats Grams to Cups Converter &amp; Rolled Oats Chart",
+    "description": "Convert dry rolled oats with a clear reference and handy chart. Check why brands give different cup weights and avoid confusing dry oats with cooked oatmeal.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/oats/",
+    "og": {
+      "title": "Oats Grams to Cups Converter &amp; Rolled Oats Chart",
+      "desc": "Convert dry rolled oats with a clear reference and handy chart. Check why brands give different cup weights and avoid confusing dry oats with cooked oatmeal.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Oats Grams to Cups Converter &amp; Rolled Oats Chart"
+    },
+    "headings": {
+      "total": 12,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Oats Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Oats grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Why do some oat references use a different cup weight?"
+        },
+        {
+          "level": 2,
+          "text": "Which oats does this converter cover?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure dry oats"
+        },
+        {
+          "level": 2,
+          "text": "How the conversion works"
+        },
+        {
+          "level": 2,
+          "text": "Can I use these numbers for cooked oatmeal?"
+        },
+        {
+          "level": 2,
+          "text": "What if I use a metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/rice/index.html",
+    "title": "Rice Grams to Cups Converter &amp; Uncooked Rice Chart",
+    "description": "Find the cup equivalent for your dry rice weight. Use a long-grain white rice chart and check the differences between cooked rice and rice-cooker cups.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/rice/",
+    "og": {
+      "title": "Rice Grams to Cups Converter &amp; Uncooked Rice Chart",
+      "desc": "Find the cup equivalent for your dry rice weight. Use a long-grain white rice chart and check the differences between cooked rice and rice-cooker cups.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Rice Grams to Cups Converter &amp; Uncooked Rice Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Rice Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Rice grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Are these measurements for cooked or uncooked rice?"
+        },
+        {
+          "level": 2,
+          "text": "Is a rice-cooker cup the same as a US cup?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure rice for this conversion"
+        },
+        {
+          "level": 2,
+          "text": "How to convert rice grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "What if I use a 250mL metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/honey/index.html",
+    "title": "Honey Grams to Cups Converter &amp; Conversion Chart",
+    "description": "Find the cup equivalent for your honey weight, with a handy chart, sticky-ingredient measuring tips and a clearly explained 339g-per-cup reference.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/honey/",
+    "og": {
+      "title": "Honey Grams to Cups Converter &amp; Conversion Chart",
+      "desc": "Find the cup equivalent for your honey weight, with a handy chart, sticky-ingredient measuring tips and a clearly explained 339g-per-cup reference.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Honey Grams to Cups Converter &amp; Conversion Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Honey Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Honey grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "How to measure honey without leaving it in the cup"
+        },
+        {
+          "level": 2,
+          "text": "How to convert honey grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Why use 339g per cup rather than multiply a tablespoon weight?"
+        },
+        {
+          "level": 2,
+          "text": "Does this work for every honey product?"
+        },
+        {
+          "level": 2,
+          "text": "What if my measuring cup is metric?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/oil/index.html",
+    "title": "Oil Grams to Cups Converter | Olive Oil Chart",
+    "description": "Convert olive oil weights into cups with a sourced 216g-per-cup reference. Check common amounts, measuring tips and why the oil type matters.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/oil/",
+    "og": {
+      "title": "Oil Grams to Cups Converter | Olive Oil Chart",
+      "desc": "Convert olive oil weights into cups with a sourced 216g-per-cup reference. Check common amounts, measuring tips and why the oil type matters.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Oil Grams to Cups Converter | Olive Oil Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Oil Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Oil grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Can I use this for vegetable oil or another cooking oil?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure olive oil"
+        },
+        {
+          "level": 2,
+          "text": "How to convert oil grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Are grams and milliliters interchangeable for oil?"
+        },
+        {
+          "level": 2,
+          "text": "What changes with a metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "grams-to-cups/milk/index.html",
+    "title": "Milk Grams to Cups Converter &amp; Whole Milk Chart",
+    "description": "Find the cup equivalent for your milk weight using a sourced whole-milk reference. Check common amounts, measuring tips and the difference between grams and mL.",
+    "canonical": "https://thegramstocups.com/grams-to-cups/milk/",
+    "og": {
+      "title": "Milk Grams to Cups Converter &amp; Whole Milk Chart",
+      "desc": "Find the cup equivalent for your milk weight using a sourced whole-milk reference. Check common amounts, measuring tips and the difference between grams and mL.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Milk Grams to Cups Converter &amp; Whole Milk Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Milk Grams to Cups Converter"
+        },
+        {
+          "level": 2,
+          "text": "Milk grams to cups"
+        },
+        {
+          "level": 2,
+          "text": "Are grams and milliliters the same for milk?"
+        },
+        {
+          "level": 2,
+          "text": "How to measure milk"
+        },
+        {
+          "level": 2,
+          "text": "How the milk conversion works"
+        },
+        {
+          "level": 2,
+          "text": "Can I use the result for other types of milk?"
+        },
+        {
+          "level": 2,
+          "text": "What changes with a metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "Explore More Ingredient Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": true,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "number",
+        "id": "fallback-input",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "fallback-select",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "50-grams-to-cups/index.html",
+    "title": "50 Grams to Cups: Ingredient Conversion Chart",
+    "description": "Check the cup equivalent of 50g for flour, sugar, butter and seven more ingredients, with practical measuring guidance and clearly stated references.",
+    "canonical": "https://thegramstocups.com/50-grams-to-cups/",
+    "og": {
+      "title": "50 Grams to Cups: Ingredient Conversion Chart",
+      "desc": "Check the cup equivalent of 50g for flour, sugar, butter and seven more ingredients, with practical measuring guidance and clearly stated references.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "50 Grams to Cups: Ingredient Conversion Chart"
+    },
+    "headings": {
+      "total": 10,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "50 Grams to Cups"
+        },
+        {
+          "level": 2,
+          "text": "50 grams to cups by ingredient"
+        },
+        {
+          "level": 2,
+          "text": "Is 50g a quarter cup or half a cup?"
+        },
+        {
+          "level": 2,
+          "text": "How can I measure 50g without a scale?"
+        },
+        {
+          "level": 2,
+          "text": "How the 50g conversion is calculated"
+        },
+        {
+          "level": 2,
+          "text": "What if my measuring cup is 250mL?"
+        },
+        {
+          "level": 2,
+          "text": "Explore Related Guides &amp; Tools"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "100-grams-to-cups/index.html",
+    "title": "100 Grams to Cups: Flour, Sugar &amp; Ingredient Chart",
+    "description": "Find how much 100g is in cups for flour, sugar, butter and more. Compare ten ingredients, check measuring notes and choose the right cup size.",
+    "canonical": "https://thegramstocups.com/100-grams-to-cups/",
+    "og": {
+      "title": "100 Grams to Cups: Flour, Sugar &amp; Ingredient Chart",
+      "desc": "Find how much 100g is in cups for flour, sugar, butter and more. Compare ten ingredients, check measuring notes and choose the right cup size.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "100 Grams to Cups: Flour, Sugar &amp; Ingredient Chart"
+    },
+    "headings": {
+      "total": 11,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "100 Grams to Cups"
+        },
+        {
+          "level": 2,
+          "text": "100 grams to cups by ingredient"
+        },
+        {
+          "level": 2,
+          "text": "Why doesn't 100g always equal the same number of cups?"
+        },
+        {
+          "level": 2,
+          "text": "How do I measure a decimal cup amount?"
+        },
+        {
+          "level": 2,
+          "text": "Check how the ingredient is measured"
+        },
+        {
+          "level": 2,
+          "text": "Does this chart work with a 250mL metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "References and related charts"
+        },
+        {
+          "level": 2,
+          "text": "Explore Related Guides &amp; Tools"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "grams-per-cup/index.html",
+    "title": "Grams per Cup: Ingredient Weight Chart &amp; Sources",
+    "description": "Check the weight of one cup of flour, sugar, butter, oats and more. Compare ingredient references, preparation methods and sources before converting a recipe.",
+    "canonical": "https://thegramstocups.com/grams-per-cup/",
+    "og": {
+      "title": "Grams per Cup: Ingredient Weight Chart &amp; Sources",
+      "desc": "Check the weight of one cup of flour, sugar, butter, oats and more. Compare ingredient references, preparation methods and sources before converting a recipe.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "article"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Grams per Cup: Ingredient Weight Chart &amp; Sources"
+    },
+    "headings": {
+      "total": 10,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Grams per Cup: Ingredient Weight Chart"
+        },
+        {
+          "level": 2,
+          "text": "Grams per cup by ingredient"
+        },
+        {
+          "level": 2,
+          "text": "Match the ingredient before using its weight"
+        },
+        {
+          "level": 2,
+          "text": "How to use grams per cup"
+        },
+        {
+          "level": 2,
+          "text": "Does cup size change these weights?"
+        },
+        {
+          "level": 2,
+          "text": "What if my recipe gives a different weight?"
+        },
+        {
+          "level": 2,
+          "text": "Questions about ingredient weights"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "cup-sizes/index.html",
+    "title": "Cup Sizes Explained: US, Metric &amp; Australian Measures",
+    "description": "Is your recipe using a 237mL, 240mL or 250mL cup? Compare cup sizes, choose the right calculator setting and check tablespoon differences.",
+    "canonical": "https://thegramstocups.com/cup-sizes/",
+    "og": {
+      "title": "Cup Sizes Explained: US, Metric &amp; Australian Measures",
+      "desc": "Is your recipe using a 237mL, 240mL or 250mL cup? Compare cup sizes, choose the right calculator setting and check tablespoon differences.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "article"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Cup Sizes Explained: US, Metric &amp; Australian Measures"
+    },
+    "headings": {
+      "total": 9,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Cup Sizes: US Customary, US Legal and Metric"
+        },
+        {
+          "level": 2,
+          "text": "How many milliliters are in a cup?"
+        },
+        {
+          "level": 2,
+          "text": "Which cup size should I use?"
+        },
+        {
+          "level": 2,
+          "text": "How much difference does cup size make?"
+        },
+        {
+          "level": 2,
+          "text": "Check the tablespoon size too"
+        },
+        {
+          "level": 2,
+          "text": "Common cup-size questions"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "conversion-chart/index.html",
+    "title": "Printable Grams to Cups Conversion Chart",
+    "description": "Keep a kitchen reference for flour, sugar, butter and more. Print cup equivalents for six common gram amounts across ten ingredients, with measuring notes.",
+    "canonical": "https://thegramstocups.com/conversion-chart/",
+    "og": {
+      "title": "Printable Grams to Cups Conversion Chart",
+      "desc": "Keep a kitchen reference for flour, sugar, butter and more. Print cup equivalents for six common gram amounts across ten ingredients, with measuring notes.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Printable Grams to Cups Conversion Chart"
+    },
+    "headings": {
+      "total": 10,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Printable Grams to Cups Conversion Chart"
+        },
+        {
+          "level": 2,
+          "text": "Grams to cups conversion chart"
+        },
+        {
+          "level": 3,
+          "text": "Measuring notes"
+        },
+        {
+          "level": 2,
+          "text": "How to use the chart"
+        },
+        {
+          "level": 2,
+          "text": "What if I use a metric cup?"
+        },
+        {
+          "level": 2,
+          "text": "Need a different view?"
+        },
+        {
+          "level": 2,
+          "text": "Explore Related Conversion Guides"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "methodology/index.html",
+    "title": "Conversion Methodology: Sources, Formulas &amp; Rounding",
+    "description": "See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue.",
+    "canonical": "https://thegramstocups.com/methodology/",
+    "og": {
+      "title": "Conversion Methodology: Sources, Formulas &amp; Rounding",
+      "desc": "See where our ingredient weights come from, how cup sizes affect conversions, and why rounded results are estimates. Learn how to report a conversion issue.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "article"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Conversion Methodology: Sources, Formulas &amp; Rounding"
+    },
+    "headings": {
+      "total": 12,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "How Our Grams-to-Cups Conversions Work"
+        },
+        {
+          "level": 2,
+          "text": "Where the ingredient weights come from"
+        },
+        {
+          "level": 2,
+          "text": "Published values and calculated estimates"
+        },
+        {
+          "level": 2,
+          "text": "The formulas we use"
+        },
+        {
+          "level": 2,
+          "text": "How we handle different cup sizes"
+        },
+        {
+          "level": 2,
+          "text": "How results are rounded"
+        },
+        {
+          "level": 3,
+          "text": "Cups and spoon approximations"
+        },
+        {
+          "level": 2,
+          "text": "Why your measured amount may differ"
+        },
+        {
+          "level": 2,
+          "text": "Report a conversion issue"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "how-to-measure-flour/index.html",
+    "title": "How to Measure Flour: With a Scale or Measuring Cups",
+    "description": "Get your flour measurement right with simple weighing and spoon-and-level steps. Learn why packing, cup size and sifting can change the amount you use.",
+    "canonical": "https://thegramstocups.com/how-to-measure-flour/",
+    "og": {
+      "title": "How to Measure Flour: With a Scale or Measuring Cups",
+      "desc": "Get your flour measurement right with simple weighing and spoon-and-level steps. Learn why packing, cup size and sifting can change the amount you use.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "How to Measure Flour: With a Scale or Measuring Cups"
+    },
+    "headings": {
+      "total": 12,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "How to Measure Flour"
+        },
+        {
+          "level": 2,
+          "text": "How to measure flour"
+        },
+        {
+          "level": 3,
+          "text": "With a kitchen scale"
+        },
+        {
+          "level": 3,
+          "text": "Without a scale: spoon and level"
+        },
+        {
+          "level": 2,
+          "text": "Why scooping straight from the bag can change the amount"
+        },
+        {
+          "level": 2,
+          "text": "How many grams should one cup of flour weigh?"
+        },
+        {
+          "level": 2,
+          "text": "Do I need to sift flour?"
+        },
+        {
+          "level": 2,
+          "text": "Before you add the flour"
+        },
+        {
+          "level": 2,
+          "text": "Related Guides &amp; Converters"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "about/index.html",
+    "title": "About The Grams to Cups | Purpose, Sources &amp; Publisher",
+    "description": "Meet Noah Johnson, creator of The Grams to Cups, and learn how our transparent ingredient references, cup standards, and testing help kitchen measurements.",
+    "canonical": "https://thegramstocups.com/about/",
+    "og": {
+      "title": "About The Grams to Cups | Purpose, Sources &amp; Publisher",
+      "desc": "Meet Noah Johnson, creator of The Grams to Cups, and learn how our transparent ingredient references, cup standards, and testing help kitchen measurements.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "About The Grams to Cups | Purpose, Sources &amp; Publisher"
+    },
+    "headings": {
+      "total": 12,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "About The Grams to Cups"
+        },
+        {
+          "level": 2,
+          "text": "Who’s behind The Grams to Cups?"
+        },
+        {
+          "level": 3,
+          "text": "My Motivation"
+        },
+        {
+          "level": 3,
+          "text": "Relevant Experience"
+        },
+        {
+          "level": 3,
+          "text": "Ongoing Responsibility"
+        },
+        {
+          "level": 2,
+          "text": "Why this site exists"
+        },
+        {
+          "level": 2,
+          "text": "Where the conversion figures come from"
+        },
+        {
+          "level": 2,
+          "text": "What to keep in mind"
+        },
+        {
+          "level": 2,
+          "text": "Questions or corrections?"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "contact/index.html",
+    "title": "Contact The Grams to Cups | Questions &amp; Corrections",
+    "description": "Have a conversion question, spotted an error or need another ingredient? Send a message through our contact form or email The Grams to Cups directly.",
+    "canonical": "https://thegramstocups.com/contact/",
+    "og": {
+      "title": "Contact The Grams to Cups | Questions &amp; Corrections",
+      "desc": "Have a conversion question, spotted an error or need another ingredient? Send a message through our contact form or email The Grams to Cups directly.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Contact The Grams to Cups | Questions &amp; Corrections"
+    },
+    "headings": {
+      "total": 8,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Contact The Grams to Cups"
+        },
+        {
+          "level": 2,
+          "text": "Send a message"
+        },
+        {
+          "level": 2,
+          "text": "Reporting a conversion or website issue?"
+        },
+        {
+          "level": 2,
+          "text": "Suggest an ingredient or improvement"
+        },
+        {
+          "level": 2,
+          "text": "Looking for a quick explanation?"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": true,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "id": "contact-name",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "input",
+        "type": "email",
+        "id": "contact-email",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "select",
+        "type": "select",
+        "id": "contact-topic",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "input",
+        "type": "url",
+        "id": "contact-page-url",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": "https://thegramstocups.com/..."
+      },
+      {
+        "tag": "textarea",
+        "type": "textarea",
+        "id": "contact-message",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "id": "contact-hp",
+        "hasExplicitLabel": true,
+        "ariaLabel": null,
+        "ariaLabelledBy": null,
+        "placeholder": null
+      }
+    ]
+  },
+  {
+    "file": "privacy/index.html",
+    "title": "Privacy Policy | The Grams to Cups",
+    "description": "Learn how The Grams to Cups handles calculator inputs, contact messages, analytics cookies and service providers, and how to contact us about your information.",
+    "canonical": "https://thegramstocups.com/privacy/",
+    "og": {
+      "title": "Privacy Policy | The Grams to Cups",
+      "desc": "Learn how The Grams to Cups handles calculator inputs, contact messages, analytics cookies and service providers, and how to contact us about your information.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Privacy Policy | The Grams to Cups"
+    },
+    "headings": {
+      "total": 15,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Privacy Policy"
+        },
+        {
+          "level": 2,
+          "text": "Calculator inputs"
+        },
+        {
+          "level": 2,
+          "text": "Contact messages"
+        },
+        {
+          "level": 2,
+          "text": "Hosting and external fonts"
+        },
+        {
+          "level": 2,
+          "text": "Google Analytics"
+        },
+        {
+          "level": 3,
+          "text": "Analytics cookies"
+        },
+        {
+          "level": 3,
+          "text": "Your tracking choices"
+        },
+        {
+          "level": 2,
+          "text": "Search Console and advertising"
+        },
+        {
+          "level": 2,
+          "text": "How long information is kept"
+        },
+        {
+          "level": 2,
+          "text": "Service providers and processing locations"
+        },
+        {
+          "level": 2,
+          "text": "Privacy requests"
+        },
+        {
+          "level": 2,
+          "text": "Changes to this policy"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  },
+  {
+    "file": "terms/index.html",
+    "title": "Terms of Use | The Grams to Cups",
+    "description": "Read the terms for using The Grams to Cups calculators, charts and guides, including measurement limitations, permitted use and how to report an issue.",
+    "canonical": "https://thegramstocups.com/terms/",
+    "og": {
+      "title": "Terms of Use | The Grams to Cups",
+      "desc": "Read the terms for using The Grams to Cups calculators, charts and guides, including measurement limitations, permitted use and how to report an issue.",
+      "image": "https://thegramstocups.com/og-image.png",
+      "type": "website"
+    },
+    "tw": {
+      "card": "summary_large_image",
+      "title": "Terms of Use | The Grams to Cups"
+    },
+    "headings": {
+      "total": 13,
+      "h1Count": 1,
+      "skips": [],
+      "list": [
+        {
+          "level": 1,
+          "text": "Terms of Use"
+        },
+        {
+          "level": 2,
+          "text": "What the website provides"
+        },
+        {
+          "level": 2,
+          "text": "Understanding conversion results"
+        },
+        {
+          "level": 2,
+          "text": "Using the website responsibly"
+        },
+        {
+          "level": 2,
+          "text": "Website content and third-party materials"
+        },
+        {
+          "level": 2,
+          "text": "Questions, feedback and corrections"
+        },
+        {
+          "level": 2,
+          "text": "External links"
+        },
+        {
+          "level": 2,
+          "text": "Availability, updates and limitations"
+        },
+        {
+          "level": 2,
+          "text": "Changes to these terms"
+        },
+        {
+          "level": 2,
+          "text": "Contact"
+        },
+        {
+          "level": 3,
+          "text": "Popular Ingredients"
+        },
+        {
+          "level": 3,
+          "text": "Reference Tools"
+        },
+        {
+          "level": 3,
+          "text": "Trust &amp; Company"
+        }
+      ]
+    },
+    "semantic": {
+      "hasMain": true,
+      "hasCalculator": false,
+      "hasForm": false,
+      "hasFieldset": false,
+      "hasLegend": false
+    },
+    "images": [
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      },
+      {
+        "src": "/logo.svg",
+        "hasAlt": true,
+        "altVal": "Grams to Cups",
+        "hasWidth": true,
+        "hasHeight": true
+      }
+    ],
+    "inputs": []
+  }
+]

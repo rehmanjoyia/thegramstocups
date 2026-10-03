@@ -240,9 +240,10 @@ export class CalculatorComponent {
     ` : '';
 
     const html = `
-      <div class="calculator-card" id="calc-card-inner">
-        <div class="controls-bar">
-          <div class="toggle-group">
+      <form class="calculator-card" id="calc-card-inner" onsubmit="return false;" novalidate>
+        <fieldset class="controls-bar" style="border:none; padding:0; margin:0;">
+          <legend class="sr-only">Calculator options</legend>
+          <div class="toggle-group" role="group" aria-label="Conversion direction">
             <button type="button" class="toggle-btn ${isGramsToCups ? 'active' : ''}" id="btn-dir-gtc" aria-pressed="${isGramsToCups}">Grams &rarr; Cups</button>
             <button type="button" class="toggle-btn ${!isGramsToCups ? 'active' : ''}" id="btn-dir-ctg" aria-pressed="${!isGramsToCups}">Cups &rarr; Grams</button>
           </div>
@@ -257,7 +258,7 @@ export class CalculatorComponent {
               `).join('')}
             </select>
           </div>
-        </div>
+        </fieldset>
 
         <div class="calculator-grid-inputs">
           <div class="form-group">
@@ -291,7 +292,7 @@ export class CalculatorComponent {
         <div class="results-box" id="results-box" aria-live="polite" aria-atomic="true">
           ${this.generateResultsHTML()}
         </div>
-      </div>
+      </form>
     `;
 
     this.container.innerHTML = html;
