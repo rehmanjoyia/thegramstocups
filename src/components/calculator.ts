@@ -68,8 +68,7 @@ export class CalculatorComponent {
       ...initialState
     };
 
-    this.render();
-    this.attachEventListeners();
+    this.render(); // render() calls attachEventListeners() internally
   }
 
   public setState(newState: Partial<CalculatorState>) {
@@ -304,6 +303,11 @@ export class CalculatorComponent {
 
     this.container.innerHTML = html;
 
+    // Always re-attach listeners after every innerHTML replacement.
+    // render() is the single authoritative call site — no caller needs to
+    // remember to call attachEventListeners() separately.
+    this.attachEventListeners();
+
     if (focusTargetId) {
       const elToFocus = this.container.querySelector(`#${focusTargetId}`) as HTMLElement | null;
       if (elToFocus) {
@@ -363,8 +367,7 @@ export class CalculatorComponent {
           this.state.value = 100;
           this.state.displayValue = '100';
           this.state.selectedFraction = null;
-          this.render('btn-dir-gtc');
-          // render() calls attachEventListeners() internally — no second call needed.
+          this.render('btn-dir-gtc'); // render() calls attachEventListeners() internally
         }
       });
     }
@@ -377,8 +380,7 @@ export class CalculatorComponent {
           this.state.value = 1;
           this.state.displayValue = '1';
           this.state.selectedFraction = '1';
-          this.render('btn-dir-ctg');
-          // render() calls attachEventListeners() internally — no second call needed.
+          this.render('btn-dir-ctg'); // render() calls attachEventListeners() internally
         }
       });
     }
